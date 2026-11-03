@@ -1,0 +1,376 @@
+{
+  "fournisseur": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 8,
+        "texte": "صفاء للتوريدات",
+        "bbox": [
+          1283.0,
+          330.0,
+          1489.0,
+          368.0
+        ],
+        "confiance": 0.984377920627594
+      }
+    ]
+  },
+  "ice_fournisseur": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 15,
+        "texte": "920458498796392 :ICE",
+        "bbox": [
+          1185.0,
+          506.0,
+          1488.0,
+          537.0
+        ],
+        "confiance": 0.9917912483215332
+      }
+    ]
+  },
+  "client": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 7,
+        "texte": "رحاب للخدمات",
+        "bbox": [
+          560.0,
+          326.0,
+          755.0,
+          369.0
+        ],
+        "confiance": 0.8330707550048828
+      }
+    ]
+  },
+  "ice_client": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 11,
+        "texte": "996558731526028 :ICE",
+        "bbox": [
+          449.0,
+          421.0,
+          752.0,
+          452.0
+        ],
+        "confiance": 0.9845983386039734
+      }
+    ]
+  },
+  "numero_facture": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 3,
+        "texte": "DEMO-2026-00027",
+        "bbox": [
+          72.0,
+          145.0,
+          312.0,
+          179.0
+        ],
+        "confiance": 0.979855477809906
+      }
+    ]
+  },
+  "date": {
+    "statut": "a_verifier",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 22,
+        "texte": "2026-08-10",
+        "bbox": [
+          912.0,
+          659.0,
+          1068.0,
+          693.0
+        ],
+        "confiance": 0.999564528465271
+      }
+    ]
+  },
+  "devise": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 20,
+        "texte": "MAD",
+        "bbox": [
+          90.0,
+          653.0,
+          164.0,
+          695.0
+        ],
+        "confiance": 0.9913479685783386
+      }
+    ]
+  },
+  "total_ht": {
+    "statut": "a_verifier",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 50,
+        "texte": "شامل الضريبة",
+        "bbox": [
+          377.0,
+          1172.0,
+          578.0,
+          1220.0
+        ],
+        "confiance": 0.9994369149208069
+      }
+    ]
+  },
+  "montant_tva": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 45,
+        "texte": "1 359,23",
+        "bbox": [
+          83.0,
+          1097.0,
+          211.0,
+          1136.0
+        ],
+        "confiance": 0.9945821762084961
+      }
+    ]
+  },
+  "total_ttc": {
+    "statut": "a_verifier",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 50,
+        "texte": "شامل الضريبة",
+        "bbox": [
+          377.0,
+          1172.0,
+          578.0,
+          1220.0
+        ],
+        "confiance": 0.9994369149208069
+      }
+    ]
+  },
+  "lignes.0.designation": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 32,
+        "texte": "INF-01 لوحة مفاتيح",
+        "bbox": [
+          1216.0,
+          817.0,
+          1434.0,
+          858.0
+        ],
+        "confiance": 0.939401388168335
+      }
+    ]
+  },
+  "lignes.0.quantite": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 31,
+        "texte": "5",
+        "bbox": [
+          627.0,
+          821.0,
+          652.0,
+          852.0
+        ],
+        "confiance": 0.9994738698005676
+      }
+    ]
+  },
+  "lignes.0.prix_unitaire_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 30,
+        "texte": "259,04",
+        "bbox": [
+          412.0,
+          817.0,
+          504.0,
+          854.0
+        ],
+        "confiance": 0.9980246424674988
+      }
+    ]
+  },
+  "lignes.0.montant_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 29,
+        "texte": "1 295,20",
+        "bbox": [
+          83.0,
+          817.0,
+          197.0,
+          853.0
+        ],
+        "confiance": 0.9900147914886475
+      }
+    ]
+  },
+  "lignes.1.designation": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 36,
+        "texte": "ENT-01 منظف 5 لترات",
+        "bbox": [
+          1188.0,
+          881.0,
+          1441.0,
+          921.0
+        ],
+        "confiance": 0.976101815700531
+      }
+    ]
+  },
+  "lignes.1.quantite": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 35,
+        "texte": "18",
+        "bbox": [
+          625.0,
+          879.0,
+          671.0,
+          920.0
+        ],
+        "confiance": 0.999310314655304
+      }
+    ]
+  },
+  "lignes.1.prix_unitaire_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 34,
+        "texte": "72,11",
+        "bbox": [
+          411.0,
+          878.0,
+          492.0,
+          920.0
+        ],
+        "confiance": 0.9987829327583313
+      }
+    ]
+  },
+  "lignes.1.montant_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 33,
+        "texte": "1 297,98",
+        "bbox": [
+          81.0,
+          879.0,
+          198.0,
+          918.0
+        ],
+        "confiance": 0.979353666305542
+      }
+    ]
+  },
+  "lignes.2.designation": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 40,
+        "texte": "SER-02 تركيب المعدات",
+        "bbox": [
+          1188.0,
+          944.0,
+          1444.0,
+          988.0
+        ],
+        "confiance": 0.9634903073310852
+      }
+    ]
+  },
+  "lignes.2.quantite": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 39,
+        "texte": "18",
+        "bbox": [
+          624.0,
+          944.0,
+          671.0,
+          984.0
+        ],
+        "confiance": 0.9991930723190308
+      }
+    ]
+  },
+  "lignes.2.prix_unitaire_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 38,
+        "texte": "611,06",
+        "bbox": [
+          411.0,
+          944.0,
+          505.0,
+          984.0
+        ],
+        "confiance": 0.9991834163665771
+      }
+    ]
+  },
+  "lignes.2.montant_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 37,
+        "texte": "10 999,08",
+        "bbox": [
+          84.0,
+          946.0,
+          211.0,
+          981.0
+        ],
+        "confiance": 0.995681881904602
+      }
+    ]
+  }
+}

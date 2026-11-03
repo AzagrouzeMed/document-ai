@@ -1,0 +1,2456 @@
+{
+  "fournisseur": {
+    "sources": [
+      {
+        "page": 1,
+        "blocs": [
+          {
+            "id": 2,
+            "texte": "FK Alu Group",
+            "bbox": [
+              68,
+              88,
+              290,
+              131
+            ]
+          },
+          {
+            "id": 3,
+            "texte": "SARL",
+            "bbox": [
+              293,
+              89,
+              392,
+              131
+            ]
+          }
+        ]
+      },
+      {
+        "page": 2,
+        "blocs": [
+          {
+            "id": 2,
+            "texte": "FK Alu Group",
+            "bbox": [
+              68,
+              88,
+              290,
+              131
+            ]
+          },
+          {
+            "id": 3,
+            "texte": "SARL",
+            "bbox": [
+              293,
+              89,
+              392,
+              131
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "ice_fournisseur": {
+    "sources": [
+      {
+        "page": 1,
+        "blocs": [
+          {
+            "id": 5,
+            "texte": "ICE : 004012708000064",
+            "bbox": [
+              644,
+              118,
+              776,
+              132
+            ]
+          }
+        ]
+      },
+      {
+        "page": 2,
+        "blocs": [
+          {
+            "id": 5,
+            "texte": "ICE : 004012708000064",
+            "bbox": [
+              644,
+              118,
+              776,
+              132
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "client": {
+    "sources": [
+      {
+        "page": 1,
+        "blocs": [
+          {
+            "id": 11,
+            "texte": "Client : Villa 6, Villa 7, Triangle",
+            "bbox": [
+              314,
+              247,
+              566,
+              270
+            ]
+          }
+        ]
+      },
+      {
+        "page": 2,
+        "blocs": [
+          {
+            "id": 10,
+            "texte": "Client : Villa 6, Villa 7, Triangle",
+            "bbox": [
+              315,
+              247,
+              566,
+              270
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "numero_devis": {
+    "sources": [
+      {
+        "page": 1,
+        "blocs": [
+          {
+            "id": 10,
+            "texte": "Devis : 2026 N° 07",
+            "bbox": [
+              71,
+              248,
+              221,
+              268
+            ]
+          }
+        ]
+      },
+      {
+        "page": 2,
+        "blocs": [
+          {
+            "id": 9,
+            "texte": "Devis : 2026 N° 07",
+            "bbox": [
+              71,
+              248,
+              221,
+              268
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "date": {
+    "sources": [
+      {
+        "page": 1,
+        "blocs": [
+          {
+            "id": 12,
+            "texte": "Date : 24/10/2026",
+            "bbox": [
+              905,
+              247,
+              1052,
+              268
+            ]
+          }
+        ]
+      },
+      {
+        "page": 2,
+        "blocs": [
+          {
+            "id": 11,
+            "texte": "Date : 24/10/2026",
+            "bbox": [
+              905,
+              247,
+              1052,
+              268
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "section": {
+    "sources": [
+      {
+        "page": 1,
+        "blocs": [
+          {
+            "id": 17,
+            "texte": "Fourniture et pose de faux cadres",
+            "bbox": [
+              61,
+              345,
+              337,
+              370
+            ]
+          }
+        ]
+      },
+      {
+        "page": 2,
+        "blocs": [
+          {
+            "id": 16,
+            "texte": "Fourniture et pose de faux cadres",
+            "bbox": [
+              61,
+              345,
+              337,
+              370
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "lignes.0.hauteur_cm": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 19,
+        "texte": "298",
+        "bbox": [
+          668,
+          397,
+          707,
+          420
+        ]
+      }
+    ]
+  },
+  "lignes.0.largeur_cm": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 20,
+        "texte": "151",
+        "bbox": [
+          865,
+          397,
+          902,
+          420
+        ]
+      }
+    ]
+  },
+  "lignes.0.quantite": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 21,
+        "texte": "1",
+        "bbox": [
+          1051,
+          401,
+          1064,
+          416
+        ]
+      }
+    ]
+  },
+  "lignes.0.designation": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 18,
+        "texte": "Faux cadre",
+        "bbox": [
+          60,
+          397,
+          148,
+          421
+        ]
+      }
+    ]
+  },
+  "lignes.1.hauteur_cm": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 23,
+        "texte": "300",
+        "bbox": [
+          668,
+          448,
+          707,
+          472
+        ]
+      }
+    ]
+  },
+  "lignes.1.largeur_cm": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 24,
+        "texte": "359",
+        "bbox": [
+          865,
+          448,
+          903,
+          471
+        ]
+      }
+    ]
+  },
+  "lignes.1.quantite": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 25,
+        "texte": "1",
+        "bbox": [
+          1051,
+          452,
+          1065,
+          469
+        ]
+      }
+    ]
+  },
+  "lignes.1.designation": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 22,
+        "texte": "Faux cadre",
+        "bbox": [
+          59,
+          448,
+          149,
+          472
+        ]
+      }
+    ]
+  },
+  "lignes.2.hauteur_cm": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 27,
+        "texte": "200",
+        "bbox": [
+          668,
+          498,
+          707,
+          522
+        ]
+      }
+    ]
+  },
+  "lignes.2.largeur_cm": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 28,
+        "texte": "160",
+        "bbox": [
+          864,
+          497,
+          904,
+          523
+        ]
+      }
+    ]
+  },
+  "lignes.2.quantite": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 29,
+        "texte": "1",
+        "bbox": [
+          1051,
+          503,
+          1064,
+          518
+        ]
+      }
+    ]
+  },
+  "lignes.2.designation": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 26,
+        "texte": "Faux cadre",
+        "bbox": [
+          60,
+          498,
+          149,
+          522
+        ]
+      }
+    ]
+  },
+  "lignes.3.hauteur_cm": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 31,
+        "texte": "300",
+        "bbox": [
+          669,
+          550,
+          707,
+          573
+        ]
+      }
+    ]
+  },
+  "lignes.3.largeur_cm": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 32,
+        "texte": "526",
+        "bbox": [
+          865,
+          550,
+          904,
+          573
+        ]
+      }
+    ]
+  },
+  "lignes.3.quantite": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 33,
+        "texte": "1",
+        "bbox": [
+          1051,
+          554,
+          1064,
+          570
+        ]
+      }
+    ]
+  },
+  "lignes.3.designation": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 30,
+        "texte": "Faux cadre",
+        "bbox": [
+          58,
+          549,
+          148,
+          573
+        ]
+      }
+    ]
+  },
+  "lignes.4.hauteur_cm": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 35,
+        "texte": "302",
+        "bbox": [
+          668,
+          601,
+          708,
+          625
+        ]
+      }
+    ]
+  },
+  "lignes.4.largeur_cm": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 36,
+        "texte": "413",
+        "bbox": [
+          865,
+          601,
+          904,
+          624
+        ]
+      }
+    ]
+  },
+  "lignes.4.quantite": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 37,
+        "texte": "1",
+        "bbox": [
+          1051,
+          605,
+          1064,
+          622
+        ]
+      }
+    ]
+  },
+  "lignes.4.designation": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 34,
+        "texte": "Faux cadre",
+        "bbox": [
+          60,
+          601,
+          149,
+          625
+        ]
+      }
+    ]
+  },
+  "lignes.5.hauteur_cm": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 39,
+        "texte": "302",
+        "bbox": [
+          669,
+          652,
+          706,
+          675
+        ]
+      }
+    ]
+  },
+  "lignes.5.largeur_cm": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 40,
+        "texte": "336",
+        "bbox": [
+          865,
+          652,
+          903,
+          675
+        ]
+      }
+    ]
+  },
+  "lignes.5.quantite": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 41,
+        "texte": "1",
+        "bbox": [
+          1052,
+          656,
+          1064,
+          671
+        ]
+      }
+    ]
+  },
+  "lignes.5.designation": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 38,
+        "texte": "Faux cadre",
+        "bbox": [
+          58,
+          652,
+          148,
+          676
+        ]
+      }
+    ]
+  },
+  "lignes.6.hauteur_cm": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 43,
+        "texte": "298",
+        "bbox": [
+          668,
+          703,
+          708,
+          726
+        ]
+      }
+    ]
+  },
+  "lignes.6.largeur_cm": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 44,
+        "texte": "72",
+        "bbox": [
+          869,
+          703,
+          898,
+          728
+        ]
+      }
+    ]
+  },
+  "lignes.6.quantite": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 45,
+        "texte": "1",
+        "bbox": [
+          1051,
+          707,
+          1064,
+          724
+        ]
+      }
+    ]
+  },
+  "lignes.6.designation": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 42,
+        "texte": "Faux cadre",
+        "bbox": [
+          60,
+          703,
+          148,
+          726
+        ]
+      }
+    ]
+  },
+  "lignes.7.hauteur_cm": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 47,
+        "texte": "198",
+        "bbox": [
+          669,
+          754,
+          707,
+          777
+        ]
+      }
+    ]
+  },
+  "lignes.7.largeur_cm": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 48,
+        "texte": "105",
+        "bbox": [
+          865,
+          755,
+          902,
+          777
+        ]
+      }
+    ]
+  },
+  "lignes.7.quantite": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 49,
+        "texte": "1",
+        "bbox": [
+          1051,
+          758,
+          1065,
+          774
+        ]
+      }
+    ]
+  },
+  "lignes.7.designation": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 46,
+        "texte": "Faux cadre",
+        "bbox": [
+          59,
+          755,
+          149,
+          778
+        ]
+      }
+    ]
+  },
+  "lignes.8.hauteur_cm": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 51,
+        "texte": "298",
+        "bbox": [
+          666,
+          803,
+          709,
+          830
+        ]
+      }
+    ]
+  },
+  "lignes.8.largeur_cm": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 52,
+        "texte": "223",
+        "bbox": [
+          866,
+          806,
+          902,
+          826
+        ]
+      }
+    ]
+  },
+  "lignes.8.quantite": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 53,
+        "texte": "1",
+        "bbox": [
+          1051,
+          809,
+          1064,
+          824
+        ]
+      }
+    ]
+  },
+  "lignes.8.designation": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 50,
+        "texte": "Faux cadre",
+        "bbox": [
+          60,
+          804,
+          149,
+          828
+        ]
+      }
+    ]
+  },
+  "lignes.9.hauteur_cm": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 55,
+        "texte": "300",
+        "bbox": [
+          668,
+          855,
+          708,
+          879
+        ]
+      }
+    ]
+  },
+  "lignes.9.largeur_cm": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 56,
+        "texte": "292",
+        "bbox": [
+          865,
+          855,
+          903,
+          879
+        ]
+      }
+    ]
+  },
+  "lignes.9.quantite": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 57,
+        "texte": "1",
+        "bbox": [
+          1052,
+          861,
+          1064,
+          876
+        ]
+      }
+    ]
+  },
+  "lignes.9.designation": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 54,
+        "texte": "Faux cadre",
+        "bbox": [
+          58,
+          856,
+          150,
+          880
+        ]
+      }
+    ]
+  },
+  "lignes.10.hauteur_cm": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 59,
+        "texte": "303",
+        "bbox": [
+          668,
+          907,
+          707,
+          930
+        ]
+      }
+    ]
+  },
+  "lignes.10.largeur_cm": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 60,
+        "texte": "103",
+        "bbox": [
+          864,
+          907,
+          903,
+          930
+        ]
+      }
+    ]
+  },
+  "lignes.10.quantite": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 61,
+        "texte": "1",
+        "bbox": [
+          1051,
+          911,
+          1064,
+          927
+        ]
+      }
+    ]
+  },
+  "lignes.10.designation": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 58,
+        "texte": "Faux cadre",
+        "bbox": [
+          61,
+          909,
+          148,
+          929
+        ]
+      }
+    ]
+  },
+  "lignes.11.hauteur_cm": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 63,
+        "texte": "303",
+        "bbox": [
+          668,
+          958,
+          708,
+          982
+        ]
+      }
+    ]
+  },
+  "lignes.11.largeur_cm": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 64,
+        "texte": "351",
+        "bbox": [
+          863,
+          955,
+          904,
+          982
+        ]
+      }
+    ]
+  },
+  "lignes.11.quantite": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 65,
+        "texte": "1",
+        "bbox": [
+          1051,
+          962,
+          1065,
+          979
+        ]
+      }
+    ]
+  },
+  "lignes.11.designation": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 62,
+        "texte": "Faux cadre",
+        "bbox": [
+          59,
+          958,
+          148,
+          982
+        ]
+      }
+    ]
+  },
+  "lignes.12.hauteur_cm": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 67,
+        "texte": "301",
+        "bbox": [
+          668,
+          1009,
+          707,
+          1033
+        ]
+      }
+    ]
+  },
+  "lignes.12.largeur_cm": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 68,
+        "texte": "427",
+        "bbox": [
+          865,
+          1010,
+          902,
+          1033
+        ]
+      }
+    ]
+  },
+  "lignes.12.quantite": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 69,
+        "texte": "1",
+        "bbox": [
+          1051,
+          1014,
+          1064,
+          1031
+        ]
+      }
+    ]
+  },
+  "lignes.12.designation": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 66,
+        "texte": "Faux cadre",
+        "bbox": [
+          60,
+          1009,
+          149,
+          1033
+        ]
+      }
+    ]
+  },
+  "lignes.13.hauteur_cm": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 71,
+        "texte": "301",
+        "bbox": [
+          669,
+          1060,
+          706,
+          1083
+        ]
+      }
+    ]
+  },
+  "lignes.13.largeur_cm": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 72,
+        "texte": "403",
+        "bbox": [
+          865,
+          1060,
+          903,
+          1083
+        ]
+      }
+    ]
+  },
+  "lignes.13.quantite": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 73,
+        "texte": "1",
+        "bbox": [
+          1051,
+          1064,
+          1064,
+          1079
+        ]
+      }
+    ]
+  },
+  "lignes.13.designation": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 70,
+        "texte": "Faux cadre",
+        "bbox": [
+          59,
+          1059,
+          149,
+          1083
+        ]
+      }
+    ]
+  },
+  "lignes.14.hauteur_cm": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 75,
+        "texte": "301",
+        "bbox": [
+          668,
+          1111,
+          706,
+          1134
+        ]
+      }
+    ]
+  },
+  "lignes.14.largeur_cm": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 76,
+        "texte": "436",
+        "bbox": [
+          865,
+          1111,
+          904,
+          1134
+        ]
+      }
+    ]
+  },
+  "lignes.14.quantite": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 77,
+        "texte": "1",
+        "bbox": [
+          1051,
+          1115,
+          1064,
+          1130
+        ]
+      }
+    ]
+  },
+  "lignes.14.designation": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 74,
+        "texte": "Faux cadre",
+        "bbox": [
+          59,
+          1111,
+          149,
+          1135
+        ]
+      }
+    ]
+  },
+  "lignes.15.hauteur_cm": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 79,
+        "texte": "301",
+        "bbox": [
+          670,
+          1164,
+          705,
+          1184
+        ]
+      }
+    ]
+  },
+  "lignes.15.largeur_cm": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 80,
+        "texte": "210",
+        "bbox": [
+          865,
+          1162,
+          903,
+          1185
+        ]
+      }
+    ]
+  },
+  "lignes.15.quantite": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 81,
+        "texte": "1",
+        "bbox": [
+          1052,
+          1168,
+          1064,
+          1182
+        ]
+      }
+    ]
+  },
+  "lignes.15.designation": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 78,
+        "texte": "Faux cadre",
+        "bbox": [
+          60,
+          1164,
+          148,
+          1185
+        ]
+      }
+    ]
+  },
+  "lignes.16.hauteur_cm": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 83,
+        "texte": "186",
+        "bbox": [
+          669,
+          1212,
+          708,
+          1236
+        ]
+      }
+    ]
+  },
+  "lignes.16.largeur_cm": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 84,
+        "texte": "162",
+        "bbox": [
+          865,
+          1212,
+          903,
+          1236
+        ]
+      }
+    ]
+  },
+  "lignes.16.quantite": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 85,
+        "texte": "1",
+        "bbox": [
+          1051,
+          1217,
+          1064,
+          1233
+        ]
+      }
+    ]
+  },
+  "lignes.16.designation": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 82,
+        "texte": "Faux cadre",
+        "bbox": [
+          59,
+          1212,
+          149,
+          1236
+        ]
+      }
+    ]
+  },
+  "lignes.17.hauteur_cm": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 87,
+        "texte": "302",
+        "bbox": [
+          668,
+          1264,
+          707,
+          1288
+        ]
+      }
+    ]
+  },
+  "lignes.17.largeur_cm": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 88,
+        "texte": "69",
+        "bbox": [
+          870,
+          1265,
+          897,
+          1287
+        ]
+      }
+    ]
+  },
+  "lignes.17.quantite": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 89,
+        "texte": "1",
+        "bbox": [
+          1051,
+          1268,
+          1064,
+          1285
+        ]
+      }
+    ]
+  },
+  "lignes.17.designation": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 86,
+        "texte": "Faux cadre",
+        "bbox": [
+          58,
+          1263,
+          149,
+          1289
+        ]
+      }
+    ]
+  },
+  "lignes.18.hauteur_cm": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 91,
+        "texte": "307",
+        "bbox": [
+          668,
+          1315,
+          707,
+          1338
+        ]
+      }
+    ]
+  },
+  "lignes.18.largeur_cm": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 92,
+        "texte": "161",
+        "bbox": [
+          864,
+          1315,
+          903,
+          1338
+        ]
+      }
+    ]
+  },
+  "lignes.18.quantite": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 93,
+        "texte": "1",
+        "bbox": [
+          1051,
+          1320,
+          1064,
+          1335
+        ]
+      }
+    ]
+  },
+  "lignes.18.designation": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 90,
+        "texte": "Faux cadre",
+        "bbox": [
+          60,
+          1315,
+          149,
+          1338
+        ]
+      }
+    ]
+  },
+  "lignes.19.hauteur_cm": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 95,
+        "texte": "293",
+        "bbox": [
+          666,
+          1364,
+          707,
+          1390
+        ]
+      }
+    ]
+  },
+  "lignes.19.largeur_cm": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 96,
+        "texte": "163",
+        "bbox": [
+          865,
+          1366,
+          903,
+          1389
+        ]
+      }
+    ]
+  },
+  "lignes.19.quantite": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 97,
+        "texte": "1",
+        "bbox": [
+          1052,
+          1370,
+          1064,
+          1384
+        ]
+      }
+    ]
+  },
+  "lignes.19.designation": {
+    "page": 1,
+    "blocs": [
+      {
+        "id": 94,
+        "texte": "Faux cadre",
+        "bbox": [
+          58,
+          1366,
+          148,
+          1389
+        ]
+      }
+    ]
+  },
+  "lignes.20.hauteur_cm": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 18,
+        "texte": "308",
+        "bbox": [
+          668,
+          397,
+          707,
+          420
+        ]
+      }
+    ]
+  },
+  "lignes.20.largeur_cm": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 19,
+        "texte": "72",
+        "bbox": [
+          871,
+          399,
+          897,
+          419
+        ]
+      }
+    ]
+  },
+  "lignes.20.quantite": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 20,
+        "texte": "1",
+        "bbox": [
+          1051,
+          401,
+          1064,
+          416
+        ]
+      }
+    ]
+  },
+  "lignes.20.designation": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 17,
+        "texte": "Faux cadre",
+        "bbox": [
+          60,
+          397,
+          148,
+          421
+        ]
+      }
+    ]
+  },
+  "lignes.21.hauteur_cm": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 22,
+        "texte": "292",
+        "bbox": [
+          668,
+          448,
+          707,
+          471
+        ]
+      }
+    ]
+  },
+  "lignes.21.largeur_cm": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 23,
+        "texte": "99",
+        "bbox": [
+          870,
+          450,
+          897,
+          471
+        ]
+      }
+    ]
+  },
+  "lignes.21.quantite": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 24,
+        "texte": "1",
+        "bbox": [
+          1051,
+          452,
+          1065,
+          469
+        ]
+      }
+    ]
+  },
+  "lignes.21.designation": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 21,
+        "texte": "Faux cadre",
+        "bbox": [
+          59,
+          448,
+          149,
+          472
+        ]
+      }
+    ]
+  },
+  "lignes.22.hauteur_cm": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 26,
+        "texte": "312",
+        "bbox": [
+          666,
+          496,
+          708,
+          523
+        ]
+      }
+    ]
+  },
+  "lignes.22.largeur_cm": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 27,
+        "texte": "250",
+        "bbox": [
+          865,
+          499,
+          903,
+          522
+        ]
+      }
+    ]
+  },
+  "lignes.22.quantite": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 28,
+        "texte": "1",
+        "bbox": [
+          1051,
+          503,
+          1064,
+          518
+        ]
+      }
+    ]
+  },
+  "lignes.22.designation": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 25,
+        "texte": "Faux cadre",
+        "bbox": [
+          60,
+          498,
+          149,
+          522
+        ]
+      }
+    ]
+  },
+  "lignes.23.hauteur_cm": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 30,
+        "texte": "304",
+        "bbox": [
+          669,
+          550,
+          707,
+          573
+        ]
+      }
+    ]
+  },
+  "lignes.23.largeur_cm": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 31,
+        "texte": "123",
+        "bbox": [
+          865,
+          550,
+          903,
+          573
+        ]
+      }
+    ]
+  },
+  "lignes.23.quantite": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 32,
+        "texte": "1",
+        "bbox": [
+          1051,
+          554,
+          1064,
+          570
+        ]
+      }
+    ]
+  },
+  "lignes.23.designation": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 29,
+        "texte": "Faux cadre",
+        "bbox": [
+          58,
+          549,
+          148,
+          573
+        ]
+      }
+    ]
+  },
+  "lignes.24.hauteur_cm": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 34,
+        "texte": "307",
+        "bbox": [
+          668,
+          601,
+          707,
+          625
+        ]
+      }
+    ]
+  },
+  "lignes.24.largeur_cm": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 35,
+        "texte": "107",
+        "bbox": [
+          865,
+          601,
+          902,
+          624
+        ]
+      }
+    ]
+  },
+  "lignes.24.quantite": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 36,
+        "texte": "1",
+        "bbox": [
+          1052,
+          605,
+          1064,
+          622
+        ]
+      }
+    ]
+  },
+  "lignes.24.designation": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 33,
+        "texte": "Faux cadre",
+        "bbox": [
+          60,
+          601,
+          149,
+          625
+        ]
+      }
+    ]
+  },
+  "lignes.25.hauteur_cm": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 38,
+        "texte": "300",
+        "bbox": [
+          668,
+          652,
+          707,
+          675
+        ]
+      }
+    ]
+  },
+  "lignes.25.largeur_cm": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 39,
+        "texte": "332",
+        "bbox": [
+          865,
+          652,
+          902,
+          675
+        ]
+      }
+    ]
+  },
+  "lignes.25.quantite": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 40,
+        "texte": "1",
+        "bbox": [
+          1052,
+          656,
+          1064,
+          671
+        ]
+      }
+    ]
+  },
+  "lignes.25.designation": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 37,
+        "texte": "Faux cadre",
+        "bbox": [
+          58,
+          652,
+          148,
+          676
+        ]
+      }
+    ]
+  },
+  "lignes.26.hauteur_cm": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 42,
+        "texte": "310",
+        "bbox": [
+          668,
+          703,
+          707,
+          727
+        ]
+      }
+    ]
+  },
+  "lignes.26.largeur_cm": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 43,
+        "texte": "106",
+        "bbox": [
+          865,
+          703,
+          903,
+          726
+        ]
+      }
+    ]
+  },
+  "lignes.26.quantite": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 44,
+        "texte": "1",
+        "bbox": [
+          1051,
+          707,
+          1064,
+          724
+        ]
+      }
+    ]
+  },
+  "lignes.26.designation": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 41,
+        "texte": "Faux cadre",
+        "bbox": [
+          60,
+          703,
+          148,
+          726
+        ]
+      }
+    ]
+  },
+  "lignes.27.hauteur_cm": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 46,
+        "texte": "313",
+        "bbox": [
+          669,
+          755,
+          707,
+          777
+        ]
+      }
+    ]
+  },
+  "lignes.27.largeur_cm": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 47,
+        "texte": "161",
+        "bbox": [
+          865,
+          755,
+          902,
+          777
+        ]
+      }
+    ]
+  },
+  "lignes.27.quantite": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 48,
+        "texte": "1",
+        "bbox": [
+          1051,
+          758,
+          1065,
+          774
+        ]
+      }
+    ]
+  },
+  "lignes.27.designation": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 45,
+        "texte": "Faux cadre",
+        "bbox": [
+          60,
+          756,
+          148,
+          776
+        ]
+      }
+    ]
+  },
+  "lignes.28.hauteur_cm": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 50,
+        "texte": "313",
+        "bbox": [
+          668,
+          805,
+          708,
+          827
+        ]
+      }
+    ]
+  },
+  "lignes.28.largeur_cm": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 51,
+        "texte": "82",
+        "bbox": [
+          870,
+          806,
+          897,
+          827
+        ]
+      }
+    ]
+  },
+  "lignes.28.quantite": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 52,
+        "texte": "1",
+        "bbox": [
+          1051,
+          809,
+          1064,
+          824
+        ]
+      }
+    ]
+  },
+  "lignes.28.designation": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 49,
+        "texte": "Faux cadre",
+        "bbox": [
+          60,
+          804,
+          149,
+          828
+        ]
+      }
+    ]
+  },
+  "lignes.29.hauteur_cm": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 54,
+        "texte": "298",
+        "bbox": [
+          668,
+          855,
+          708,
+          879
+        ]
+      }
+    ]
+  },
+  "lignes.29.largeur_cm": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 55,
+        "texte": "179",
+        "bbox": [
+          865,
+          856,
+          902,
+          879
+        ]
+      }
+    ]
+  },
+  "lignes.29.quantite": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 56,
+        "texte": "1",
+        "bbox": [
+          1052,
+          861,
+          1064,
+          876
+        ]
+      }
+    ]
+  },
+  "lignes.29.designation": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 53,
+        "texte": "Faux cadre",
+        "bbox": [
+          58,
+          856,
+          150,
+          880
+        ]
+      }
+    ]
+  },
+  "lignes.30.hauteur_cm": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 58,
+        "texte": "316",
+        "bbox": [
+          668,
+          907,
+          708,
+          930
+        ]
+      }
+    ]
+  },
+  "lignes.30.largeur_cm": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 59,
+        "texte": "158",
+        "bbox": [
+          864,
+          907,
+          903,
+          930
+        ]
+      }
+    ]
+  },
+  "lignes.30.quantite": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 60,
+        "texte": "1",
+        "bbox": [
+          1051,
+          911,
+          1064,
+          927
+        ]
+      }
+    ]
+  },
+  "lignes.30.designation": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 57,
+        "texte": "Faux cadre",
+        "bbox": [
+          61,
+          909,
+          148,
+          929
+        ]
+      }
+    ]
+  },
+  "lignes.31.hauteur_cm": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 62,
+        "texte": "288",
+        "bbox": [
+          668,
+          957,
+          708,
+          981
+        ]
+      }
+    ]
+  },
+  "lignes.31.largeur_cm": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 63,
+        "texte": "151",
+        "bbox": [
+          865,
+          957,
+          903,
+          981
+        ]
+      }
+    ]
+  },
+  "lignes.31.quantite": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 64,
+        "texte": "1",
+        "bbox": [
+          1051,
+          962,
+          1065,
+          979
+        ]
+      }
+    ]
+  },
+  "lignes.31.designation": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 61,
+        "texte": "Faux cadre",
+        "bbox": [
+          59,
+          958,
+          148,
+          982
+        ]
+      }
+    ]
+  },
+  "lignes.32.hauteur_cm": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 66,
+        "texte": "288",
+        "bbox": [
+          668,
+          1009,
+          707,
+          1033
+        ]
+      }
+    ]
+  },
+  "lignes.32.largeur_cm": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 67,
+        "texte": "164",
+        "bbox": [
+          865,
+          1009,
+          904,
+          1033
+        ]
+      }
+    ]
+  },
+  "lignes.32.quantite": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 68,
+        "texte": "1",
+        "bbox": [
+          1051,
+          1014,
+          1064,
+          1031
+        ]
+      }
+    ]
+  },
+  "lignes.32.designation": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 65,
+        "texte": "Faux cadre",
+        "bbox": [
+          60,
+          1009,
+          149,
+          1033
+        ]
+      }
+    ]
+  },
+  "lignes.33.hauteur_cm": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 70,
+        "texte": "316",
+        "bbox": [
+          669,
+          1060,
+          708,
+          1083
+        ]
+      }
+    ]
+  },
+  "lignes.33.largeur_cm": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 71,
+        "texte": "83",
+        "bbox": [
+          870,
+          1061,
+          897,
+          1082
+        ]
+      }
+    ]
+  },
+  "lignes.33.quantite": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 72,
+        "texte": "1",
+        "bbox": [
+          1051,
+          1064,
+          1064,
+          1079
+        ]
+      }
+    ]
+  },
+  "lignes.33.designation": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 69,
+        "texte": "Faux cadre",
+        "bbox": [
+          59,
+          1059,
+          149,
+          1083
+        ]
+      }
+    ]
+  },
+  "lignes.34.hauteur_cm": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 74,
+        "texte": "293",
+        "bbox": [
+          667,
+          1111,
+          708,
+          1134
+        ]
+      }
+    ]
+  },
+  "lignes.34.largeur_cm": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 75,
+        "texte": "78",
+        "bbox": [
+          870,
+          1112,
+          898,
+          1133
+        ]
+      }
+    ]
+  },
+  "lignes.34.quantite": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 76,
+        "texte": "1",
+        "bbox": [
+          1051,
+          1115,
+          1064,
+          1130
+        ]
+      }
+    ]
+  },
+  "lignes.34.designation": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 73,
+        "texte": "Faux cadre",
+        "bbox": [
+          59,
+          1111,
+          149,
+          1135
+        ]
+      }
+    ]
+  },
+  "lignes.35.hauteur_cm": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 78,
+        "texte": "293",
+        "bbox": [
+          669,
+          1162,
+          707,
+          1186
+        ]
+      }
+    ]
+  },
+  "lignes.35.largeur_cm": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 79,
+        "texte": "160",
+        "bbox": [
+          865,
+          1162,
+          903,
+          1186
+        ]
+      }
+    ]
+  },
+  "lignes.35.quantite": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 80,
+        "texte": "1",
+        "bbox": [
+          1051,
+          1167,
+          1064,
+          1183
+        ]
+      }
+    ]
+  },
+  "lignes.35.designation": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 77,
+        "texte": "Faux cadre",
+        "bbox": [
+          60,
+          1163,
+          149,
+          1187
+        ]
+      }
+    ]
+  },
+  "quantite_totale_annoncee": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 81,
+        "texte": "TOTAL DES PRESTATIONS : 36 fauX cadres",
+        "bbox": [
+          63,
+          1216,
+          451,
+          1239
+        ],
+        "page": 2
+      }
+    ]
+  },
+  "total_ttc": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 83,
+        "texte": "Prix Total TTC",
+        "bbox": [
+          898,
+          1356,
+          1034,
+          1380
+        ],
+        "page": 2
+      },
+      {
+        "id": 85,
+        "texte": "9 424 Dhs",
+        "bbox": [
+          893,
+          1388,
+          1039,
+          1420
+        ],
+        "page": 2
+      }
+    ]
+  },
+  "devise": {
+    "page": 2,
+    "blocs": [
+      {
+        "id": 83,
+        "texte": "Prix Total TTC",
+        "bbox": [
+          898,
+          1356,
+          1034,
+          1380
+        ],
+        "page": 2
+      },
+      {
+        "id": 85,
+        "texte": "9 424 Dhs",
+        "bbox": [
+          893,
+          1388,
+          1039,
+          1420
+        ],
+        "page": 2
+      }
+    ]
+  }
+}

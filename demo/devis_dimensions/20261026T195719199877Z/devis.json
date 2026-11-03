@@ -1,0 +1,177 @@
+{
+  "type_document": "devis",
+  "fournisseur": "FK Alu Group SARL",
+  "ice_fournisseur": "004012708000064",
+  "client": "Villa 6, Villa 7, Triangle",
+  "numero_devis": "2026 N° 07",
+  "date": "2026-10-24",
+  "devise": null,
+  "total_ht": null,
+  "montant_tva": null,
+  "total_ttc": null,
+  "section": "Fourniture et pose de faux cadres",
+  "lignes": [
+    {
+      "hauteur_cm": 298.0,
+      "largeur_cm": 151.0,
+      "quantite": 1.0,
+      "designation": "Faux cadre",
+      "prix_unitaire_ht": null,
+      "montant_ht": null
+    },
+    {
+      "hauteur_cm": 300.0,
+      "largeur_cm": 359.0,
+      "quantite": 1.0,
+      "designation": "Faux cadre",
+      "prix_unitaire_ht": null,
+      "montant_ht": null
+    },
+    {
+      "hauteur_cm": 200.0,
+      "largeur_cm": 160.0,
+      "quantite": 1.0,
+      "designation": "Faux cadre",
+      "prix_unitaire_ht": null,
+      "montant_ht": null
+    },
+    {
+      "hauteur_cm": 300.0,
+      "largeur_cm": 526.0,
+      "quantite": 1.0,
+      "designation": "Faux cadre",
+      "prix_unitaire_ht": null,
+      "montant_ht": null
+    },
+    {
+      "hauteur_cm": 302.0,
+      "largeur_cm": 413.0,
+      "quantite": 1.0,
+      "designation": "Faux cadre",
+      "prix_unitaire_ht": null,
+      "montant_ht": null
+    },
+    {
+      "hauteur_cm": 302.0,
+      "largeur_cm": 336.0,
+      "quantite": 1.0,
+      "designation": "Faux cadre",
+      "prix_unitaire_ht": null,
+      "montant_ht": null
+    },
+    {
+      "hauteur_cm": 298.0,
+      "largeur_cm": 72.0,
+      "quantite": 1.0,
+      "designation": "Faux cadre",
+      "prix_unitaire_ht": null,
+      "montant_ht": null
+    },
+    {
+      "hauteur_cm": 198.0,
+      "largeur_cm": 105.0,
+      "quantite": 1.0,
+      "designation": "Faux cadre",
+      "prix_unitaire_ht": null,
+      "montant_ht": null
+    },
+    {
+      "hauteur_cm": 298.0,
+      "largeur_cm": 223.0,
+      "quantite": 1.0,
+      "designation": "Faux cadre",
+      "prix_unitaire_ht": null,
+      "montant_ht": null
+    },
+    {
+      "hauteur_cm": 300.0,
+      "largeur_cm": 292.0,
+      "quantite": 1.0,
+      "designation": "Faux cadre",
+      "prix_unitaire_ht": null,
+      "montant_ht": null
+    },
+    {
+      "hauteur_cm": 303.0,
+      "largeur_cm": 103.0,
+      "quantite": 1.0,
+      "designation": "Faux cadre",
+      "prix_unitaire_ht": null,
+      "montant_ht": null
+    },
+    {
+      "hauteur_cm": 303.0,
+      "largeur_cm": 351.0,
+      "quantite": 1.0,
+      "designation": "Faux cadre",
+      "prix_unitaire_ht": null,
+      "montant_ht": null
+    },
+    {
+      "hauteur_cm": 301.0,
+      "largeur_cm": 427.0,
+      "quantite": 1.0,
+      "designation": "Faux cadre",
+      "prix_unitaire_ht": null,
+      "montant_ht": null
+    },
+    {
+      "hauteur_cm": 301.0,
+      "largeur_cm": 403.0,
+      "quantite": 1.0,
+      "designation": "Faux cadre",
+      "prix_unitaire_ht": null,
+      "montant_ht": null
+    },
+    {
+      "hauteur_cm": 301.0,
+      "largeur_cm": 436.0,
+      "quantite": 1.0,
+      "designation": "Faux cadre",
+      "prix_unitaire_ht": null,
+      "montant_ht": null
+    },
+    {
+      "hauteur_cm": 301.0,
+      "largeur_cm": 210.0,
+      "quantite": 1.0,
+      "designation": "Faux cadre",
+      "prix_unitaire_ht": null,
+      "montant_ht": null
+    },
+    {
+      "hauteur_cm": 186.0,
+      "largeur_cm": 162.0,
+      "quantite": 1.0,
+      "designation": "Faux cadre",
+      "prix_unitaire_ht": null,
+      "montant_ht": null
+    },
+    {
+      "hauteur_cm": 302.0,
+      "largeur_cm": 69.0,
+      "quantite": 1.0,
+      "designation": "Faux cadre",
+      "prix_unitaire_ht": null,
+      "montant_ht": null
+    },
+    {
+      "hauteur_cm": 307.0,
+      "largeur_cm": 161.0,
+      "quantite": 1.0,
+      "designation": "Faux cadre",
+      "prix_unitaire_ht": null,
+      "montant_ht": null
+    },
+    {
+      "hauteur_cm": 293.0,
+      "largeur_cm": 163.0,
+      "quantite": 1.0,
+      "designation": "Faux cadre",
+      "prix_unitaire_ht": null,
+      "montant_ht": null
+    }
+  ],
+  "page": 1,
+  "extraction_document_complete": false
+}

@@ -1,0 +1,5 @@
+{
+  "statut": "echec_extraction",
+  "erreur": "Trois colonnes numeriques distinctes requises; revue necessaire.",
+  "revue_humaine_requise": true
+}

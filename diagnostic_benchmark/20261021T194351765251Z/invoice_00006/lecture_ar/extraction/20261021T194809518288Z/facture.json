@@ -1,0 +1,50 @@
+{
+  "fournisseur": "NOUR Fournitures SARL / نور للتوريدات",
+  "ice_fournisseur": "926997818974530",
+  "client": "ANDALOUS Services SARL / الأندلس",
+  "ice_client": "971751062995843",
+  "numero_facture": "DEMO-2025-00006",
+  "date": "2025-08-27",
+  "devise": "MAD",
+  "total_ht": 23929.49,
+  "montant_tva": 4785.9,
+  "total_ttc": 28715.39,
+  "lignes": [
+    {
+      "designation": "Frais de livraison / مصاريف التسليم",
+      "quantite": 4104.7,
+      "prix_unitaire_ht": null,
+      "montant_ht": 418.8
+    },
+    {
+      "designation": "Installation du matériel / تركيب المعدات",
+      "quantite": 352.4514,
+      "prix_unitaire_ht": null,
+      "montant_ht": 4934.3
+    },
+    {
+      "designation": "Chaise de bureau / كرسي مكتب",
+      "quantite": 1032.2711,
+      "prix_unitaire_ht": null,
+      "montant_ht": 11354.97
+    },
+    {
+      "designation": "Maintenance informatique / صيانة الحاسوب",
+      "quantite": 637.539,
+      "prix_unitaire_ht": null,
+      "montant_ht": 5737.77
+    },
+    {
+      "designation": "Enveloppes commerciales / أظرفة تجارية",
+      "quantite": 128.969,
+      "prix_unitaire_ht": null,
+      "montant_ht": 1160.64
+    },
+    {
+      "designation": "Classeur a levier / ملف برافعة",
+      "quantite": 35.899,
+      "prix_unitaire_ht": null,
+      "montant_ht": 323.01
+    }
+  ]
+}

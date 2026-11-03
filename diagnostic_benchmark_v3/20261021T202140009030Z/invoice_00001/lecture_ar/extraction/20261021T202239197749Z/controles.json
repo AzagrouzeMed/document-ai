@@ -1,0 +1,15 @@
+{
+  "statut": "controles_automatiques_passes",
+  "alertes": [],
+  "corrections_par_regles": [
+    {
+      "champ": "total_ht",
+      "avant": 1372.69,
+      "apres": 1247.9,
+      "raison": "Valeur OCR unique associee au libelle et a la position; ICE null si ambigu"
+    }
+  ],
+  "nombre_articles": 4,
+  "revue_humaine_requise": true,
+  "note": "Les controles ne remplacent pas la verification humaine des roles et valeurs."
+}

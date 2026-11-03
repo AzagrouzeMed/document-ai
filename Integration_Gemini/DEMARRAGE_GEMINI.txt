@@ -1,0 +1,97 @@
+INTEGRATION GEMINI API - application DocumentAI_Web existante
+
+Ce paquet met a jour votre application. Ne remplacez pas tout DocumentAI_Web.
+Il ne contient ni cle API, ni nouveau modele a telecharger, ni nouvelle dependance.
+Les donnees et l'historique dans data restent a leur place.
+
+1. CREER LA CLE
+Ouvrir https://aistudio.google.com/api-keys et creer une cle pour votre projet.
+Ne pas envoyer la cle dans une conversation, une capture ou un depot Git.
+Retenir le modele teste dans AI Studio; son code API sera choisi au demarrage.
+Les quotas et conditions d'acces API peuvent differer de l'interface AI Studio.
+
+2. EXTRAIRE LE PAQUET
+Extraire les fichiers de ce ZIP dans :
+C:\Users\User\document-ai\Integration_Gemini
+Ce dossier doit contenir installer_gemini.py et le sous-dossier moteur.
+Ne pas extraire directement dans DocumentAI_Web.
+
+3. INSTALLER DANS LE PROJET EXISTANT
+Arreter le serveur avec Ctrl+C.
+Dans PowerShell :
+cd C:\Users\User\document-ai
+.\.venv-ocr\Scripts\python.exe .\Integration_Gemini\installer_gemini.py
+Le script Python sauvegarde les fichiers remplaces avant de les copier.
+Il ne s'agit pas du script PowerShell INSTALLER.ps1 : aucun reglage de strategie
+d'execution PowerShell n'est necessaire.
+Si le projet est ailleurs : ajouter --projet "CHEMIN_DU_PROJET".
+La version OCR prioritaire precedente doit deja etre installee pour le mode local.
+
+4. DEMARRER
+.\.venv-ocr\Scripts\python.exe .\DocumentAI_Web\demarrer_gemini.py
+Coller la cle dans l'invite masquee puis Entrer. Rien ne s'affiche pendant la saisie.
+Choisir le numero du modele Flash deja teste, parmi les modeles accessibles listes.
+Le secret est garde dans l'environnement du processus, pas ecrit dans les fichiers
+ni transmis au navigateur. Il faudra le ressaisir au prochain demarrage, sauf si
+GEMINI_API_KEY et GEMINI_MODEL sont deja definis dans l'environnement du terminal.
+Ne pas transmettre de capture montrant une cle.
+
+5. TESTER
+Ouvrir http://127.0.0.1:8000 et faire Ctrl+F5.
+Verifier le badge Gemini API. Cliquer Nouveau document et importer une facture
+fictive. Ne pas cocher sans API Gemini pour tester l'extraction en ligne.
+Les fichiers anciens de l'historique ne sont pas recalcules automatiquement.
+Tester les memes factures FR, AR et bilingues avec le meme modele et les memes
+consignes. Aucun score de precision globale n'est encore mesure pour ce moteur.
+
+NOUVEAU PIPELINE
+- OCR PaddleOCR local, comme auparavant.
+- Analyse d'une image de chaque page et du texte OCR par Gemini avec schema JSON.
+- Normalisation et controles de types, dates, ICE et coherence arithmetique.
+- Pas de rejet d'un champ pour absence de libelle francais exact.
+- Les textes arabes et les devises comme SAR restent dans le schema commun.
+- Les preuves indiquent la provenance Gemini et les correspondances textuelles
+  OCR eventuelles; elles ne certifient ni l'exactitude ni le role des champs.
+- Total sans nature HT/TTC explicite : champ total_document, affiche comme tel.
+- JSON, controles, original et rapport PDF restent accessibles dans l'interface.
+- Le mode sans API conserve une extraction locale limitee.
+- Les devis de dimensions reconnus gardent leur route locale specialisee.
+- Une erreur API conserve un resultat OCR partiel et une alerte explicite.
+- Aucun retour automatique vers Qwen ni boucle d'appels payants.
+
+TRANSMISSION ET COUT
+En mode Gemini les images des pages (PNG, resolution adaptee) et leur texte OCR
+sont transmis a Google. Internet et acces API necessaires; quotas/frais possibles.
+L'interface indique ce fonctionnement. Commencer avec des exemples fictifs.
+Une requete generateContent par page financiere; pas de nouvelle tentative
+automatique. Les consultations de la liste des modeles ne transmettent pas de facture.
+
+DIAGNOSTIC
+Les erreurs 403 indiquent notamment un refus d'acces; 404 un modele indisponible;
+429 un quota/une limite de debit. Les reponses et requetes SANS image/cle sont
+archivees dans resultats\DOC-...\gemini\page_1.
+Pour ne tester que l'acces a la liste des modeles dans un environnement configure :
+.\.venv-ocr\Scripts\python.exe .\DocumentAI_Web\verifier_gemini.py
+
+RETOUR ARRIERE
+Arreter le serveur puis recopier les fichiers sauvegardes depuis le dossier
+sauvegarde_avant_gemini_DATE vers les memes emplacements de DocumentAI_Web.
+restauration.json dans cette sauvegarde enumere les anciens/nouveaux fichiers.
+Les nouveaux modules inutilises peuvent rester en place sans etre appeles.
+
+VALIDATION EFFECTUEE ICI
+Tests locaux sur reponses API simulees : schema, donnees arabes, totaux neutres,
+champs invalides isoles, controles de calculs, absence de cle dans les archives,
+header d'authentification, message HTTP429 sans secret, routage des pages vers
+Gemini, secours OCR et mode sans API. Test d'installation avec sauvegarde et
+conservation du dossier data. Compilation Python et syntaxe JavaScript verifiees.
+Aucun appel reel Gemini avec votre compte, aucun nouveau benchmark de precision,
+ni test complet HTTP FastAPI/navigateur Windows : cette dependance n'etait pas
+installee dans l'environnement de verification. L'export PDF reprend le moteur
+existant avec ajout du libelle du total neutre; il reste a verifier dans le premier
+essai de bout en bout sur votre ordinateur.
+
+REFERENCES TECHNIQUES
+https://ai.google.dev/api/generate-content
+https://ai.google.dev/gemini-api/docs/generate-content/structured-output
+https://ai.google.dev/gemini-api/docs/api-key

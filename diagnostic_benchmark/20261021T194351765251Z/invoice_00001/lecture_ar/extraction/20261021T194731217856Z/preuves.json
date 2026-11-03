@@ -1,0 +1,444 @@
+{
+  "fournisseur": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 8,
+        "texte": "صفاء للتوريدات",
+        "bbox": [
+          1277.0,
+          337.0,
+          1485.0,
+          378.0
+        ],
+        "confiance": 0.9667659997940063
+      }
+    ]
+  },
+  "ice_fournisseur": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 15,
+        "texte": "947490362814236 :ICE",
+        "bbox": [
+          1193.0,
+          516.0,
+          1484.0,
+          547.0
+        ],
+        "confiance": 0.9962307810783386
+      }
+    ]
+  },
+  "client": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 7,
+        "texte": "الريف للخدمات",
+        "bbox": [
+          549.0,
+          337.0,
+          751.0,
+          378.0
+        ],
+        "confiance": 0.8087424039840698
+      }
+    ]
+  },
+  "ice_client": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 11,
+        "texte": "921797507502129 :ICE",
+        "bbox": [
+          458.0,
+          432.0,
+          748.0,
+          463.0
+        ],
+        "confiance": 0.9691070318222046
+      }
+    ]
+  },
+  "numero_facture": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 4,
+        "texte": "DEMO-2025-00001",
+        "bbox": [
+          1249.0,
+          168.0,
+          1486.0,
+          206.0
+        ],
+        "confiance": 0.9928804039955139
+      }
+    ]
+  },
+  "date": {
+    "statut": "a_verifier",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 22,
+        "texte": "2026-01-04",
+        "bbox": [
+          917.0,
+          667.0,
+          1070.0,
+          703.0
+        ],
+        "confiance": 0.9964216351509094
+      }
+    ]
+  },
+  "devise": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 20,
+        "texte": "MAD",
+        "bbox": [
+          90.0,
+          664.0,
+          166.0,
+          705.0
+        ],
+        "confiance": 0.9886389374732971
+      }
+    ]
+  },
+  "total_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 57,
+        "texte": "1 372,69",
+        "bbox": [
+          84.0,
+          1246.0,
+          255.0,
+          1291.0
+        ],
+        "confiance": 0.9891214370727539
+      }
+    ]
+  },
+  "montant_tva": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 53,
+        "texte": "124,79",
+        "bbox": [
+          83.0,
+          1172.0,
+          191.0,
+          1211.0
+        ],
+        "confiance": 0.9993906617164612
+      }
+    ]
+  },
+  "total_ttc": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 57,
+        "texte": "1 372,69",
+        "bbox": [
+          84.0,
+          1246.0,
+          255.0,
+          1291.0
+        ],
+        "confiance": 0.9891214370727539
+      }
+    ]
+  },
+  "lignes.0.designation": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 32,
+        "texte": "حزمة أكياس نفايات",
+        "bbox": [
+          1147.0,
+          828.0,
+          1336.0,
+          866.0
+        ],
+        "confiance": 0.9964585900306702
+      }
+    ]
+  },
+  "lignes.0.quantite": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 31,
+        "texte": "8",
+        "bbox": [
+          626.0,
+          829.0,
+          655.0,
+          864.0
+        ],
+        "confiance": 0.9988996982574463
+      }
+    ]
+  },
+  "lignes.0.prix_unitaire_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 30,
+        "texte": "31,01",
+        "bbox": [
+          411.0,
+          827.0,
+          490.0,
+          865.0
+        ],
+        "confiance": 0.9981821179389954
+      }
+    ]
+  },
+  "lignes.0.montant_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 29,
+        "texte": "248,08",
+        "bbox": [
+          82.0,
+          827.0,
+          175.0,
+          864.0
+        ],
+        "confiance": 0.9341306090354919
+      }
+    ]
+  },
+  "lignes.1.designation": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 37,
+        "texte": "A4 رزمة ورق",
+        "bbox": [
+          1195.0,
+          891.0,
+          1338.0,
+          934.0
+        ],
+        "confiance": 0.9962753653526306
+      }
+    ]
+  },
+  "lignes.1.quantite": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 36,
+        "texte": "10",
+        "bbox": [
+          624.0,
+          891.0,
+          671.0,
+          931.0
+        ],
+        "confiance": 0.9947291016578674
+      }
+    ]
+  },
+  "lignes.1.prix_unitaire_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 35,
+        "texte": "31,66",
+        "bbox": [
+          412.0,
+          891.0,
+          491.0,
+          929.0
+        ],
+        "confiance": 0.9979884028434753
+      }
+    ]
+  },
+  "lignes.1.montant_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 34,
+        "texte": "316,60",
+        "bbox": [
+          82.0,
+          889.0,
+          176.0,
+          929.0
+        ],
+        "confiance": 0.9988722205162048
+      }
+    ]
+  },
+  "lignes.2.designation": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 42,
+        "texte": "منظف 5 لترات",
+        "bbox": [
+          1185.0,
+          956.0,
+          1336.0,
+          995.0
+        ],
+        "confiance": 0.9560799598693848
+      }
+    ]
+  },
+  "lignes.2.quantite": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 41,
+        "texte": "8",
+        "bbox": [
+          624.0,
+          958.0,
+          656.0,
+          994.0
+        ],
+        "confiance": 0.9984203577041626
+      }
+    ]
+  },
+  "lignes.2.prix_unitaire_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 40,
+        "texte": "54,39",
+        "bbox": [
+          410.0,
+          952.0,
+          492.0,
+          997.0
+        ],
+        "confiance": 0.9987491369247437
+      }
+    ]
+  },
+  "lignes.2.montant_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 39,
+        "texte": "435,12",
+        "bbox": [
+          82.0,
+          954.0,
+          176.0,
+          994.0
+        ],
+        "confiance": 0.9987712502479553
+      }
+    ]
+  },
+  "lignes.3.designation": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 47,
+        "texte": "علبة أقلام",
+        "bbox": [
+          1233.0,
+          1019.0,
+          1338.0,
+          1059.0
+        ],
+        "confiance": 0.9979087710380554
+      }
+    ]
+  },
+  "lignes.3.quantite": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 46,
+        "texte": "6",
+        "bbox": [
+          627.0,
+          1024.0,
+          654.0,
+          1056.0
+        ],
+        "confiance": 0.9994097948074341
+      }
+    ]
+  },
+  "lignes.3.prix_unitaire_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 45,
+        "texte": "41,35",
+        "bbox": [
+          412.0,
+          1019.0,
+          491.0,
+          1057.0
+        ],
+        "confiance": 0.9996697306632996
+      }
+    ]
+  },
+  "lignes.3.montant_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 44,
+        "texte": "248,10",
+        "bbox": [
+          81.0,
+          1018.0,
+          176.0,
+          1058.0
+        ],
+        "confiance": 0.9990273118019104
+      }
+    ]
+  }
+}

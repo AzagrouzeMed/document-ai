@@ -1,0 +1,30 @@
+{
+  "statut": "a_verifier",
+  "alertes": [
+    "Cellule numerique illisible : lignes.0.prix_unitaire_ht",
+    "Cellule numerique illisible : lignes.1.prix_unitaire_ht",
+    "Cellule numerique illisible : lignes.2.prix_unitaire_ht",
+    "Cellule numerique illisible : lignes.3.prix_unitaire_ht",
+    "Cellule numerique illisible : lignes.4.prix_unitaire_ht",
+    "Cellule numerique illisible : lignes.5.prix_unitaire_ht",
+    "Rangee sans designation : a verifier.",
+    "Valeur a verifier dans les blocs cites : total_ttc"
+  ],
+  "corrections_par_regles": [
+    {
+      "champ": "ice_fournisseur",
+      "avant": "982971465989381",
+      "apres": "920098531772261",
+      "raison": "ICE unique associe a une colonne titree; null si ambigu"
+    },
+    {
+      "champ": "ice_client",
+      "avant": "920098531772261",
+      "apres": "982971465989381",
+      "raison": "ICE unique associe a une colonne titree; null si ambigu"
+    }
+  ],
+  "nombre_articles": 6,
+  "revue_humaine_requise": true,
+  "note": "Les controles ne remplacent pas la verification humaine des roles et valeurs."
+}

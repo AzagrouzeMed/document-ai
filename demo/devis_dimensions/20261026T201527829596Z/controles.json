@@ -1,0 +1,5 @@
+{
+  "statut": "echec_extraction",
+  "erreur": "hauteurcm absent ou ambigu.",
+  "revue_humaine_requise": true
+}

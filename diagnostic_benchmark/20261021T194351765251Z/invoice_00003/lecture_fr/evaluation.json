@@ -1,0 +1,82 @@
+{
+  "champs": {
+    "tp": 10,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "rappel": 1.0,
+    "f1": 1.0
+  },
+  "articles": {
+    "tp": 4,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "rappel": 1.0,
+    "f1": 1.0
+  },
+  "detail": [
+    {
+      "champ": "fournisseur",
+      "reference": "AMANA Fournitures SARL",
+      "prediction": "AMANA Fournitures SARL",
+      "correct": true
+    },
+    {
+      "champ": "ice_fournisseur",
+      "reference": "951301052756313",
+      "prediction": "951301052756313",
+      "correct": true
+    },
+    {
+      "champ": "client",
+      "reference": "NAKHIL Services SARL",
+      "prediction": "NAKHIL Services SARL",
+      "correct": true
+    },
+    {
+      "champ": "ice_client",
+      "reference": "945791175528745",
+      "prediction": "945791175528745",
+      "correct": true
+    },
+    {
+      "champ": "numero_facture",
+      "reference": "DEMO-2026-00003",
+      "prediction": "DEMO-2026-00003",
+      "correct": true
+    },
+    {
+      "champ": "date",
+      "reference": "2026-07-31",
+      "prediction": "2026-07-31",
+      "correct": true
+    },
+    {
+      "champ": "devise",
+      "reference": "MAD",
+      "prediction": "MAD",
+      "correct": true
+    },
+    {
+      "champ": "total_ht",
+      "reference": 10505.86,
+      "prediction": 10505.86,
+      "correct": true
+    },
+    {
+      "champ": "montant_tva",
+      "reference": 2101.17,
+      "prediction": 2101.17,
+      "correct": true
+    },
+    {
+      "champ": "total_ttc",
+      "reference": 12607.03,
+      "prediction": 12607.03,
+      "correct": true
+    }
+  ],
+  "n_articles_attendus": 4,
+  "n_articles_predits": 4
+}

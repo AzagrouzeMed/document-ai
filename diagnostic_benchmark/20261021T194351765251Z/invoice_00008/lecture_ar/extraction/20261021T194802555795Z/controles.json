@@ -1,0 +1,5 @@
+{
+  "statut": "echec_extraction",
+  "erreur": "En-tetes de tableau non identifies. Revue manuelle necessaire; aucune ligne inventee.",
+  "revue_humaine_requise": true
+}

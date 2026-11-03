@@ -1,0 +1,45 @@
+{
+  "statut": "controles_automatiques_passes",
+  "alertes": [],
+  "corrections_par_regles": [
+    {
+      "champ": "fournisseur",
+      "avant": "RIHAB Fournitures SARL / رحاب للتوريدات",
+      "apres": "RIHAB Fournitures SARL / رحاب للتوریدات",
+      "raison": "Valeur OCR unique associee au libelle et a la position; ICE null si ambigu"
+    },
+    {
+      "champ": "client",
+      "avant": "SAHARA Services SARL / لصحراء",
+      "apres": "SAHARA Services SARL / لصحراءl للخدمات",
+      "raison": "Valeur OCR unique associee au libelle et a la position; ICE null si ambigu"
+    },
+    {
+      "champ": "numero_facture",
+      "avant": "BC-DEMO-47448",
+      "apres": "DEMO-2025-00004",
+      "raison": "Valeur OCR unique associee au libelle et a la position; ICE null si ambigu"
+    },
+    {
+      "champ": "total_ht",
+      "avant": null,
+      "apres": 10404.73,
+      "raison": "Valeur OCR unique associee au libelle et a la position; ICE null si ambigu"
+    },
+    {
+      "champ": "montant_tva",
+      "avant": null,
+      "apres": 2080.95,
+      "raison": "Valeur OCR unique associee au libelle et a la position; ICE null si ambigu"
+    },
+    {
+      "champ": "total_ttc",
+      "avant": null,
+      "apres": 12485.68,
+      "raison": "Valeur OCR unique associee au libelle et a la position; ICE null si ambigu"
+    }
+  ],
+  "nombre_articles": 2,
+  "revue_humaine_requise": true,
+  "note": "Les controles ne remplacent pas la verification humaine des roles et valeurs."
+}

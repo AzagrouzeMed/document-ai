@@ -1,0 +1,10 @@
+{
+  "adaptateur": "devis_dimensions_multipage_1",
+  "ocr": [
+    "C:\\Users\\User\\document-ai\\demo\\devis_page_1_ocr.json",
+    "C:\\Users\\User\\document-ai\\demo\\devis_page_2_ocr.json"
+  ],
+  "generation_modele_executee": false,
+  "utilise_annotations_reference": false,
+  "resultats_test_v6_applicables": false
+}

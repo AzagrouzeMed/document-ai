@@ -1,0 +1,33 @@
+{
+  "statut": "controles_automatiques_passes",
+  "alertes": [],
+  "corrections_par_regles": [
+    {
+      "champ": "ice_fournisseur",
+      "avant": "ICE:982971465989381",
+      "apres": "920098531772261",
+      "raison": "Valeur OCR unique associee au libelle et a la position; ICE null si ambigu"
+    },
+    {
+      "champ": "client",
+      "avant": "AR  A /  ",
+      "apres": "AR  A /   , enue Modle, ekns/",
+      "raison": "Valeur OCR unique associee au libelle et a la position; ICE null si ambigu"
+    },
+    {
+      "champ": "ice_client",
+      "avant": "ICE:982971465989381",
+      "apres": "982971465989381",
+      "raison": "Valeur OCR unique associee au libelle et a la position; ICE null si ambigu"
+    },
+    {
+      "champ": "devise",
+      "avant": "2026-04-28",
+      "apres": "MAD",
+      "raison": "Valeur OCR unique associee au libelle et a la position; ICE null si ambigu"
+    }
+  ],
+  "nombre_articles": 6,
+  "revue_humaine_requise": true,
+  "note": "Les controles ne remplacent pas la verification humaine des roles et valeurs."
+}

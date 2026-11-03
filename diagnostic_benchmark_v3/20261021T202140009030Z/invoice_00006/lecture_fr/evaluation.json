@@ -1,0 +1,98 @@
+{
+  "champs": {
+    "tp": 6,
+    "fp": 2,
+    "fn": 4,
+    "precision": 0.75,
+    "rappel": 0.6,
+    "f1": 0.6666666666666666
+  },
+  "articles": {
+    "tp": 0,
+    "fp": 6,
+    "fn": 6,
+    "precision": 0.0,
+    "rappel": 0.0,
+    "f1": 0.0
+  },
+  "articles_numeriques": {
+    "tp": 6,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "rappel": 1.0,
+    "f1": 1.0
+  },
+  "designations": {
+    "tp": 0,
+    "fp": 6,
+    "fn": 6,
+    "precision": 0.0,
+    "rappel": 0.0,
+    "f1": 0.0
+  },
+  "detail": [
+    {
+      "champ": "fournisseur",
+      "reference": "NOUR Fournitures SARL / نور للتوريدات",
+      "prediction": "NOUR Fournitures SARL",
+      "correct": false
+    },
+    {
+      "champ": "ice_fournisseur",
+      "reference": "926997818974530",
+      "prediction": null,
+      "correct": false
+    },
+    {
+      "champ": "client",
+      "reference": "ANDALOUS Services SARL / الأندلس للخدمات",
+      "prediction": "Nour demo@example.com",
+      "correct": false
+    },
+    {
+      "champ": "ice_client",
+      "reference": "971751062995843",
+      "prediction": null,
+      "correct": false
+    },
+    {
+      "champ": "numero_facture",
+      "reference": "DEMO-2025-00006",
+      "prediction": "DEMO-2025-00006",
+      "correct": true
+    },
+    {
+      "champ": "date",
+      "reference": "2025-08-27",
+      "prediction": "2025-08-27",
+      "correct": true
+    },
+    {
+      "champ": "devise",
+      "reference": "MAD",
+      "prediction": "MAD",
+      "correct": true
+    },
+    {
+      "champ": "total_ht",
+      "reference": 23929.49,
+      "prediction": 23929.49,
+      "correct": true
+    },
+    {
+      "champ": "montant_tva",
+      "reference": 4785.9,
+      "prediction": 4785.9,
+      "correct": true
+    },
+    {
+      "champ": "total_ttc",
+      "reference": 28715.39,
+      "prediction": 28715.39,
+      "correct": true
+    }
+  ],
+  "n_articles_attendus": 6,
+  "n_articles_predits": 6
+}

@@ -1,0 +1,20 @@
+{
+  "fournisseur": "الريف للتوريدات",
+  "ice_fournisseur": "958582936395268",
+  "client": "صفاء للخدمات",
+  "ice_client": "927655737136607",
+  "numero_facture": "DEMO-2025-00008",
+  "date": "2025-09-19",
+  "devise": "MAD",
+  "total_ht": 714.84,
+  "montant_tva": 142.97,
+  "total_ttc": 857.81,
+  "lignes": [
+    {
+      "designation": "حزمة أكياس نفايات",
+      "quantite": 12.0,
+      "prix_unitaire_ht": 59.57,
+      "montant_ht": 714.84
+    }
+  ]
+}

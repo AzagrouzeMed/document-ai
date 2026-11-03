@@ -1,0 +1,21 @@
+{
+  "statut": "controles_automatiques_passes",
+  "alertes": [],
+  "corrections_par_regles": [
+    {
+      "champ": "fournisseur",
+      "avant": "NOUR Fournitures SARL / نور للتوريدات",
+      "apres": "NOUR Fournitures SARL / نور للتوریدات",
+      "raison": "Valeur OCR unique associee au libelle et a la position; ICE null si ambigu"
+    },
+    {
+      "champ": "client",
+      "avant": "ANDALOUS Services SARL / الأندلس",
+      "apres": "ANDALOUS Services SARL / الأندلس للخدمات",
+      "raison": "Valeur OCR unique associee au libelle et a la position; ICE null si ambigu"
+    }
+  ],
+  "nombre_articles": 6,
+  "revue_humaine_requise": true,
+  "note": "Les controles ne remplacent pas la verification humaine des roles et valeurs."
+}

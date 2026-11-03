@@ -1,0 +1,68 @@
+{
+  "statut": "a_verifier",
+  "alertes": [
+    "Adaptateur experimental : verifier les trois lignes et les champs generaux.",
+    "Colonnes Unite, TVA et TTC exclues des designations; texte Objet hors lignes.",
+    "Incoherence quantite x prix a la ligne 1",
+    "12 proposition(s) rejetee(s); voir rejets.json et les valeurs corrigees",
+    "Champ non extrait, revue requise : fournisseur",
+    "Champ non extrait, revue requise : ice_fournisseur",
+    "Champ non extrait, revue requise : client",
+    "Champ non extrait, revue requise : ice_client",
+    "Champ non extrait, revue requise : numero_facture",
+    "Champ non extrait, revue requise : date"
+  ],
+  "corrections_par_regles": [
+    {
+      "champ": "fournisseur",
+      "avant": "Me. Dupont Jacques",
+      "apres": null,
+      "raison": "Preuve OCR et role geometrique prioritaires; null si non confirme"
+    },
+    {
+      "champ": "ice_fournisseur",
+      "avant": "me.dupont@test.test",
+      "apres": null,
+      "raison": "Preuve OCR et role geometrique prioritaires; null si non confirme"
+    },
+    {
+      "champ": "client",
+      "avant": "SARL Me. Dupont Jacques au capital de 10000 Euros - 19 rue Lamartine 80000 Amiens - Siret: 112200334 4556 - APE: [NAF/APE] - RCS [Ville]",
+      "apres": null,
+      "raison": "Preuve OCR et role geometrique prioritaires; null si non confirme"
+    },
+    {
+      "champ": "ice_client",
+      "avant": "me.dupont@test.test",
+      "apres": null,
+      "raison": "Preuve OCR et role geometrique prioritaires; null si non confirme"
+    },
+    {
+      "champ": "numero_facture",
+      "avant": "20230117002",
+      "apres": null,
+      "raison": "Preuve OCR et role geometrique prioritaires; null si non confirme"
+    },
+    {
+      "champ": "date",
+      "avant": "2023-01-17",
+      "apres": null,
+      "raison": "Preuve OCR et role geometrique prioritaires; null si non confirme"
+    },
+    {
+      "champ": "devise",
+      "avant": "EUR",
+      "apres": null,
+      "raison": "Preuve OCR et role geometrique prioritaires; null si non confirme"
+    },
+    {
+      "champ": "montant_tva",
+      "avant": 633.33,
+      "apres": 639.52,
+      "raison": "Preuve OCR et role geometrique prioritaires; null si non confirme"
+    }
+  ],
+  "nombre_articles": 3,
+  "revue_humaine_requise": true,
+  "note": "Les controles ne remplacent pas la verification humaine des roles et valeurs."
+}

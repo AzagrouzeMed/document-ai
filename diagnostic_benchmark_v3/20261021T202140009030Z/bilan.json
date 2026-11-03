@@ -1,0 +1,165 @@
+{
+  "factures_distinctes": 9,
+  "executions": 12,
+  "echecs": 0,
+  "resultats_par_branche": {
+    "fr/lecture_fr": {
+      "champs": {
+        "tp": 30,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "rappel": 1.0,
+        "f1": 1.0
+      },
+      "articles": {
+        "tp": 12,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "rappel": 1.0,
+        "f1": 1.0
+      },
+      "articles_numeriques": {
+        "tp": 12,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "rappel": 1.0,
+        "f1": 1.0
+      },
+      "designations": {
+        "tp": 12,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "rappel": 1.0,
+        "f1": 1.0
+      },
+      "executions": 3,
+      "echecs": 0
+    },
+    "ar/lecture_ar": {
+      "champs": {
+        "tp": 30,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "rappel": 1.0,
+        "f1": 1.0
+      },
+      "articles": {
+        "tp": 7,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.875,
+        "rappel": 0.875,
+        "f1": 0.875
+      },
+      "articles_numeriques": {
+        "tp": 8,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "rappel": 1.0,
+        "f1": 1.0
+      },
+      "designations": {
+        "tp": 7,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.875,
+        "rappel": 0.875,
+        "f1": 0.875
+      },
+      "executions": 3,
+      "echecs": 0
+    },
+    "fr-ar/lecture_fr": {
+      "champs": {
+        "tp": 20,
+        "fp": 6,
+        "fn": 10,
+        "precision": 0.7692307692307693,
+        "rappel": 0.6666666666666666,
+        "f1": 0.7142857142857143
+      },
+      "articles": {
+        "tp": 0,
+        "fp": 14,
+        "fn": 14,
+        "precision": 0.0,
+        "rappel": 0.0,
+        "f1": 0.0
+      },
+      "articles_numeriques": {
+        "tp": 14,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "rappel": 1.0,
+        "f1": 1.0
+      },
+      "designations": {
+        "tp": 0,
+        "fp": 14,
+        "fn": 14,
+        "precision": 0.0,
+        "rappel": 0.0,
+        "f1": 0.0
+      },
+      "executions": 3,
+      "echecs": 0
+    },
+    "fr-ar/lecture_ar": {
+      "champs": {
+        "tp": 27,
+        "fp": 3,
+        "fn": 3,
+        "precision": 0.9,
+        "rappel": 0.9,
+        "f1": 0.9
+      },
+      "articles": {
+        "tp": 8,
+        "fp": 6,
+        "fn": 6,
+        "precision": 0.5714285714285714,
+        "rappel": 0.5714285714285714,
+        "f1": 0.5714285714285714
+      },
+      "articles_numeriques": {
+        "tp": 14,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "rappel": 1.0,
+        "f1": 1.0
+      },
+      "designations": {
+        "tp": 8,
+        "fp": 6,
+        "fn": 6,
+        "precision": 0.5714285714285714,
+        "rappel": 0.5714285714285714,
+        "f1": 0.5714285714285714
+      },
+      "executions": 3,
+      "echecs": 0
+    }
+  },
+  "initialisation_ocr_secondes": {},
+  "paddleocr": "OCR en cache",
+  "rejeu_ocr": true,
+  "mode": "OCR_LLM_regles",
+  "notes": [
+    "DEV uniquement, echantillon de diagnostic, pas un score final.",
+    "Une erreur de champ non nul compte comme FP et FN; une absence comme FN.",
+    "Un article est exact si designation, quantite, prix et montant correspondent.",
+    "Articles numeriques : quantite, prix et montant exacts ensemble; designations : comparaison textuelle separee sans traduction.",
+    "Les articles identiques sont comptes avec multiplicite.",
+    "Les echecs sont conserves et penalises; aucune selection du meilleur resultat bilingue.",
+    "La confiance OCR et le nombre d alertes ne constituent pas la precision mesuree.",
+    "La latence inclut les chargements du modele local pour chaque extraction."
+  ]
+}

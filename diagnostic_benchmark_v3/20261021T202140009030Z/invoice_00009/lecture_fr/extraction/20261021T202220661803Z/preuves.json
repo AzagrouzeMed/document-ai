@@ -1,0 +1,591 @@
+{
+  "fournisseur": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 9,
+        "texte": "BA ournitur AR ",
+        "bbox": [
+          850.0,
+          324.0,
+          1439.0,
+          384.0
+        ],
+        "confiance": 0.6087003350257874
+      }
+    ]
+  },
+  "ice_fournisseur": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 16,
+        "texte": "ICE: 920098531772261",
+        "bbox": [
+          848.0,
+          489.0,
+          1106.0,
+          527.0
+        ],
+        "confiance": 0.9876289367675781
+      }
+    ]
+  },
+  "client": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 8,
+        "texte": "AR  A /  ",
+        "bbox": [
+          115.0,
+          311.0,
+          707.0,
+          361.0
+        ],
+        "confiance": 0.5878706574440002
+      },
+      {
+        "id": 10,
+        "texte": ", enue Modle, ekns/",
+        "bbox": [
+          115.0,
+          354.0,
+          673.0,
+          402.0
+        ],
+        "confiance": 0.5445069074630737
+      }
+    ]
+  },
+  "ice_client": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 12,
+        "texte": "ICE:982971465989381",
+        "bbox": [
+          115.0,
+          397.0,
+          370.0,
+          434.0
+        ],
+        "confiance": 0.9993695616722107
+      }
+    ]
+  },
+  "numero_facture": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 4,
+        "texte": "DEMO-2026-00009",
+        "bbox": [
+          348.0,
+          144.0,
+          560.0,
+          184.0
+        ],
+        "confiance": 0.96897292137146
+      }
+    ]
+  },
+  "date": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 20,
+        "texte": "2026-04-13",
+        "bbox": [
+          104.0,
+          624.0,
+          238.0,
+          659.0
+        ],
+        "confiance": 0.9999513626098633
+      }
+    ]
+  },
+  "devise": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 24,
+        "texte": "MAD",
+        "bbox": [
+          1368.0,
+          652.0,
+          1431.0,
+          687.0
+        ],
+        "confiance": 0.9998924136161804
+      }
+    ]
+  },
+  "total_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 61,
+        "texte": "6 883,42",
+        "bbox": [
+          1385.0,
+          1188.0,
+          1503.0,
+          1226.0
+        ],
+        "confiance": 0.9987213015556335
+      }
+    ]
+  },
+  "montant_tva": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 65,
+        "texte": "0,00",
+        "bbox": [
+          1433.0,
+          1240.0,
+          1505.0,
+          1284.0
+        ],
+        "confiance": 0.999751627445221
+      }
+    ]
+  },
+  "total_ttc": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 69,
+        "texte": "6 883,42",
+        "bbox": [
+          1355.0,
+          1309.0,
+          1498.0,
+          1352.0
+        ],
+        "confiance": 0.987035870552063
+      }
+    ]
+  },
+  "lignes.0.designation": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 30,
+        "texte": "Ramtte aier  /   ",
+        "bbox": [
+          243.0,
+          784.0,
+          545.0,
+          823.0
+        ],
+        "confiance": 0.6880865693092346
+      }
+    ]
+  },
+  "lignes.0.quantite": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 31,
+        "texte": "16",
+        "bbox": [
+          829.0,
+          796.0,
+          871.0,
+          831.0
+        ],
+        "confiance": 0.9997963309288025
+      }
+    ]
+  },
+  "lignes.0.prix_unitaire_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 32,
+        "texte": "46,15",
+        "bbox": [
+          970.0,
+          798.0,
+          1039.0,
+          835.0
+        ],
+        "confiance": 0.999719500541687
+      }
+    ]
+  },
+  "lignes.0.montant_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 33,
+        "texte": "738,40",
+        "bbox": [
+          1183.0,
+          802.0,
+          1262.0,
+          840.0
+        ],
+        "confiance": 0.9998629093170166
+      }
+    ]
+  },
+  "lignes.1.designation": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 35,
+        "texte": "Installation du matériel /",
+        "bbox": [
+          242.0,
+          838.0,
+          594.0,
+          884.0
+        ],
+        "confiance": 0.9131816029548645
+      }
+    ]
+  },
+  "lignes.1.quantite": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 36,
+        "texte": "8",
+        "bbox": [
+          831.0,
+          858.0,
+          853.0,
+          884.0
+        ],
+        "confiance": 0.9999711513519287
+      }
+    ]
+  },
+  "lignes.1.prix_unitaire_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 37,
+        "texte": "434,14",
+        "bbox": [
+          967.0,
+          853.0,
+          1049.0,
+          894.0
+        ],
+        "confiance": 0.99956876039505
+      }
+    ]
+  },
+  "lignes.1.montant_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 38,
+        "texte": "3 473,12",
+        "bbox": [
+          1182.0,
+          860.0,
+          1277.0,
+          897.0
+        ],
+        "confiance": 0.9789206981658936
+      }
+    ]
+  },
+  "lignes.2.designation": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 40,
+        "texte": "Enveloppes commerciales /",
+        "bbox": [
+          242.0,
+          899.0,
+          602.0,
+          940.0
+        ],
+        "confiance": 0.8131646513938904
+      }
+    ]
+  },
+  "lignes.2.quantite": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 41,
+        "texte": "15",
+        "bbox": [
+          826.0,
+          910.0,
+          868.0,
+          951.0
+        ],
+        "confiance": 0.9999110102653503
+      }
+    ]
+  },
+  "lignes.2.prix_unitaire_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 42,
+        "texte": "92,16",
+        "bbox": [
+          968.0,
+          914.0,
+          1037.0,
+          952.0
+        ],
+        "confiance": 0.9955741763114929
+      }
+    ]
+  },
+  "lignes.2.montant_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 43,
+        "texte": "1 382,40",
+        "bbox": [
+          1179.0,
+          917.0,
+          1277.0,
+          957.0
+        ],
+        "confiance": 0.9961516857147217
+      }
+    ]
+  },
+  "lignes.3.designation": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 45,
+        "texte": "Souris sans i / ",
+        "bbox": [
+          238.0,
+          956.0,
+          487.0,
+          995.0
+        ],
+        "confiance": 0.7383455038070679
+      }
+    ]
+  },
+  "lignes.3.quantite": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 46,
+        "texte": "6",
+        "bbox": [
+          827.0,
+          972.0,
+          853.0,
+          1003.0
+        ],
+        "confiance": 0.9998798370361328
+      }
+    ]
+  },
+  "lignes.3.prix_unitaire_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 47,
+        "texte": "126,31",
+        "bbox": [
+          965.0,
+          971.0,
+          1043.0,
+          1008.0
+        ],
+        "confiance": 0.9998354911804199
+      }
+    ]
+  },
+  "lignes.3.montant_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 48,
+        "texte": "757,86",
+        "bbox": [
+          1179.0,
+          976.0,
+          1259.0,
+          1013.0
+        ],
+        "confiance": 0.9999213814735413
+      }
+    ]
+  },
+  "lignes.4.designation": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 50,
+        "texte": "Lot de sacs oubelle  ",
+        "bbox": [
+          237.0,
+          1014.0,
+          594.0,
+          1057.0
+        ],
+        "confiance": 0.8390908241271973
+      }
+    ]
+  },
+  "lignes.4.quantite": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 51,
+        "texte": "4",
+        "bbox": [
+          826.0,
+          1031.0,
+          851.0,
+          1061.0
+        ],
+        "confiance": 0.9999696016311646
+      }
+    ]
+  },
+  "lignes.4.prix_unitaire_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 52,
+        "texte": "22,75",
+        "bbox": [
+          964.0,
+          1030.0,
+          1032.0,
+          1068.0
+        ],
+        "confiance": 0.9947347640991211
+      }
+    ]
+  },
+  "lignes.4.montant_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 53,
+        "texte": "91,00",
+        "bbox": [
+          1177.0,
+          1035.0,
+          1247.0,
+          1072.0
+        ],
+        "confiance": 0.9997283816337585
+      }
+    ]
+  },
+  "lignes.5.designation": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 55,
+        "texte": "Classeur à levier /  ",
+        "bbox": [
+          237.0,
+          1072.0,
+          502.0,
+          1112.0
+        ],
+        "confiance": 0.9080468416213989
+      }
+    ]
+  },
+  "lignes.5.quantite": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 56,
+        "texte": "18",
+        "bbox": [
+          822.0,
+          1085.0,
+          865.0,
+          1120.0
+        ],
+        "confiance": 0.999358057975769
+      }
+    ]
+  },
+  "lignes.5.prix_unitaire_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 57,
+        "texte": "24,48",
+        "bbox": [
+          962.0,
+          1087.0,
+          1032.0,
+          1125.0
+        ],
+        "confiance": 0.9997106790542603
+      }
+    ]
+  },
+  "lignes.5.montant_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 58,
+        "texte": "440,64",
+        "bbox": [
+          1175.0,
+          1090.0,
+          1257.0,
+          1130.0
+        ],
+        "confiance": 0.997830867767334
+      }
+    ]
+  }
+}

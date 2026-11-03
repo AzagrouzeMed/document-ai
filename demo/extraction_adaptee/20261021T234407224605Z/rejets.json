@@ -1,0 +1,98 @@
+[
+  {
+    "champ": "fournisseur",
+    "valeur": "Me. Dupont Jacques",
+    "blocs": [
+      4
+    ],
+    "raison": "Role non confirme par un libelle et sa position"
+  },
+  {
+    "champ": "ice_fournisseur",
+    "valeur": "me.dupont@test.test",
+    "blocs": [
+      14
+    ],
+    "raison": "Proposition sans preuve textuelle OCR valide"
+  },
+  {
+    "champ": "ice_fournisseur",
+    "valeur": "me.dupont@test.test",
+    "blocs": [
+      14
+    ],
+    "raison": "Role non confirme par un libelle et sa position"
+  },
+  {
+    "champ": "client",
+    "valeur": "SARL Me. Dupont Jacques au capital de 10000 Euros - 19 rue Lamartine 80000 Amiens - Siret: 112200334 4556 - APE: [NAF/APE] - RCS [Ville]",
+    "blocs": [
+      66
+    ],
+    "raison": "Role non confirme par un libelle et sa position"
+  },
+  {
+    "champ": "ice_client",
+    "valeur": "me.dupont@test.test",
+    "blocs": [
+      14
+    ],
+    "raison": "Proposition sans preuve textuelle OCR valide"
+  },
+  {
+    "champ": "ice_client",
+    "valeur": "me.dupont@test.test",
+    "blocs": [
+      14
+    ],
+    "raison": "Role non confirme par un libelle et sa position"
+  },
+  {
+    "champ": "numero_facture",
+    "valeur": "20230117002",
+    "blocs": [
+      2
+    ],
+    "raison": "Role non confirme par un libelle et sa position"
+  },
+  {
+    "champ": "date",
+    "valeur": "2023-01-17",
+    "blocs": [
+      2
+    ],
+    "raison": "Proposition sans preuve textuelle OCR valide"
+  },
+  {
+    "champ": "date",
+    "valeur": "2023-01-17",
+    "blocs": [
+      2
+    ],
+    "raison": "Role non confirme par un libelle et sa position"
+  },
+  {
+    "champ": "devise",
+    "valeur": "EUR",
+    "blocs": [
+      1
+    ],
+    "raison": "Proposition sans preuve textuelle OCR valide"
+  },
+  {
+    "champ": "devise",
+    "valeur": "EUR",
+    "blocs": [
+      1
+    ],
+    "raison": "Valeur finale sans preuve valide"
+  },
+  {
+    "champ": "total_ht",
+    "valeur": 3590.48,
+    "blocs": [
+      63
+    ],
+    "raison": "Proposition sans preuve textuelle OCR valide"
+  }
+]

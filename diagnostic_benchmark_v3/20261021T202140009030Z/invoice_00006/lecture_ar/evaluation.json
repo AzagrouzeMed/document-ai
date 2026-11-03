@@ -1,0 +1,98 @@
+{
+  "champs": {
+    "tp": 9,
+    "fp": 1,
+    "fn": 1,
+    "precision": 0.9,
+    "rappel": 0.9,
+    "f1": 0.9
+  },
+  "articles": {
+    "tp": 5,
+    "fp": 1,
+    "fn": 1,
+    "precision": 0.8333333333333334,
+    "rappel": 0.8333333333333334,
+    "f1": 0.8333333333333334
+  },
+  "articles_numeriques": {
+    "tp": 6,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "rappel": 1.0,
+    "f1": 1.0
+  },
+  "designations": {
+    "tp": 5,
+    "fp": 1,
+    "fn": 1,
+    "precision": 0.8333333333333334,
+    "rappel": 0.8333333333333334,
+    "f1": 0.8333333333333334
+  },
+  "detail": [
+    {
+      "champ": "fournisseur",
+      "reference": "NOUR Fournitures SARL / نور للتوريدات",
+      "prediction": "NOUR Fournitures SARL / نور للتوریدات",
+      "correct": false
+    },
+    {
+      "champ": "ice_fournisseur",
+      "reference": "926997818974530",
+      "prediction": "926997818974530",
+      "correct": true
+    },
+    {
+      "champ": "client",
+      "reference": "ANDALOUS Services SARL / الأندلس للخدمات",
+      "prediction": "ANDALOUS Services SARL / الأندلس للخدمات",
+      "correct": true
+    },
+    {
+      "champ": "ice_client",
+      "reference": "971751062995843",
+      "prediction": "971751062995843",
+      "correct": true
+    },
+    {
+      "champ": "numero_facture",
+      "reference": "DEMO-2025-00006",
+      "prediction": "DEMO-2025-00006",
+      "correct": true
+    },
+    {
+      "champ": "date",
+      "reference": "2025-08-27",
+      "prediction": "2025-08-27",
+      "correct": true
+    },
+    {
+      "champ": "devise",
+      "reference": "MAD",
+      "prediction": "MAD",
+      "correct": true
+    },
+    {
+      "champ": "total_ht",
+      "reference": 23929.49,
+      "prediction": 23929.49,
+      "correct": true
+    },
+    {
+      "champ": "montant_tva",
+      "reference": 4785.9,
+      "prediction": 4785.9,
+      "correct": true
+    },
+    {
+      "champ": "total_ttc",
+      "reference": 28715.39,
+      "prediction": 28715.39,
+      "correct": true
+    }
+  ],
+  "n_articles_attendus": 6,
+  "n_articles_predits": 6
+}

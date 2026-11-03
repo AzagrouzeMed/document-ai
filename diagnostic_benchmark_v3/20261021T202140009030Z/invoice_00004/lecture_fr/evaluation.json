@@ -1,0 +1,98 @@
+{
+  "champs": {
+    "tp": 6,
+    "fp": 2,
+    "fn": 4,
+    "precision": 0.75,
+    "rappel": 0.6,
+    "f1": 0.6666666666666666
+  },
+  "articles": {
+    "tp": 0,
+    "fp": 2,
+    "fn": 2,
+    "precision": 0.0,
+    "rappel": 0.0,
+    "f1": 0.0
+  },
+  "articles_numeriques": {
+    "tp": 2,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "rappel": 1.0,
+    "f1": 1.0
+  },
+  "designations": {
+    "tp": 0,
+    "fp": 2,
+    "fn": 2,
+    "precision": 0.0,
+    "rappel": 0.0,
+    "f1": 0.0
+  },
+  "detail": [
+    {
+      "champ": "fournisseur",
+      "reference": "RIHAB Fournitures SARL / رحاب للتوريدات",
+      "prediction": "SAHARA Srvics SARL",
+      "correct": false
+    },
+    {
+      "champ": "ice_fournisseur",
+      "reference": "907635672011823",
+      "prediction": null,
+      "correct": false
+    },
+    {
+      "champ": "client",
+      "reference": "SAHARA Services SARL / الصحراء للخدمات",
+      "prediction": "rihab.demo@example.com",
+      "correct": false
+    },
+    {
+      "champ": "ice_client",
+      "reference": "945666639616992",
+      "prediction": null,
+      "correct": false
+    },
+    {
+      "champ": "numero_facture",
+      "reference": "DEMO-2025-00004",
+      "prediction": "DEMO-2025-00004",
+      "correct": true
+    },
+    {
+      "champ": "date",
+      "reference": "2025-06-16",
+      "prediction": "2025-06-16",
+      "correct": true
+    },
+    {
+      "champ": "devise",
+      "reference": "MAD",
+      "prediction": "MAD",
+      "correct": true
+    },
+    {
+      "champ": "total_ht",
+      "reference": 10404.73,
+      "prediction": 10404.73,
+      "correct": true
+    },
+    {
+      "champ": "montant_tva",
+      "reference": 2080.95,
+      "prediction": 2080.95,
+      "correct": true
+    },
+    {
+      "champ": "total_ttc",
+      "reference": 12485.68,
+      "prediction": 12485.68,
+      "correct": true
+    }
+  ],
+  "n_articles_attendus": 2,
+  "n_articles_predits": 2
+}

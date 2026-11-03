@@ -1,0 +1,16 @@
+{
+  "statut": "a_verifier",
+  "alertes": [
+    "Extracteur experimental; revue humaine des champs et des dimensions requise.",
+    "Prix unitaires, HT et TVA non extraits; aucune repartition du TTC par ligne."
+  ],
+  "nombre_articles": 36,
+  "nombre_pages": 2,
+  "quantite_totale_extraite": 36.0,
+  "quantite_totale_annoncee": 36,
+  "controle_quantite_total": "coherent",
+  "couverture_pages_complete": true,
+  "extraction_document_complete": false,
+  "revue_humaine_requise": true,
+  "note": "Regroupement des pages et extraction des dimensions; aucune validation generale ni extraction exhaustive des champs."
+}

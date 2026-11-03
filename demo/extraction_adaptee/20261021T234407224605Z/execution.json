@@ -1,0 +1,24 @@
+{
+  "version_script": "6+demo1",
+  "approche": "A_OCR_LLM_champs_regles_tableau",
+  "modele": "qwen2.5vl:3b",
+  "reponse_archivee": null,
+  "generation_modele_executee": true,
+  "ocr": "C:\\Users\\User\\document-ai\\demo\\ocr.json",
+  "ocr_secondaire": null,
+  "secondes_llm": 10.821,
+  "geometrie_tableau": {
+    "y_debut": 515.0,
+    "y_fin": 943.0,
+    "colonnes_numeriques": {
+      "quantite": 769.0,
+      "prix_unitaire_ht": 694.0,
+      "montant_ht": 907.5
+    },
+    "pente": 0,
+    "adaptateur_experimental": true
+  },
+  "utilise_annotations_reference": false,
+  "adaptateur": "demo_experimental_1",
+  "resultats_test_v6_applicables": false
+}

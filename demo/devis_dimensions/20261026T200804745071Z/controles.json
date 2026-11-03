@@ -1,0 +1,5 @@
+{
+  "statut": "echec_extraction",
+  "erreur": "Pages non consecutives depuis la premiere page.",
+  "revue_humaine_requise": true
+}

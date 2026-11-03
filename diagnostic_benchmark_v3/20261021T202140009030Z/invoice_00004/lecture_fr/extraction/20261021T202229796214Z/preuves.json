@@ -1,0 +1,274 @@
+{
+  "fournisseur": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 7,
+        "texte": "SAHARA Srvics SARL / ",
+        "bbox": [
+          916.0,
+          310.0,
+          1393.0,
+          359.0
+        ],
+        "confiance": 0.6836233735084534
+      }
+    ]
+  },
+  "client": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 14,
+        "texte": "rihab.demo@example.com",
+        "bbox": [
+          78.0,
+          464.0,
+          370.0,
+          503.0
+        ],
+        "confiance": 0.9998283982276917
+      }
+    ]
+  },
+  "numero_facture": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 3,
+        "texte": "DEMO-2025-00004",
+        "bbox": [
+          1275.0,
+          116.0,
+          1485.0,
+          154.0
+        ],
+        "confiance": 0.9948009848594666
+      }
+    ]
+  },
+  "date": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 25,
+        "texte": "2025-06-16",
+        "bbox": [
+          79.0,
+          690.0,
+          215.0,
+          725.0
+        ],
+        "confiance": 0.9999717473983765
+      }
+    ]
+  },
+  "devise": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 22,
+        "texte": "MAD",
+        "bbox": [
+          1344.0,
+          655.0,
+          1405.0,
+          686.0
+        ],
+        "confiance": 0.9998898506164551
+      }
+    ]
+  },
+  "total_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 38,
+        "texte": "10 404,73",
+        "bbox": [
+          1369.0,
+          951.0,
+          1499.0,
+          991.0
+        ],
+        "confiance": 0.9993828535079956
+      }
+    ]
+  },
+  "montant_tva": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 41,
+        "texte": "2 080,95",
+        "bbox": [
+          1385.0,
+          1008.0,
+          1500.0,
+          1043.0
+        ],
+        "confiance": 0.9974917769432068
+      }
+    ]
+  },
+  "total_ttc": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 45,
+        "texte": "12 485,68",
+        "bbox": [
+          1344.0,
+          1078.0,
+          1502.0,
+          1116.0
+        ],
+        "confiance": 0.9994396567344666
+      }
+    ]
+  },
+  "lignes.0.designation": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 32,
+        "texte": "Classeur à levier / ",
+        "bbox": [
+          229.0,
+          838.0,
+          490.0,
+          875.0
+        ],
+        "confiance": 0.8772984743118286
+      }
+    ]
+  },
+  "lignes.0.quantite": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 30,
+        "texte": "7",
+        "bbox": [
+          817.0,
+          831.0,
+          838.0,
+          856.0
+        ],
+        "confiance": 0.9999432563781738
+      }
+    ]
+  },
+  "lignes.0.prix_unitaire_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 28,
+        "texte": "27,31",
+        "bbox": [
+          955.0,
+          821.0,
+          1020.0,
+          854.0
+        ],
+        "confiance": 0.9997440576553345
+      }
+    ]
+  },
+  "lignes.0.montant_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 29,
+        "texte": "191,17",
+        "bbox": [
+          1168.0,
+          813.0,
+          1245.0,
+          848.0
+        ],
+        "confiance": 0.9997120499610901
+      }
+    ]
+  },
+  "lignes.1.designation": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 37,
+        "texte": "Chaise de bureau /",
+        "bbox": [
+          231.0,
+          897.0,
+          511.0,
+          932.0
+        ],
+        "confiance": 0.8506903052330017
+      }
+    ]
+  },
+  "lignes.1.quantite": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 35,
+        "texte": "18",
+        "bbox": [
+          818.0,
+          885.0,
+          854.0,
+          915.0
+        ],
+        "confiance": 0.9999282360076904
+      }
+    ]
+  },
+  "lignes.1.prix_unitaire_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 33,
+        "texte": "567,42",
+        "bbox": [
+          959.0,
+          880.0,
+          1032.0,
+          910.0
+        ],
+        "confiance": 0.9988736510276794
+      }
+    ]
+  },
+  "lignes.1.montant_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 34,
+        "texte": "10 213,56",
+        "bbox": [
+          1172.0,
+          872.0,
+          1274.0,
+          904.0
+        ],
+        "confiance": 0.9993095397949219
+      }
+    ]
+  }
+}

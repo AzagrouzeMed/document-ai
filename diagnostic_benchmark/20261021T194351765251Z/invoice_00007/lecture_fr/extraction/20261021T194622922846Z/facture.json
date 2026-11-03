@@ -1,0 +1,38 @@
+{
+  "fournisseur": "ATLAS Fournitures SARL",
+  "ice_fournisseur": "962459521219916",
+  "client": "MANAR Services SARL",
+  "ice_client": "901497905253692",
+  "numero_facture": "DEMO-2025-00007",
+  "date": "2025-10-17",
+  "devise": "MAD",
+  "total_ht": 4715.76,
+  "montant_tva": 943.15,
+  "total_ttc": 5658.91,
+  "lignes": [
+    {
+      "designation": "Maintenance informatique",
+      "quantite": 8.0,
+      "prix_unitaire_ht": 222.97,
+      "montant_ht": 1783.76
+    },
+    {
+      "designation": "Produit nettoyant 5 L",
+      "quantite": 15.0,
+      "prix_unitaire_ht": 81.31,
+      "montant_ht": 1219.65
+    },
+    {
+      "designation": "Installation du matériel",
+      "quantite": 10.0,
+      "prix_unitaire_ht": 163.89,
+      "montant_ht": 1638.9
+    },
+    {
+      "designation": "Souris sans fil",
+      "quantite": 1.0,
+      "prix_unitaire_ht": 73.45,
+      "montant_ht": 73.45
+    }
+  ]
+}

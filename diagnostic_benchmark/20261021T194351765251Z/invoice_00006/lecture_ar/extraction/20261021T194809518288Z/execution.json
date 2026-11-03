@@ -1,0 +1,69 @@
+{
+  "version_script": 2,
+  "approche": "A_OCR_LLM_champs_regles_tableau",
+  "modele": "qwen2.5vl:3b",
+  "ocr": "C:\\Users\\User\\document-ai\\results\\benchmark_dev\\20261021T194351765251Z\\invoice_00006\\lecture_ar\\ocr.json",
+  "secondes_llm": 10.25,
+  "geometrie_tableau": {
+    "y_debut": 837.0,
+    "y_fin": 1241.0,
+    "colonnes": {
+      "montant_ht": {
+        "id": 30,
+        "texte": "Montant HT / المبلغ دون الضربة",
+        "bbox": [
+          1174.0,
+          803.0,
+          1488.0,
+          835.0
+        ],
+        "confiance": 0.9513134360313416
+      },
+      "designation": {
+        "id": 28,
+        "texte": "Désignation / البيان",
+        "bbox": [
+          235.0,
+          806.0,
+          430.0,
+          833.0
+        ],
+        "confiance": 0.951987087726593
+      },
+      "reference": {
+        "id": 27,
+        "texte": "Réf. / المرجع",
+        "bbox": [
+          83.0,
+          803.0,
+          217.0,
+          837.0
+        ],
+        "confiance": 0.9368085861206055
+      },
+      "quantite": {
+        "id": 29,
+        "texte": "Qté/ الكميةPUHT / ثمن الوحدة",
+        "bbox": [
+          827.0,
+          805.0,
+          1157.0,
+          835.0
+        ],
+        "confiance": 0.8905263543128967
+      },
+      "prix_unitaire_ht": {
+        "id": 29,
+        "texte": "Qté/ الكميةPUHT / ثمن الوحدة",
+        "bbox": [
+          827.0,
+          805.0,
+          1157.0,
+          835.0
+        ],
+        "confiance": 0.8905263543128967
+      }
+    }
+  },
+  "utilise_annotations_reference": false
+}

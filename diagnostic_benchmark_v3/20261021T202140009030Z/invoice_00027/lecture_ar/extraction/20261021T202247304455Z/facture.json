@@ -1,0 +1,32 @@
+{
+  "fournisseur": "صفاء للتوريدات",
+  "ice_fournisseur": "920458498796392",
+  "client": "رحاب للخدمات",
+  "ice_client": "996558731526028",
+  "numero_facture": "DEMO-2026-00027",
+  "date": "2026-06-11",
+  "devise": "MAD",
+  "total_ht": 13592.26,
+  "montant_tva": 1359.23,
+  "total_ttc": 14951.49,
+  "lignes": [
+    {
+      "designation": "لوحة مفاتيح",
+      "quantite": 5.0,
+      "prix_unitaire_ht": 259.04,
+      "montant_ht": 1295.2
+    },
+    {
+      "designation": "منظف 5 لترات",
+      "quantite": 18.0,
+      "prix_unitaire_ht": 72.11,
+      "montant_ht": 1297.98
+    },
+    {
+      "designation": "تركيب المعدات",
+      "quantite": 18.0,
+      "prix_unitaire_ht": 611.06,
+      "montant_ht": 10999.08
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "version_script": 2,
+  "approche": "A_OCR_LLM_champs_regles_tableau",
+  "modele": "qwen2.5vl:3b",
+  "ocr": "C:\\Users\\User\\document-ai\\results\\benchmark_dev\\20261021T194351765251Z\\invoice_00001\\lecture_ar\\ocr.json",
+  "secondes_llm": 10.936,
+  "geometrie_tableau": {
+    "y_debut": 809.0,
+    "y_fin": 1115.0,
+    "colonnes": {
+      "designation": {
+        "id": 27,
+        "texte": "البيان",
+        "bbox": [
+          1263.0,
+          760.0,
+          1340.0,
+          806.0
+        ],
+        "confiance": 0.8170661330223083
+      },
+      "montant_ht": {
+        "id": 24,
+        "texte": "المبلغ دون الضريبة",
+        "bbox": [
+          200.0,
+          765.0,
+          396.0,
+          804.0
+        ],
+        "confiance": 0.978083610534668
+      },
+      "prix_unitaire_ht": {
+        "id": 25,
+        "texte": "ثمن الوحدة",
+        "bbox": [
+          485.0,
+          764.0,
+          614.0,
+          805.0
+        ],
+        "confiance": 0.999589741230011
+      },
+      "quantite": {
+        "id": 26,
+        "texte": "الكمية",
+        "bbox": [
+          673.0,
+          766.0,
+          749.0,
+          803.0
+        ],
+        "confiance": 0.9962842464447021
+      },
+      "reference": {
+        "id": 28,
+        "texte": "المرجع",
+        "bbox": [
+          1418.0,
+          761.0,
+          1508.0,
+          809.0
+        ],
+        "confiance": 0.8055245876312256
+      }
+    }
+  },
+  "utilise_annotations_reference": false
+}

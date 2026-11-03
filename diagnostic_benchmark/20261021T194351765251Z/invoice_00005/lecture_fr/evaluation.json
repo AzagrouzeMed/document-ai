@@ -1,0 +1,82 @@
+{
+  "champs": {
+    "tp": 10,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "rappel": 1.0,
+    "f1": 1.0
+  },
+  "articles": {
+    "tp": 4,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "rappel": 1.0,
+    "f1": 1.0
+  },
+  "detail": [
+    {
+      "champ": "fournisseur",
+      "reference": "NAKHIL Fournitures SARL",
+      "prediction": "NAKHIL Fournitures SARL",
+      "correct": true
+    },
+    {
+      "champ": "ice_fournisseur",
+      "reference": "957836640368476",
+      "prediction": "957836640368476",
+      "correct": true
+    },
+    {
+      "champ": "client",
+      "reference": "NAKHIL Services SARL",
+      "prediction": "NAKHIL Services SARL",
+      "correct": true
+    },
+    {
+      "champ": "ice_client",
+      "reference": "965470344808122",
+      "prediction": "965470344808122",
+      "correct": true
+    },
+    {
+      "champ": "numero_facture",
+      "reference": "DEMO-2025-00005",
+      "prediction": "DEMO-2025-00005",
+      "correct": true
+    },
+    {
+      "champ": "date",
+      "reference": "2025-08-27",
+      "prediction": "2025-08-27",
+      "correct": true
+    },
+    {
+      "champ": "devise",
+      "reference": "MAD",
+      "prediction": "MAD",
+      "correct": true
+    },
+    {
+      "champ": "total_ht",
+      "reference": 10923.66,
+      "prediction": 10923.66,
+      "correct": true
+    },
+    {
+      "champ": "montant_tva",
+      "reference": 2184.73,
+      "prediction": 2184.73,
+      "correct": true
+    },
+    {
+      "champ": "total_ttc",
+      "reference": 13108.39,
+      "prediction": 13108.39,
+      "correct": true
+    }
+  ],
+  "n_articles_attendus": 4,
+  "n_articles_predits": 4
+}

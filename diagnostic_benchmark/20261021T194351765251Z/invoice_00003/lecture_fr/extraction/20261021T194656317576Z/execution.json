@@ -1,0 +1,69 @@
+{
+  "version_script": 2,
+  "approche": "A_OCR_LLM_champs_regles_tableau",
+  "modele": "qwen2.5vl:3b",
+  "ocr": "C:\\Users\\User\\document-ai\\results\\benchmark_dev\\20261021T194351765251Z\\invoice_00003\\lecture_fr\\ocr.json",
+  "secondes_llm": 10.048,
+  "geometrie_tableau": {
+    "y_debut": 795.0,
+    "y_fin": 1105.0,
+    "colonnes": {
+      "reference": {
+        "id": 24,
+        "texte": "Réf.",
+        "bbox": [
+          82.0,
+          756.0,
+          141.0,
+          790.0
+        ],
+        "confiance": 0.9991363286972046
+      },
+      "designation": {
+        "id": 25,
+        "texte": "Désignation",
+        "bbox": [
+          292.0,
+          756.0,
+          436.0,
+          792.0
+        ],
+        "confiance": 0.999891996383667
+      },
+      "prix_unitaire_ht": {
+        "id": 27,
+        "texte": "PU HT",
+        "bbox": [
+          1011.0,
+          759.0,
+          1091.0,
+          791.0
+        ],
+        "confiance": 0.9946404695510864
+      },
+      "quantite": {
+        "id": 26,
+        "texte": "Qté",
+        "bbox": [
+          876.0,
+          756.0,
+          935.0,
+          795.0
+        ],
+        "confiance": 0.9997078776359558
+      },
+      "montant_ht": {
+        "id": 28,
+        "texte": "Montant HT",
+        "bbox": [
+          1217.0,
+          760.0,
+          1359.0,
+          791.0
+        ],
+        "confiance": 0.9852737188339233
+      }
+    }
+  },
+  "utilise_annotations_reference": false
+}

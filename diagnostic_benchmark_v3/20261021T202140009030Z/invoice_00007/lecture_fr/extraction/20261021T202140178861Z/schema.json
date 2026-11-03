@@ -1,0 +1,117 @@
+{
+  "$defs": {
+    "NValue": {
+      "additionalProperties": false,
+      "properties": {
+        "valeur": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Valeur"
+        },
+        "bloc": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Bloc"
+        }
+      },
+      "required": [
+        "valeur",
+        "bloc"
+      ],
+      "title": "NValue",
+      "type": "object"
+    },
+    "SValue": {
+      "additionalProperties": false,
+      "properties": {
+        "valeur": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Valeur"
+        },
+        "bloc": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Bloc"
+        }
+      },
+      "required": [
+        "valeur",
+        "bloc"
+      ],
+      "title": "SValue",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "fournisseur": {
+      "$ref": "#/$defs/SValue"
+    },
+    "ice_fournisseur": {
+      "$ref": "#/$defs/SValue"
+    },
+    "client": {
+      "$ref": "#/$defs/SValue"
+    },
+    "ice_client": {
+      "$ref": "#/$defs/SValue"
+    },
+    "numero_facture": {
+      "$ref": "#/$defs/SValue"
+    },
+    "date": {
+      "$ref": "#/$defs/SValue"
+    },
+    "devise": {
+      "$ref": "#/$defs/SValue"
+    },
+    "total_ht": {
+      "$ref": "#/$defs/NValue"
+    },
+    "montant_tva": {
+      "$ref": "#/$defs/NValue"
+    },
+    "total_ttc": {
+      "$ref": "#/$defs/NValue"
+    }
+  },
+  "required": [
+    "fournisseur",
+    "ice_fournisseur",
+    "client",
+    "ice_client",
+    "numero_facture",
+    "date",
+    "devise",
+    "total_ht",
+    "montant_tva",
+    "total_ttc"
+  ],
+  "title": "Header",
+  "type": "object"
+}

@@ -1,0 +1,13 @@
+{
+  "statut": "a_verifier",
+  "alertes": [
+    "Valeur a verifier dans les blocs cites : date",
+    "Valeur a verifier dans les blocs cites : total_ht",
+    "Valeur a verifier dans les blocs cites : total_ttc",
+    "Somme des lignes differente du total HT"
+  ],
+  "corrections_par_regles": [],
+  "nombre_articles": 3,
+  "revue_humaine_requise": true,
+  "note": "Les controles ne remplacent pas la verification humaine des roles et valeurs."
+}

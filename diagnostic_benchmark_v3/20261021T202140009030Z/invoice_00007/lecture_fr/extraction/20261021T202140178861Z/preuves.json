@@ -1,0 +1,444 @@
+{
+  "fournisseur": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 8,
+        "texte": "ATLAS Fournitures SARL",
+        "bbox": [
+          99.0,
+          344.0,
+          458.0,
+          377.0
+        ],
+        "confiance": 0.9972640872001648
+      }
+    ]
+  },
+  "ice_fournisseur": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 16,
+        "texte": "ICE:962459521219916",
+        "bbox": [
+          98.0,
+          517.0,
+          404.0,
+          550.0
+        ],
+        "confiance": 0.9997304677963257
+      }
+    ]
+  },
+  "client": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 9,
+        "texte": "MANAR Services SARL",
+        "bbox": [
+          837.0,
+          346.0,
+          1168.0,
+          376.0
+        ],
+        "confiance": 0.997306227684021
+      }
+    ]
+  },
+  "ice_client": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 13,
+        "texte": "ICE:901497905253692",
+        "bbox": [
+          835.0,
+          433.0,
+          1138.0,
+          465.0
+        ],
+        "confiance": 0.9996953010559082
+      }
+    ]
+  },
+  "numero_facture": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 4,
+        "texte": "DEMO-2025-00007",
+        "bbox": [
+          163.0,
+          171.0,
+          400.0,
+          203.0
+        ],
+        "confiance": 0.9732345938682556
+      }
+    ]
+  },
+  "date": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 21,
+        "texte": "2025-10-17",
+        "bbox": [
+          93.0,
+          673.0,
+          249.0,
+          707.0
+        ],
+        "confiance": 0.9999681711196899
+      }
+    ]
+  },
+  "devise": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 24,
+        "texte": "MAD",
+        "bbox": [
+          1415.0,
+          668.0,
+          1488.0,
+          710.0
+        ],
+        "confiance": 0.999866783618927
+      }
+    ]
+  },
+  "total_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 51,
+        "texte": "4 715,76",
+        "bbox": [
+          452.0,
+          1119.0,
+          579.0,
+          1154.0
+        ],
+        "confiance": 0.997923731803894
+      }
+    ]
+  },
+  "montant_tva": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 55,
+        "texte": "943,15",
+        "bbox": [
+          476.0,
+          1177.0,
+          578.0,
+          1213.0
+        ],
+        "confiance": 0.9999701976776123
+      }
+    ]
+  },
+  "total_ttc": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 59,
+        "texte": "5 658,91",
+        "bbox": [
+          407.0,
+          1250.0,
+          575.0,
+          1296.0
+        ],
+        "confiance": 0.9984861016273499
+      }
+    ]
+  },
+  "lignes.0.designation": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 31,
+        "texte": "Maintenance informatique",
+        "bbox": [
+          292.0,
+          836.0,
+          592.0,
+          866.0
+        ],
+        "confiance": 0.9965681433677673
+      }
+    ]
+  },
+  "lignes.0.quantite": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 32,
+        "texte": "8",
+        "bbox": [
+          878.0,
+          835.0,
+          906.0,
+          865.0
+        ],
+        "confiance": 0.9998902082443237
+      }
+    ]
+  },
+  "lignes.0.prix_unitaire_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 33,
+        "texte": "222,97",
+        "bbox": [
+          1009.0,
+          831.0,
+          1102.0,
+          868.0
+        ],
+        "confiance": 0.9999247193336487
+      }
+    ]
+  },
+  "lignes.0.montant_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 34,
+        "texte": "1 783,76",
+        "bbox": [
+          1215.0,
+          834.0,
+          1327.0,
+          866.0
+        ],
+        "confiance": 0.9971792697906494
+      }
+    ]
+  },
+  "lignes.1.designation": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 36,
+        "texte": "Produit nettoyant 5 L",
+        "bbox": [
+          292.0,
+          899.0,
+          539.0,
+          930.0
+        ],
+        "confiance": 0.9817070960998535
+      }
+    ]
+  },
+  "lignes.1.quantite": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 37,
+        "texte": "15",
+        "bbox": [
+          874.0,
+          891.0,
+          925.0,
+          935.0
+        ],
+        "confiance": 0.9999365210533142
+      }
+    ]
+  },
+  "lignes.1.prix_unitaire_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 38,
+        "texte": "81,31",
+        "bbox": [
+          1010.0,
+          895.0,
+          1090.0,
+          932.0
+        ],
+        "confiance": 0.9999622106552124
+      }
+    ]
+  },
+  "lignes.1.montant_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 39,
+        "texte": "1 219,65",
+        "bbox": [
+          1215.0,
+          898.0,
+          1326.0,
+          930.0
+        ],
+        "confiance": 0.9981149435043335
+      }
+    ]
+  },
+  "lignes.2.designation": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 41,
+        "texte": "Installation du matériel",
+        "bbox": [
+          292.0,
+          964.0,
+          561.0,
+          994.0
+        ],
+        "confiance": 0.9972119927406311
+      }
+    ]
+  },
+  "lignes.2.quantite": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 42,
+        "texte": "10",
+        "bbox": [
+          875.0,
+          956.0,
+          925.0,
+          998.0
+        ],
+        "confiance": 0.9989123344421387
+      }
+    ]
+  },
+  "lignes.2.prix_unitaire_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 43,
+        "texte": "163,89",
+        "bbox": [
+          1011.0,
+          960.0,
+          1103.0,
+          996.0
+        ],
+        "confiance": 0.999917209148407
+      }
+    ]
+  },
+  "lignes.2.montant_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 44,
+        "texte": "1 638,90",
+        "bbox": [
+          1215.0,
+          963.0,
+          1327.0,
+          995.0
+        ],
+        "confiance": 0.9991395473480225
+      }
+    ]
+  },
+  "lignes.3.designation": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 46,
+        "texte": "Souris sans fil",
+        "bbox": [
+          290.0,
+          1024.0,
+          461.0,
+          1061.0
+        ],
+        "confiance": 0.9818018674850464
+      }
+    ]
+  },
+  "lignes.3.quantite": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 47,
+        "texte": "1",
+        "bbox": [
+          878.0,
+          1027.0,
+          905.0,
+          1059.0
+        ],
+        "confiance": 0.999221920967102
+      }
+    ]
+  },
+  "lignes.3.prix_unitaire_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 48,
+        "texte": "73,45",
+        "bbox": [
+          1009.0,
+          1023.0,
+          1090.0,
+          1061.0
+        ],
+        "confiance": 0.9999614953994751
+      }
+    ]
+  },
+  "lignes.3.montant_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 49,
+        "texte": "73,45",
+        "bbox": [
+          1213.0,
+          1024.0,
+          1293.0,
+          1061.0
+        ],
+        "confiance": 0.9999696016311646
+      }
+    ]
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "version_script": 2,
+  "approche": "A_OCR_LLM_champs_regles_tableau",
+  "modele": "qwen2.5vl:3b",
+  "ocr": "C:\\Users\\User\\document-ai\\results\\benchmark_dev\\20261021T194351765251Z\\invoice_00009\\lecture_ar\\ocr.json",
+  "secondes_llm": 9.601,
+  "geometrie_tableau": {
+    "y_debut": 787.0,
+    "y_fin": 1177.0,
+    "colonnes": {
+      "reference": {
+        "id": 25,
+        "texte": "Réf. / المرجع",
+        "bbox": [
+          91.0,
+          721.0,
+          255.0,
+          759.0
+        ],
+        "confiance": 0.9068904519081116
+      },
+      "designation": {
+        "id": 26,
+        "texte": "Désignation / البيان",
+        "bbox": [
+          237.0,
+          724.0,
+          447.0,
+          761.0
+        ],
+        "confiance": 0.9691984057426453
+      },
+      "quantite": {
+        "id": 27,
+        "texte": "Qt/ ثمن الوحدة /الكمية",
+        "bbox": [
+          831.0,
+          736.0,
+          1170.0,
+          778.0
+        ],
+        "confiance": 0.9008899927139282
+      },
+      "prix_unitaire_ht": {
+        "id": 27,
+        "texte": "Qt/ ثمن الوحدة /الكمية",
+        "bbox": [
+          831.0,
+          736.0,
+          1170.0,
+          778.0
+        ],
+        "confiance": 0.9008899927139282
+      },
+      "montant_ht": {
+        "id": 28,
+        "texte": "Montaالمبلغ دون الضريبة /  ا",
+        "bbox": [
+          1181.0,
+          746.0,
+          1505.0,
+          787.0
+        ],
+        "confiance": 0.8431898355484009
+      }
+    }
+  },
+  "utilise_annotations_reference": false
+}

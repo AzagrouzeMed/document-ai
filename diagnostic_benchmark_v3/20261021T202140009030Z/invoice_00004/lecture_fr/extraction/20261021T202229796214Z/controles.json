@@ -1,0 +1,36 @@
+{
+  "statut": "a_verifier",
+  "alertes": [
+    "Champ non extrait, revue requise : ice_fournisseur",
+    "Champ non extrait, revue requise : ice_client"
+  ],
+  "corrections_par_regles": [
+    {
+      "champ": "ice_fournisseur",
+      "avant": "945666639616992",
+      "apres": null,
+      "raison": "Valeur OCR unique associee au libelle et a la position; ICE null si ambigu"
+    },
+    {
+      "champ": "ice_client",
+      "avant": "907635672011823",
+      "apres": null,
+      "raison": "Valeur OCR unique associee au libelle et a la position; ICE null si ambigu"
+    },
+    {
+      "champ": "numero_facture",
+      "avant": "BC-DEMO-47448",
+      "apres": "DEMO-2025-00004",
+      "raison": "Valeur OCR unique associee au libelle et a la position; ICE null si ambigu"
+    },
+    {
+      "champ": "date",
+      "avant": "2025-07-16",
+      "apres": "2025-06-16",
+      "raison": "Valeur OCR unique associee au libelle et a la position; ICE null si ambigu"
+    }
+  ],
+  "nombre_articles": 2,
+  "revue_humaine_requise": true,
+  "note": "Les controles ne remplacent pas la verification humaine des roles et valeurs."
+}

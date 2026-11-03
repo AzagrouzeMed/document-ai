@@ -1,0 +1,5 @@
+{
+  "statut": "echec_extraction",
+  "erreur": "En-tete designation absent ou ambigu.",
+  "revue_humaine_requise": true
+}

@@ -1,0 +1,22 @@
+{
+  "statut": "a_verifier",
+  "alertes": [
+    "Cellule numerique illisible : lignes.0.prix_unitaire_ht",
+    "Cellule numerique illisible : lignes.1.prix_unitaire_ht",
+    "Cellule numerique illisible : lignes.2.prix_unitaire_ht",
+    "Cellule numerique illisible : lignes.3.prix_unitaire_ht",
+    "Cellule numerique illisible : lignes.4.prix_unitaire_ht",
+    "Cellule numerique illisible : lignes.5.prix_unitaire_ht",
+    "Valeur a verifier dans les blocs cites : fournisseur",
+    "Valeur a verifier dans les blocs cites : total_ttc",
+    "Valeur a verifier dans les blocs cites : lignes.1.quantite",
+    "Valeur a verifier dans les blocs cites : lignes.2.quantite",
+    "Valeur a verifier dans les blocs cites : lignes.3.quantite",
+    "Valeur a verifier dans les blocs cites : lignes.4.quantite",
+    "Valeur a verifier dans les blocs cites : lignes.5.quantite"
+  ],
+  "corrections_par_regles": [],
+  "nombre_articles": 6,
+  "revue_humaine_requise": true,
+  "note": "Les controles ne remplacent pas la verification humaine des roles et valeurs."
+}

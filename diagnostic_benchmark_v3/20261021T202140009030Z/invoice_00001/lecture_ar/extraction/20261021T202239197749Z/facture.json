@@ -1,0 +1,38 @@
+{
+  "fournisseur": "صفاء للتوريدات",
+  "ice_fournisseur": "947490362814236",
+  "client": "الريف للخدمات",
+  "ice_client": "921797507502129",
+  "numero_facture": "DEMO-2025-00001",
+  "date": "2025-11-20",
+  "devise": "MAD",
+  "total_ht": 1247.9,
+  "montant_tva": 124.79,
+  "total_ttc": 1372.69,
+  "lignes": [
+    {
+      "designation": "حزمة أكياس نفايات",
+      "quantite": 8.0,
+      "prix_unitaire_ht": 31.01,
+      "montant_ht": 248.08
+    },
+    {
+      "designation": "A4 رزمة ورق",
+      "quantite": 10.0,
+      "prix_unitaire_ht": 31.66,
+      "montant_ht": 316.6
+    },
+    {
+      "designation": "منظف 5 لترات",
+      "quantite": 8.0,
+      "prix_unitaire_ht": 54.39,
+      "montant_ht": 435.12
+    },
+    {
+      "designation": "علبة أقلام",
+      "quantite": 6.0,
+      "prix_unitaire_ht": 41.35,
+      "montant_ht": 248.1
+    }
+  ]
+}

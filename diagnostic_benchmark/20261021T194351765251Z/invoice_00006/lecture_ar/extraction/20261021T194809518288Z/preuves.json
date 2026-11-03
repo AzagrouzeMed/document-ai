@@ -1,0 +1,544 @@
+{
+  "fournisseur": {
+    "statut": "a_verifier",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 7,
+        "texte": "NOUR Fournitures SARL / نور للتوریدات",
+        "bbox": [
+          98.0,
+          328.0,
+          651.0,
+          371.0
+        ],
+        "confiance": 0.9514520764350891
+      }
+    ]
+  },
+  "ice_fournisseur": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 16,
+        "texte": "ICE: 926997818974530",
+        "bbox": [
+          101.0,
+          495.0,
+          368.0,
+          522.0
+        ],
+        "confiance": 0.9979326128959656
+      }
+    ]
+  },
+  "client": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 8,
+        "texte": "ANDALOUS Services SARL / الأندلس",
+        "bbox": [
+          941.0,
+          331.0,
+          1458.0,
+          368.0
+        ],
+        "confiance": 0.9436320066452026
+      }
+    ]
+  },
+  "ice_client": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 15,
+        "texte": "ICE: 971751062995843",
+        "bbox": [
+          944.0,
+          484.0,
+          1211.0,
+          511.0
+        ],
+        "confiance": 0.993698000907898
+      }
+    ]
+  },
+  "numero_facture": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 3,
+        "texte": "DEMO-2025-00006",
+        "bbox": [
+          322.0,
+          157.0,
+          540.0,
+          191.0
+        ],
+        "confiance": 0.9966883063316345
+      }
+    ]
+  },
+  "date": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 23,
+        "texte": "2025-08-27",
+        "bbox": [
+          94.0,
+          709.0,
+          231.0,
+          737.0
+        ],
+        "confiance": 0.9992152452468872
+      }
+    ]
+  },
+  "devise": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 26,
+        "texte": "MAD",
+        "bbox": [
+          1353.0,
+          706.0,
+          1418.0,
+          740.0
+        ],
+        "confiance": 0.9946184754371643
+      }
+    ]
+  },
+  "total_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 63,
+        "texte": "23 929,49",
+        "bbox": [
+          509.0,
+          1242.0,
+          644.0,
+          1274.0
+        ],
+        "confiance": 0.9964730739593506
+      }
+    ]
+  },
+  "montant_tva": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 66,
+        "texte": "4 785,90",
+        "bbox": [
+          525.0,
+          1296.0,
+          645.0,
+          1329.0
+        ],
+        "confiance": 0.9718252420425415
+      }
+    ]
+  },
+  "total_ttc": {
+    "statut": "a_verifier",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 70,
+        "texte": "Livraison/ 24-08-2025 : التسليم",
+        "bbox": [
+          698.0,
+          1357.0,
+          1006.0,
+          1387.0
+        ],
+        "confiance": 0.9844019412994385
+      }
+    ]
+  },
+  "lignes.0.designation": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 32,
+        "texte": "Frais de livraison / مصاريف التسليم",
+        "bbox": [
+          236.0,
+          861.0,
+          553.0,
+          894.0
+        ],
+        "confiance": 0.9321286678314209
+      }
+    ]
+  },
+  "lignes.0.quantite": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 33,
+        "texte": "4",
+        "bbox": [
+          826.0,
+          866.0,
+          848.0,
+          889.0
+        ],
+        "confiance": 0.9996390342712402
+      },
+      {
+        "id": 34,
+        "texte": "104,70",
+        "bbox": [
+          961.0,
+          860.0,
+          1043.0,
+          896.0
+        ],
+        "confiance": 0.9989957213401794
+      }
+    ]
+  },
+  "lignes.0.montant_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 35,
+        "texte": "418,80",
+        "bbox": [
+          1176.0,
+          863.0,
+          1253.0,
+          892.0
+        ],
+        "confiance": 0.9986388087272644
+      }
+    ]
+  },
+  "lignes.1.designation": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 37,
+        "texte": "Installation du matériel / تركيب المعدات",
+        "bbox": [
+          236.0,
+          917.0,
+          606.0,
+          954.0
+        ],
+        "confiance": 0.9824216961860657
+      }
+    ]
+  },
+  "lignes.1.quantite": {
+    "statut": "a_verifier",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 38,
+        "texte": "14",
+        "bbox": [
+          822.0,
+          919.0,
+          863.0,
+          955.0
+        ],
+        "confiance": 0.9996784925460815
+      },
+      {
+        "id": 39,
+        "texte": "352,45",
+        "bbox": [
+          963.0,
+          918.0,
+          1042.0,
+          952.0
+        ],
+        "confiance": 0.9551417231559753
+      }
+    ]
+  },
+  "lignes.1.montant_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 40,
+        "texte": "4 934,30",
+        "bbox": [
+          1176.0,
+          920.0,
+          1271.0,
+          950.0
+        ],
+        "confiance": 0.9909393191337585
+      }
+    ]
+  },
+  "lignes.2.designation": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 42,
+        "texte": "Chaise de bureau / كرسي مكتب",
+        "bbox": [
+          237.0,
+          979.0,
+          534.0,
+          1011.0
+        ],
+        "confiance": 0.968048095703125
+      }
+    ]
+  },
+  "lignes.2.quantite": {
+    "statut": "a_verifier",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 43,
+        "texte": "11",
+        "bbox": [
+          822.0,
+          977.0,
+          863.0,
+          1012.0
+        ],
+        "confiance": 0.9993420839309692
+      },
+      {
+        "id": 44,
+        "texte": "1 032,27",
+        "bbox": [
+          963.0,
+          978.0,
+          1059.0,
+          1010.0
+        ],
+        "confiance": 0.9792165756225586
+      }
+    ]
+  },
+  "lignes.2.montant_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 45,
+        "texte": "11 354,97",
+        "bbox": [
+          1176.0,
+          979.0,
+          1282.0,
+          1010.0
+        ],
+        "confiance": 0.9968344569206238
+      }
+    ]
+  },
+  "lignes.3.designation": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 47,
+        "texte": "Maintenance informatique / صيانة الحاسوب",
+        "bbox": [
+          238.0,
+          1038.0,
+          637.0,
+          1068.0
+        ],
+        "confiance": 0.9925726056098938
+      }
+    ]
+  },
+  "lignes.3.quantite": {
+    "statut": "a_verifier",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 48,
+        "texte": "9",
+        "bbox": [
+          826.0,
+          1040.0,
+          849.0,
+          1065.0
+        ],
+        "confiance": 0.9795483350753784
+      },
+      {
+        "id": 49,
+        "texte": "637,53",
+        "bbox": [
+          963.0,
+          1035.0,
+          1044.0,
+          1068.0
+        ],
+        "confiance": 0.999075710773468
+      }
+    ]
+  },
+  "lignes.3.montant_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 50,
+        "texte": "5 737,77",
+        "bbox": [
+          1176.0,
+          1037.0,
+          1270.0,
+          1066.0
+        ],
+        "confiance": 0.982623279094696
+      }
+    ]
+  },
+  "lignes.4.designation": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 52,
+        "texte": "Enveloppes commerciales / أظرفة تجارية",
+        "bbox": [
+          237.0,
+          1094.0,
+          615.0,
+          1125.0
+        ],
+        "confiance": 0.9833271503448486
+      }
+    ]
+  },
+  "lignes.4.quantite": {
+    "statut": "a_verifier",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 53,
+        "texte": "9",
+        "bbox": [
+          827.0,
+          1099.0,
+          849.0,
+          1124.0
+        ],
+        "confiance": 0.9980844259262085
+      },
+      {
+        "id": 54,
+        "texte": "128,96",
+        "bbox": [
+          961.0,
+          1092.0,
+          1043.0,
+          1127.0
+        ],
+        "confiance": 0.9973136782646179
+      }
+    ]
+  },
+  "lignes.4.montant_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 55,
+        "texte": "1 160,64",
+        "bbox": [
+          1176.0,
+          1096.0,
+          1271.0,
+          1124.0
+        ],
+        "confiance": 0.9703043699264526
+      }
+    ]
+  },
+  "lignes.5.designation": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 57,
+        "texte": "Classeur a levier / ملف برافعة",
+        "bbox": [
+          237.0,
+          1153.0,
+          510.0,
+          1182.0
+        ],
+        "confiance": 0.9803909063339233
+      }
+    ]
+  },
+  "lignes.5.quantite": {
+    "statut": "a_verifier",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 58,
+        "texte": "9",
+        "bbox": [
+          825.0,
+          1154.0,
+          851.0,
+          1182.0
+        ],
+        "confiance": 0.9799094796180725
+      },
+      {
+        "id": 59,
+        "texte": "35,89",
+        "bbox": [
+          962.0,
+          1151.0,
+          1031.0,
+          1184.0
+        ],
+        "confiance": 0.996512234210968
+      }
+    ]
+  },
+  "lignes.5.montant_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 60,
+        "texte": "323,01",
+        "bbox": [
+          1175.0,
+          1151.0,
+          1255.0,
+          1184.0
+        ],
+        "confiance": 0.9986769556999207
+      }
+    ]
+  }
+}

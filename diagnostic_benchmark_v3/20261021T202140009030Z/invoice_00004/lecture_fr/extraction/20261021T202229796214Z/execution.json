@@ -1,0 +1,18 @@
+{
+  "version_script": 3,
+  "approche": "A_OCR_LLM_champs_regles_tableau",
+  "modele": "qwen2.5vl:3b",
+  "ocr": "C:\\Users\\User\\document-ai\\results\\benchmark_dev\\20261021T202140009030Z\\invoice_00004\\lecture_fr\\ocr.json",
+  "secondes_llm": 9.208,
+  "geometrie_tableau": {
+    "y_debut": 747.0,
+    "y_fin": 937.0,
+    "colonnes_numeriques": {
+      "quantite": 831.75,
+      "prix_unitaire_ht": 991.5,
+      "montant_ht": 1214.75
+    },
+    "pente": -0.03170189098998888
+  },
+  "utilise_annotations_reference": false
+}

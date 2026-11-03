@@ -1,0 +1,8 @@
+{
+  "statut": "controles_automatiques_passes",
+  "alertes": [],
+  "corrections_par_regles": [],
+  "nombre_articles": 4,
+  "revue_humaine_requise": true,
+  "note": "Les controles ne remplacent pas la verification humaine des roles et valeurs."
+}

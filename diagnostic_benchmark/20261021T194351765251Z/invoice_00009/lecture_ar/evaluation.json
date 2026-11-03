@@ -1,0 +1,82 @@
+{
+  "champs": {
+    "tp": 10,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "rappel": 1.0,
+    "f1": 1.0
+  },
+  "articles": {
+    "tp": 0,
+    "fp": 6,
+    "fn": 6,
+    "precision": 0.0,
+    "rappel": 0.0,
+    "f1": 0.0
+  },
+  "detail": [
+    {
+      "champ": "fournisseur",
+      "reference": "BAHJA Fournitures SARL / بهجة للتوريدات",
+      "prediction": "BAHJA Fournitures SARL / بهجة للتوريدات",
+      "correct": true
+    },
+    {
+      "champ": "ice_fournisseur",
+      "reference": "920098531772261",
+      "prediction": "920098531772261",
+      "correct": true
+    },
+    {
+      "champ": "client",
+      "reference": "SAHARA Services SARL / الصحراء للخدمات",
+      "prediction": "SAHARA Services SARL / الصحراء للخدمات",
+      "correct": true
+    },
+    {
+      "champ": "ice_client",
+      "reference": "982971465989381",
+      "prediction": "982971465989381",
+      "correct": true
+    },
+    {
+      "champ": "numero_facture",
+      "reference": "DEMO-2026-00009",
+      "prediction": "DEMO-2026-00009",
+      "correct": true
+    },
+    {
+      "champ": "date",
+      "reference": "2026-04-13",
+      "prediction": "2026-04-13",
+      "correct": true
+    },
+    {
+      "champ": "devise",
+      "reference": "MAD",
+      "prediction": "MAD",
+      "correct": true
+    },
+    {
+      "champ": "total_ht",
+      "reference": 6883.42,
+      "prediction": 6883.42,
+      "correct": true
+    },
+    {
+      "champ": "montant_tva",
+      "reference": 0.0,
+      "prediction": 0.0,
+      "correct": true
+    },
+    {
+      "champ": "total_ttc",
+      "reference": 6883.42,
+      "prediction": 6883.42,
+      "correct": true
+    }
+  ],
+  "n_articles_attendus": 6,
+  "n_articles_predits": 6
+}

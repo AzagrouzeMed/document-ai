@@ -1,0 +1,45 @@
+{
+  "statut": "a_verifier",
+  "alertes": [
+    "Valeur a verifier dans les blocs cites : fournisseur",
+    "Valeur a verifier dans les blocs cites : client",
+    "Valeur a verifier dans les blocs cites : total_ttc",
+    "Champ non extrait, revue requise : ice_fournisseur",
+    "Champ non extrait, revue requise : ice_client"
+  ],
+  "corrections_par_regles": [
+    {
+      "champ": "ice_fournisseur",
+      "avant": "971751062995843",
+      "apres": null,
+      "raison": "Valeur OCR unique associee au libelle et a la position; ICE null si ambigu"
+    },
+    {
+      "champ": "ice_client",
+      "avant": "926997818974530",
+      "apres": null,
+      "raison": "Valeur OCR unique associee au libelle et a la position; ICE null si ambigu"
+    },
+    {
+      "champ": "numero_facture",
+      "avant": "BC-DEMO-22280",
+      "apres": "DEMO-2025-00006",
+      "raison": "Valeur OCR unique associee au libelle et a la position; ICE null si ambigu"
+    },
+    {
+      "champ": "date",
+      "avant": "2025-09-26",
+      "apres": "2025-08-27",
+      "raison": "Valeur OCR unique associee au libelle et a la position; ICE null si ambigu"
+    },
+    {
+      "champ": "devise",
+      "avant": "2025-08-27",
+      "apres": "MAD",
+      "raison": "Valeur OCR unique associee au libelle et a la position; ICE null si ambigu"
+    }
+  ],
+  "nombre_articles": 6,
+  "revue_humaine_requise": true,
+  "note": "Les controles ne remplacent pas la verification humaine des roles et valeurs."
+}

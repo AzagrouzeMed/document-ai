@@ -1,0 +1,444 @@
+{
+  "fournisseur": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 8,
+        "texte": "NAKHIL Fournitures SARL",
+        "bbox": [
+          92.0,
+          346.0,
+          472.0,
+          385.0
+        ],
+        "confiance": 0.9863861799240112
+      }
+    ]
+  },
+  "ice_fournisseur": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 15,
+        "texte": "ICE:957836640368476",
+        "bbox": [
+          94.0,
+          518.0,
+          401.0,
+          558.0
+        ],
+        "confiance": 0.9994893074035645
+      }
+    ]
+  },
+  "client": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 7,
+        "texte": "NAKHIL Services SARL",
+        "bbox": [
+          829.0,
+          336.0,
+          1165.0,
+          375.0
+        ],
+        "confiance": 0.9945107698440552
+      }
+    ]
+  },
+  "ice_client": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 11,
+        "texte": "ICE:965470344808122",
+        "bbox": [
+          831.0,
+          425.0,
+          1135.0,
+          463.0
+        ],
+        "confiance": 0.9996193051338196
+      }
+    ]
+  },
+  "numero_facture": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 4,
+        "texte": "DEMO-2025-00005",
+        "bbox": [
+          148.0,
+          175.0,
+          388.0,
+          213.0
+        ],
+        "confiance": 0.9865980744361877
+      }
+    ]
+  },
+  "date": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 23,
+        "texte": "2025-08-27",
+        "bbox": [
+          87.0,
+          677.0,
+          242.0,
+          711.0
+        ],
+        "confiance": 0.9999760389328003
+      }
+    ]
+  },
+  "devise": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 20,
+        "texte": "MAD",
+        "bbox": [
+          1408.0,
+          654.0,
+          1481.0,
+          696.0
+        ],
+        "confiance": 0.9998536705970764
+      }
+    ]
+  },
+  "total_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 51,
+        "texte": "10 923,66",
+        "bbox": [
+          1363.0,
+          1105.0,
+          1505.0,
+          1142.0
+        ],
+        "confiance": 0.9989457726478577
+      }
+    ]
+  },
+  "montant_tva": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 54,
+        "texte": "2 184,73",
+        "bbox": [
+          1377.0,
+          1163.0,
+          1505.0,
+          1201.0
+        ],
+        "confiance": 0.9909468293190002
+      }
+    ]
+  },
+  "total_ttc": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 58,
+        "texte": "13 108,39",
+        "bbox": [
+          1314.0,
+          1240.0,
+          1501.0,
+          1282.0
+        ],
+        "confiance": 0.9645297527313232
+      }
+    ]
+  },
+  "lignes.0.designation": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 33,
+        "texte": "Clavier USB",
+        "bbox": [
+          300.0,
+          835.0,
+          442.0,
+          867.0
+        ],
+        "confiance": 0.9995852112770081
+      }
+    ]
+  },
+  "lignes.0.quantite": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 29,
+        "texte": "7",
+        "bbox": [
+          884.0,
+          828.0,
+          914.0,
+          863.0
+        ],
+        "confiance": 0.9999406337738037
+      }
+    ]
+  },
+  "lignes.0.prix_unitaire_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 30,
+        "texte": "186,22",
+        "bbox": [
+          1018.0,
+          826.0,
+          1107.0,
+          859.0
+        ],
+        "confiance": 0.9999709129333496
+      }
+    ]
+  },
+  "lignes.0.montant_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 31,
+        "texte": "1 303,54",
+        "bbox": [
+          1215.0,
+          820.0,
+          1329.0,
+          858.0
+        ],
+        "confiance": 0.9990964531898499
+      }
+    ]
+  },
+  "lignes.1.designation": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 38,
+        "texte": "Frais de livraison",
+        "bbox": [
+          300.0,
+          900.0,
+          500.0,
+          931.0
+        ],
+        "confiance": 0.9999487996101379
+      }
+    ]
+  },
+  "lignes.1.quantite": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 34,
+        "texte": "18",
+        "bbox": [
+          883.0,
+          890.0,
+          931.0,
+          929.0
+        ],
+        "confiance": 0.9998416900634766
+      }
+    ]
+  },
+  "lignes.1.prix_unitaire_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 35,
+        "texte": "113,03",
+        "bbox": [
+          1017.0,
+          888.0,
+          1109.0,
+          924.0
+        ],
+        "confiance": 0.9997223019599915
+      }
+    ]
+  },
+  "lignes.1.montant_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 36,
+        "texte": "2 034,54",
+        "bbox": [
+          1215.0,
+          884.0,
+          1329.0,
+          922.0
+        ],
+        "confiance": 0.9450125694274902
+      }
+    ]
+  },
+  "lignes.2.designation": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 43,
+        "texte": "Chaise de bureau",
+        "bbox": [
+          302.0,
+          965.0,
+          509.0,
+          996.0
+        ],
+        "confiance": 0.9932032823562622
+      }
+    ]
+  },
+  "lignes.2.quantite": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 39,
+        "texte": "8",
+        "bbox": [
+          886.0,
+          957.0,
+          916.0,
+          991.0
+        ],
+        "confiance": 0.99982088804245
+      }
+    ]
+  },
+  "lignes.2.prix_unitaire_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 40,
+        "texte": "930,93",
+        "bbox": [
+          1019.0,
+          954.0,
+          1109.0,
+          987.0
+        ],
+        "confiance": 0.9997496604919434
+      }
+    ]
+  },
+  "lignes.2.montant_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 41,
+        "texte": "7 447,44",
+        "bbox": [
+          1219.0,
+          952.0,
+          1329.0,
+          984.0
+        ],
+        "confiance": 0.9989944696426392
+      }
+    ]
+  },
+  "lignes.3.designation": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 48,
+        "texte": "Boîte de stylos",
+        "bbox": [
+          301.0,
+          1027.0,
+          478.0,
+          1062.0
+        ],
+        "confiance": 0.999832272529602
+      }
+    ]
+  },
+  "lignes.3.quantite": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 44,
+        "texte": "2",
+        "bbox": [
+          888.0,
+          1022.0,
+          914.0,
+          1054.0
+        ],
+        "confiance": 0.9996565580368042
+      }
+    ]
+  },
+  "lignes.3.prix_unitaire_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 45,
+        "texte": "69,07",
+        "bbox": [
+          1019.0,
+          1016.0,
+          1096.0,
+          1053.0
+        ],
+        "confiance": 0.9994897842407227
+      }
+    ]
+  },
+  "lignes.3.montant_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 46,
+        "texte": "138,14",
+        "bbox": [
+          1219.0,
+          1016.0,
+          1309.0,
+          1049.0
+        ],
+        "confiance": 0.9999375939369202
+      }
+    ]
+  }
+}

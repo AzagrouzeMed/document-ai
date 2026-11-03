@@ -1,0 +1,36 @@
+DATASET DOCUMENT AI FR / AR - VERSION 1
+
+Le dossier data/dataset_v1 inclus contient le corpus deja genere.
+Vous pouvez le copier dans votre projet document-ai/data/.
+Ne pas melanger les 3 anciennes factures pilotes au test final.
+
+POUR REGENERER SUR VOTRE MACHINE (optionnel)
+1. Copier scripts/generate_dataset.py, scripts/validate_dataset.py et
+   scripts/labels_source.py dans document-ai/scripts/.
+2. Copier templates/invoice.html dans document-ai/templates/.
+3. Depuis document-ai, installer la dependance de validation PDF :
+   .\.venv\Scripts\python.exe -m pip install "pypdf>=5,<7"
+   Les autres bibliotheques ont deja ete installees dans la conversation.
+4. Essai de toutes les mises en page (36 factures) :
+   .\.venv\Scripts\python.exe .\scripts\generate_dataset.py --documents 36 --test 12 --output data\essai36
+5. Generer 300 factures dans un NOUVEAU dossier :
+   .\.venv\Scripts\python.exe .\scripts\generate_dataset.py --documents 300 --test 100 --output data\dataset_local
+6. Verifier :
+   .\.venv\Scripts\python.exe .\scripts\validate_dataset.py --dataset data\dataset_local
+
+Le script refuse un dossier de sortie non vide pour preserver vos donnees.
+Il ne faut PAS relancer la generation dans data/dataset_v1 deja fourni.
+Un telechargement Chromium n'est necessaire que s'il manque sur la machine :
+   .\.venv\Scripts\python.exe -m playwright install chromium
+Tout fonctionne hors ligne apres installation des dependances et Chromium.
+
+CONSULTER LE JEU FOURNI
+   Start-Process .\data\dataset_v1\dev\images
+   Get-Content .\data\dataset_v1\summary.json -Encoding UTF8
+
+Les images JPEG sont les entrees de l'evaluation.
+Les PDF sont des references PROPRES : ne pas utiliser leur texte embarque
+pour evaluer les performances OCR ou la robustesse sur images degradees.
+Les JSON contiennent les reponses : ne pas les donner au pipeline evalue.
+
+Voir DATASET_CARD.md pour les limites et la procedure de revue humaine.

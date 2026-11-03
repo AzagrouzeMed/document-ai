@@ -1,0 +1,319 @@
+{
+  "fournisseur": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 8,
+        "texte": "RIHAB Fournitures SARL / رحاب للتوریدات",
+        "bbox": [
+          73.0,
+          333.0,
+          666.0,
+          387.0
+        ],
+        "confiance": 0.9794040322303772
+      }
+    ]
+  },
+  "ice_fournisseur": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 16,
+        "texte": "ICE: 907635672011823",
+        "bbox": [
+          80.0,
+          504.0,
+          337.0,
+          544.0
+        ],
+        "confiance": 0.9961282014846802
+      }
+    ]
+  },
+  "client": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 7,
+        "texte": "SAHARA Services SARL / لصحراءl",
+        "bbox": [
+          916.0,
+          310.0,
+          1393.0,
+          359.0
+        ],
+        "confiance": 0.9181755185127258
+      },
+      {
+        "id": 9,
+        "texte": "للخدمات",
+        "bbox": [
+          920.0,
+          352.0,
+          1037.0,
+          389.0
+        ],
+        "confiance": 0.8303722143173218
+      }
+    ]
+  },
+  "ice_client": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 13,
+        "texte": "ICE: 945666639616992",
+        "bbox": [
+          922.0,
+          433.0,
+          1178.0,
+          473.0
+        ],
+        "confiance": 0.9978510737419128
+      }
+    ]
+  },
+  "numero_facture": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 3,
+        "texte": "DEMO-2025-00004",
+        "bbox": [
+          1275.0,
+          116.0,
+          1485.0,
+          154.0
+        ],
+        "confiance": 0.9874750971794128
+      }
+    ]
+  },
+  "date": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 25,
+        "texte": "2025-06-16",
+        "bbox": [
+          79.0,
+          690.0,
+          215.0,
+          725.0
+        ],
+        "confiance": 0.9994562268257141
+      }
+    ]
+  },
+  "devise": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 22,
+        "texte": "MAD",
+        "bbox": [
+          1344.0,
+          655.0,
+          1405.0,
+          686.0
+        ],
+        "confiance": 0.9920558929443359
+      }
+    ]
+  },
+  "total_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 38,
+        "texte": "10 404,73",
+        "bbox": [
+          1369.0,
+          951.0,
+          1499.0,
+          991.0
+        ],
+        "confiance": 0.9981979727745056
+      }
+    ]
+  },
+  "montant_tva": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 41,
+        "texte": "2 080,95",
+        "bbox": [
+          1385.0,
+          1008.0,
+          1500.0,
+          1043.0
+        ],
+        "confiance": 0.9919484257698059
+      }
+    ]
+  },
+  "total_ttc": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 45,
+        "texte": "12 485,68",
+        "bbox": [
+          1344.0,
+          1078.0,
+          1502.0,
+          1116.0
+        ],
+        "confiance": 0.9978368282318115
+      }
+    ]
+  },
+  "lignes.0.designation": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 32,
+        "texte": "Caseur  lاvi ملف برافعة",
+        "bbox": [
+          229.0,
+          838.0,
+          490.0,
+          875.0
+        ],
+        "confiance": 0.8633509278297424
+      }
+    ]
+  },
+  "lignes.0.quantite": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 30,
+        "texte": "7",
+        "bbox": [
+          817.0,
+          831.0,
+          838.0,
+          856.0
+        ],
+        "confiance": 0.9955359697341919
+      }
+    ]
+  },
+  "lignes.0.prix_unitaire_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 28,
+        "texte": "27,31",
+        "bbox": [
+          955.0,
+          821.0,
+          1020.0,
+          854.0
+        ],
+        "confiance": 0.9985749125480652
+      }
+    ]
+  },
+  "lignes.0.montant_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 29,
+        "texte": "191,17",
+        "bbox": [
+          1168.0,
+          813.0,
+          1245.0,
+          848.0
+        ],
+        "confiance": 0.9989086985588074
+      }
+    ]
+  },
+  "lignes.1.designation": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 37,
+        "texte": "Chaie d burea / كرسي مكتب",
+        "bbox": [
+          231.0,
+          897.0,
+          511.0,
+          932.0
+        ],
+        "confiance": 0.8644275665283203
+      }
+    ]
+  },
+  "lignes.1.quantite": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 35,
+        "texte": "18",
+        "bbox": [
+          818.0,
+          885.0,
+          854.0,
+          915.0
+        ],
+        "confiance": 0.9991612434387207
+      }
+    ]
+  },
+  "lignes.1.prix_unitaire_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 33,
+        "texte": "567,42",
+        "bbox": [
+          959.0,
+          880.0,
+          1032.0,
+          910.0
+        ],
+        "confiance": 0.9658754467964172
+      }
+    ]
+  },
+  "lignes.1.montant_ht": {
+    "statut": "support_textuel",
+    "page": 1,
+    "blocs": [
+      {
+        "id": 34,
+        "texte": "10 213,56",
+        "bbox": [
+          1172.0,
+          872.0,
+          1274.0,
+          904.0
+        ],
+        "confiance": 0.9778701066970825
+      }
+    ]
+  }
+}

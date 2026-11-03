@@ -1,0 +1,26 @@
+{
+  "fournisseur": "SAHARA Srvics SARL",
+  "ice_fournisseur": null,
+  "client": "rihab.demo@example.com",
+  "ice_client": null,
+  "numero_facture": "DEMO-2025-00004",
+  "date": "2025-06-16",
+  "devise": "MAD",
+  "total_ht": 10404.73,
+  "montant_tva": 2080.95,
+  "total_ttc": 12485.68,
+  "lignes": [
+    {
+      "designation": "Classeur à levier /",
+      "quantite": 7.0,
+      "prix_unitaire_ht": 27.31,
+      "montant_ht": 191.17
+    },
+    {
+      "designation": "Chaise de bureau /",
+      "quantite": 18.0,
+      "prix_unitaire_ht": 567.42,
+      "montant_ht": 10213.56
+    }
+  ]
+}

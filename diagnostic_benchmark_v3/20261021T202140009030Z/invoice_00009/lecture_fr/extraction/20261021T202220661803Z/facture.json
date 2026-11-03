@@ -1,0 +1,50 @@
+{
+  "fournisseur": "BA ournitur AR ",
+  "ice_fournisseur": "920098531772261",
+  "client": "AR  A /   , enue Modle, ekns/",
+  "ice_client": "982971465989381",
+  "numero_facture": "DEMO-2026-00009",
+  "date": "2026-04-13",
+  "devise": "MAD",
+  "total_ht": 6883.42,
+  "montant_tva": 0.0,
+  "total_ttc": 6883.42,
+  "lignes": [
+    {
+      "designation": "Ramtte aier  /",
+      "quantite": 16.0,
+      "prix_unitaire_ht": 46.15,
+      "montant_ht": 738.4
+    },
+    {
+      "designation": "Installation du matériel /",
+      "quantite": 8.0,
+      "prix_unitaire_ht": 434.14,
+      "montant_ht": 3473.12
+    },
+    {
+      "designation": "Enveloppes commerciales /",
+      "quantite": 15.0,
+      "prix_unitaire_ht": 92.16,
+      "montant_ht": 1382.4
+    },
+    {
+      "designation": "Souris sans i /",
+      "quantite": 6.0,
+      "prix_unitaire_ht": 126.31,
+      "montant_ht": 757.86
+    },
+    {
+      "designation": "Lot de sacs oubelle",
+      "quantite": 4.0,
+      "prix_unitaire_ht": 22.75,
+      "montant_ht": 91.0
+    },
+    {
+      "designation": "Classeur à levier /",
+      "quantite": 18.0,
+      "prix_unitaire_ht": 24.48,
+      "montant_ht": 440.64
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "champs": {
+    "tp": 10,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "rappel": 1.0,
+    "f1": 1.0
+  },
+  "articles": {
+    "tp": 4,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "rappel": 1.0,
+    "f1": 1.0
+  },
+  "articles_numeriques": {
+    "tp": 4,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "rappel": 1.0,
+    "f1": 1.0
+  },
+  "designations": {
+    "tp": 4,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "rappel": 1.0,
+    "f1": 1.0
+  },
+  "detail": [
+    {
+      "champ": "fournisseur",
+      "reference": "ATLAS Fournitures SARL",
+      "prediction": "ATLAS Fournitures SARL",
+      "correct": true
+    },
+    {
+      "champ": "ice_fournisseur",
+      "reference": "962459521219916",
+      "prediction": "962459521219916",
+      "correct": true
+    },
+    {
+      "champ": "client",
+      "reference": "MANAR Services SARL",
+      "prediction": "MANAR Services SARL",
+      "correct": true
+    },
+    {
+      "champ": "ice_client",
+      "reference": "901497905253692",
+      "prediction": "901497905253692",
+      "correct": true
+    },
+    {
+      "champ": "numero_facture",
+      "reference": "DEMO-2025-00007",
+      "prediction": "DEMO-2025-00007",
+      "correct": true
+    },
+    {
+      "champ": "date",
+      "reference": "2025-10-17",
+      "prediction": "2025-10-17",
+      "correct": true
+    },
+    {
+      "champ": "devise",
+      "reference": "MAD",
+      "prediction": "MAD",
+      "correct": true
+    },
+    {
+      "champ": "total_ht",
+      "reference": 4715.76,
+      "prediction": 4715.76,
+      "correct": true
+    },
+    {
+      "champ": "montant_tva",
+      "reference": 943.15,
+      "prediction": 943.15,
+      "correct": true
+    },
+    {
+      "champ": "total_ttc",
+      "reference": 5658.91,
+      "prediction": 5658.91,
+      "correct": true
+    }
+  ],
+  "n_articles_attendus": 4,
+  "n_articles_predits": 4
+}

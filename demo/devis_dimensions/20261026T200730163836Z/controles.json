@@ -1,0 +1,12 @@
+{
+  "statut": "a_verifier",
+  "alertes": [
+    "Extracteur experimental de devis a dimensions; verification humaine requise.",
+    "Les dimensions en cm ne sont pas des prix; aucun montant calcule.",
+    "Une seule page traitee; aucun regroupement multipage effectue.",
+    "Prix, devise et totaux non extraits par cet adaptateur de dimensions."
+  ],
+  "nombre_articles": 16,
+  "revue_humaine_requise": true,
+  "extraction_document_complete": false
+}

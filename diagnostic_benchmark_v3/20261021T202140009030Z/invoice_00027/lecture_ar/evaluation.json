@@ -1,0 +1,98 @@
+{
+  "champs": {
+    "tp": 10,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "rappel": 1.0,
+    "f1": 1.0
+  },
+  "articles": {
+    "tp": 3,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "rappel": 1.0,
+    "f1": 1.0
+  },
+  "articles_numeriques": {
+    "tp": 3,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "rappel": 1.0,
+    "f1": 1.0
+  },
+  "designations": {
+    "tp": 3,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "rappel": 1.0,
+    "f1": 1.0
+  },
+  "detail": [
+    {
+      "champ": "fournisseur",
+      "reference": "صفاء للتوريدات",
+      "prediction": "صفاء للتوريدات",
+      "correct": true
+    },
+    {
+      "champ": "ice_fournisseur",
+      "reference": "920458498796392",
+      "prediction": "920458498796392",
+      "correct": true
+    },
+    {
+      "champ": "client",
+      "reference": "رحاب للخدمات",
+      "prediction": "رحاب للخدمات",
+      "correct": true
+    },
+    {
+      "champ": "ice_client",
+      "reference": "996558731526028",
+      "prediction": "996558731526028",
+      "correct": true
+    },
+    {
+      "champ": "numero_facture",
+      "reference": "DEMO-2026-00027",
+      "prediction": "DEMO-2026-00027",
+      "correct": true
+    },
+    {
+      "champ": "date",
+      "reference": "2026-06-11",
+      "prediction": "2026-06-11",
+      "correct": true
+    },
+    {
+      "champ": "devise",
+      "reference": "MAD",
+      "prediction": "MAD",
+      "correct": true
+    },
+    {
+      "champ": "total_ht",
+      "reference": 13592.26,
+      "prediction": 13592.26,
+      "correct": true
+    },
+    {
+      "champ": "montant_tva",
+      "reference": 1359.23,
+      "prediction": 1359.23,
+      "correct": true
+    },
+    {
+      "champ": "total_ttc",
+      "reference": 14951.49,
+      "prediction": 14951.49,
+      "correct": true
+    }
+  ],
+  "n_articles_attendus": 3,
+  "n_articles_predits": 3
+}

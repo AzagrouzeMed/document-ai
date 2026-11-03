@@ -1,0 +1,32 @@
+{
+  "fournisseur": null,
+  "ice_fournisseur": null,
+  "client": null,
+  "ice_client": null,
+  "numero_facture": null,
+  "date": null,
+  "devise": null,
+  "total_ht": 3590.48,
+  "montant_tva": 639.52,
+  "total_ttc": 4230.0,
+  "lignes": [
+    {
+      "designation": "Honoraires Lorem ipsum dolor sit amet. Ut voluptatem explicabo et vitae est aut voluptatibus numquam eum accusantium doloribus.",
+      "quantite": 10.0,
+      "prix_unitaire_ht": 316.67,
+      "montant_ht": 3166.67
+    },
+    {
+      "designation": "Frais Et veniam nobis ea voluptatum quia rem qui assumenda nihil est nisi fuga qui pariatur amet :",
+      "quantite": 1.0,
+      "prix_unitaire_ht": 123.81,
+      "montant_ht": 123.81
+    },
+    {
+      "designation": "Debours Aut praesentium voluptatem non dolor voluptas ut repudiandae obcaecati est officiis molestiae.",
+      "quantite": 1.0,
+      "prix_unitaire_ht": 300.0,
+      "montant_ht": 300.0
+    }
+  ]
+}

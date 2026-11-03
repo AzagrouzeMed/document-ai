@@ -1,0 +1,98 @@
+{
+  "champs": {
+    "tp": 10,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "rappel": 1.0,
+    "f1": 1.0
+  },
+  "articles": {
+    "tp": 3,
+    "fp": 1,
+    "fn": 1,
+    "precision": 0.75,
+    "rappel": 0.75,
+    "f1": 0.75
+  },
+  "articles_numeriques": {
+    "tp": 4,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "rappel": 1.0,
+    "f1": 1.0
+  },
+  "designations": {
+    "tp": 3,
+    "fp": 1,
+    "fn": 1,
+    "precision": 0.75,
+    "rappel": 0.75,
+    "f1": 0.75
+  },
+  "detail": [
+    {
+      "champ": "fournisseur",
+      "reference": "صفاء للتوريدات",
+      "prediction": "صفاء للتوريدات",
+      "correct": true
+    },
+    {
+      "champ": "ice_fournisseur",
+      "reference": "947490362814236",
+      "prediction": "947490362814236",
+      "correct": true
+    },
+    {
+      "champ": "client",
+      "reference": "الريف للخدمات",
+      "prediction": "الريف للخدمات",
+      "correct": true
+    },
+    {
+      "champ": "ice_client",
+      "reference": "921797507502129",
+      "prediction": "921797507502129",
+      "correct": true
+    },
+    {
+      "champ": "numero_facture",
+      "reference": "DEMO-2025-00001",
+      "prediction": "DEMO-2025-00001",
+      "correct": true
+    },
+    {
+      "champ": "date",
+      "reference": "2025-11-20",
+      "prediction": "2025-11-20",
+      "correct": true
+    },
+    {
+      "champ": "devise",
+      "reference": "MAD",
+      "prediction": "MAD",
+      "correct": true
+    },
+    {
+      "champ": "total_ht",
+      "reference": 1247.9,
+      "prediction": 1247.9,
+      "correct": true
+    },
+    {
+      "champ": "montant_tva",
+      "reference": 124.79,
+      "prediction": 124.79,
+      "correct": true
+    },
+    {
+      "champ": "total_ttc",
+      "reference": 1372.69,
+      "prediction": 1372.69,
+      "correct": true
+    }
+  ],
+  "n_articles_attendus": 4,
+  "n_articles_predits": 4
+}

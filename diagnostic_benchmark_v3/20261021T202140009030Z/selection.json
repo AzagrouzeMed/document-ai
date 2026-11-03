@@ -1,0 +1,65 @@
+[
+  {
+    "document_id": "invoice_00007",
+    "langue": "fr",
+    "qualite": "clean",
+    "image": "C:\\Users\\User\\document-ai\\dataset_document_ai\\data\\dataset_v1\\dev\\images\\invoice_00007.jpg",
+    "annotation": "C:\\Users\\User\\document-ai\\dataset_document_ai\\data\\dataset_v1\\dev\\annotations\\invoice_00007.json"
+  },
+  {
+    "document_id": "invoice_00005",
+    "langue": "fr",
+    "qualite": "scan",
+    "image": "C:\\Users\\User\\document-ai\\dataset_document_ai\\data\\dataset_v1\\dev\\images\\invoice_00005.jpg",
+    "annotation": "C:\\Users\\User\\document-ai\\dataset_document_ai\\data\\dataset_v1\\dev\\annotations\\invoice_00005.json"
+  },
+  {
+    "document_id": "invoice_00003",
+    "langue": "fr",
+    "qualite": "photo",
+    "image": "C:\\Users\\User\\document-ai\\dataset_document_ai\\data\\dataset_v1\\dev\\images\\invoice_00003.jpg",
+    "annotation": "C:\\Users\\User\\document-ai\\dataset_document_ai\\data\\dataset_v1\\dev\\annotations\\invoice_00003.json"
+  },
+  {
+    "document_id": "invoice_00001",
+    "langue": "ar",
+    "qualite": "clean",
+    "image": "C:\\Users\\User\\document-ai\\dataset_document_ai\\data\\dataset_v1\\dev\\images\\invoice_00001.jpg",
+    "annotation": "C:\\Users\\User\\document-ai\\dataset_document_ai\\data\\dataset_v1\\dev\\annotations\\invoice_00001.json"
+  },
+  {
+    "document_id": "invoice_00027",
+    "langue": "ar",
+    "qualite": "scan",
+    "image": "C:\\Users\\User\\document-ai\\dataset_document_ai\\data\\dataset_v1\\dev\\images\\invoice_00027.jpg",
+    "annotation": "C:\\Users\\User\\document-ai\\dataset_document_ai\\data\\dataset_v1\\dev\\annotations\\invoice_00027.json"
+  },
+  {
+    "document_id": "invoice_00008",
+    "langue": "ar",
+    "qualite": "photo",
+    "image": "C:\\Users\\User\\document-ai\\dataset_document_ai\\data\\dataset_v1\\dev\\images\\invoice_00008.jpg",
+    "annotation": "C:\\Users\\User\\document-ai\\dataset_document_ai\\data\\dataset_v1\\dev\\annotations\\invoice_00008.json"
+  },
+  {
+    "document_id": "invoice_00006",
+    "langue": "fr-ar",
+    "qualite": "clean",
+    "image": "C:\\Users\\User\\document-ai\\dataset_document_ai\\data\\dataset_v1\\dev\\images\\invoice_00006.jpg",
+    "annotation": "C:\\Users\\User\\document-ai\\dataset_document_ai\\data\\dataset_v1\\dev\\annotations\\invoice_00006.json"
+  },
+  {
+    "document_id": "invoice_00009",
+    "langue": "fr-ar",
+    "qualite": "scan",
+    "image": "C:\\Users\\User\\document-ai\\dataset_document_ai\\data\\dataset_v1\\dev\\images\\invoice_00009.jpg",
+    "annotation": "C:\\Users\\User\\document-ai\\dataset_document_ai\\data\\dataset_v1\\dev\\annotations\\invoice_00009.json"
+  },
+  {
+    "document_id": "invoice_00004",
+    "langue": "fr-ar",
+    "qualite": "photo",
+    "image": "C:\\Users\\User\\document-ai\\dataset_document_ai\\data\\dataset_v1\\dev\\images\\invoice_00004.jpg",
+    "annotation": "C:\\Users\\User\\document-ai\\dataset_document_ai\\data\\dataset_v1\\dev\\annotations\\invoice_00004.json"
+  }
+]

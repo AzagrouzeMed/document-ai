@@ -1,0 +1,42 @@
+{
+  "fournisseur": {
+    "valeur": "NOUR Fournitures SARL",
+    "bloc": 8
+  },
+  "ice_fournisseur": {
+    "valeur": "971751062995843",
+    "bloc": 15
+  },
+  "client": {
+    "valeur": "Nour demo@example.com",
+    "bloc": 14
+  },
+  "ice_client": {
+    "valeur": "926997818974530",
+    "bloc": 16
+  },
+  "numero_facture": {
+    "valeur": "BC-DEMO-22280",
+    "bloc": 25
+  },
+  "date": {
+    "valeur": "2025-09-26",
+    "bloc": 24
+  },
+  "devise": {
+    "valeur": "2025-08-27",
+    "bloc": 23
+  },
+  "total_ht": {
+    "valeur": 23929.49,
+    "bloc": 63
+  },
+  "montant_tva": {
+    "valeur": 4785.90,
+    "bloc": 66
+  },
+  "total_ttc": {
+    "valeur": 28715.39,
+    "bloc": 70
+  }
+}

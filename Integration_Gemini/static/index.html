@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="fr">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Document AI · Votre espace documentaire</title><link rel="stylesheet" href="/static/styles.css"><script src="/static/app.js" defer></script></head>
+<body>
+<aside class="sidebar">
+ <a class="brand" href="/"><span class="brand-icon">D<span>·</span></span><span>Document<span class="brand-ai">AI</span></span></a>
+ <div class="workspace"><span class="workspace-icon">L</span><span>Espace local<small>Votre poste de travail</small></span><span class="online" title="Serveur local"></span></div>
+ <button class="new-button" id="new-document"><span>＋</span> Nouveau document</button>
+ <div class="side-label">DOCUMENTS RÉCENTS <button id="refresh-history" aria-label="Actualiser l’historique">↻</button></div>
+ <div id="history" class="history"><p class="muted">Aucun document pour le moment.</p></div>
+ <div class="side-bottom"><span class="local-mark">●</span><div>OCR local · extraction Gemini<small>En mode Gemini, les pages et le texte OCR sont transmis à Google.</small></div></div>
+</aside>
+<main>
+ <header class="topbar"><span>Espace de traitement <span class="crumb">/</span> <strong id="breadcrumb">Nouveau document</strong></span><span class="version">Prototype · Gemini API</span></header>
+ <div class="content">
+  <section id="upload-view">
+   <div class="eyebrow"><span></span> EXTRACTION DOCUMENTAIRE</div>
+   <h1>Du document aux données<span>.</span></h1>
+   <p class="intro">Importez une facture ou un devis. Retrouvez les informations extraites,<br class="desktop"> leurs alertes et un rapport prêt à télécharger.</p>
+   <p class="muted">Gemini en ligne : les images des pages et leur texte OCR sont envoyés à Google. Des frais et quotas API peuvent s’appliquer.</p>
+   <form id="upload-form">
+    <div class="dropzone" id="dropzone">
+     <div class="file-symbol"><svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M14 5h14l9 9v27H11V5h3Z" stroke="currentColor" stroke-width="2"/><path d="M27 5v10h10M17 24h14M17 30h10" stroke="currentColor" stroke-width="2"/></svg></div>
+     <h2 id="drop-title">Déposez votre document ici</h2>
+     <p id="file-info">ou choisissez un fichier sur votre ordinateur</p>
+     <label class="file-picker" for="file">Choisir un document <span>↗</span></label>
+     <input id="file" type="file" accept=".pdf,.png,.jpg,.jpeg,.webp,.bmp,.tif,.tiff" class="sr-only">
+     <small>PDF, PNG, JPEG, WebP, BMP, TIFF · 25 Mo maximum · 20 pages maximum</small>
+    </div>
+    <div class="options"><div><label for="lang">Langue du document</label><select id="lang"><option value="auto">Automatique · français et arabe</option><option value="fr">Français</option><option value="ar">Arabe</option></select></div><details><summary>Options de traitement</summary><label class="check"><input type="checkbox" id="sans-llm"> Traiter sans API Gemini (OCR local uniquement)</label><small>Cette option ne transmet pas le document à Gemini. Extraction locale limitée selon la langue et la structure.</small></details></div>
+    <div id="upload-error" class="error hidden" role="alert"></div>
+    <div class="form-bottom"><span>Un résultat vérifiable, avec les informations manquantes signalées.</span><button id="submit" class="primary" type="submit" disabled>Analyser le document <span>→</span></button></div>
+   </form>
+   <div class="feature-grid"><article><span class="feature-number">01</span><h3>Lire & structurer</h3><p>Champs du document et tableaux sur une ou plusieurs pages.</p></article><article><span class="feature-number">02</span><h3>Vérifier les alertes</h3><p>Consultez les valeurs manquantes et les incohérences détectées.</p></article><article><span class="feature-number">03</span><h3>Exporter simplement</h3><p>Récupérez les données en JSON et leur synthèse en PDF.</p></article></div>
+  </section>
+  <section id="progress-view" class="hidden" aria-live="polite">
+   <div class="eyebrow">TRAITEMENT DU DOCUMENT</div><h1>Votre document prend forme<span>.</span></h1>
+   <div class="progress-card"><div class="spinner"></div><h2 id="progress-name"></h2><p id="progress-message">En attente…</p><div class="steps"><span id="step-upload">01 · Importé</span><span id="step-analysis">02 · Analyse</span><span id="step-export">03 · Rapport</span></div><p class="muted">Le premier lancement peut être plus long : les modèles doivent être chargés.<br>Vous pouvez consulter un autre résultat dans l’historique.</p></div>
+   <div id="progress-error" class="error hidden" role="alert"></div><button id="back-after-error" class="secondary hidden">Revenir au dépôt</button>
+  </section>
+  <section id="result-view" class="hidden">
+   <div class="result-heading"><div><div class="eyebrow">RÉSULTAT D’EXTRACTION</div><h1 id="result-title">Document analysé</h1><p class="intro" id="document-id"></p></div><div class="downloads"><a id="download-json" class="secondary" download>↓ JSON</a><a id="download-pdf" class="primary" download>↓ Rapport PDF</a></div></div>
+   <div class="review-banner"><strong id="review-status">À vérifier</strong><span>Contrôlez les valeurs avec le document original avant de les utiliser.</span></div>
+   <div class="metrics"><div><small>TYPE DE DOCUMENT</small><strong id="metric-type">—</strong></div><div><small>PAGES TRAITÉES</small><strong id="metric-pages">—</strong></div><div><small>LIGNES EXTRAITES</small><strong id="metric-lines">—</strong></div><div><small id="metric-total-label">TOTAL TTC</small><strong id="metric-total">—</strong></div></div>
+   <div class="tabs" role="tablist"><button role="tab" aria-selected="true" data-tab="fields">Informations</button><button role="tab" aria-selected="false" data-tab="articles">Articles <span id="article-count">0</span></button><button role="tab" aria-selected="false" data-tab="alerts">Alertes <span id="alert-count">0</span></button><button role="tab" aria-selected="false" data-tab="json">JSON</button></div>
+   <div id="tab-fields" class="tab-panel"><div class="split"><section class="panel"><div class="panel-title"><h2>Champs extraits</h2><span>— = non extrait</span></div><dl id="fields-list"></dl></section><section class="panel preview"><div class="panel-title"><h2>Document original</h2><a id="open-source" target="_blank" rel="noopener">Ouvrir ↗</a></div><div id="source-preview"></div></section></div></div>
+   <div id="tab-articles" class="tab-panel hidden panel"><div class="panel-title"><h2>Articles et prestations</h2><span>Valeurs OCR à vérifier</span></div><div class="table-scroll"><table id="articles-table"></table></div></div>
+   <div id="tab-alerts" class="tab-panel hidden panel"><div class="panel-title"><h2>Points à vérifier</h2><a id="download-controls" download>↓ Contrôles JSON</a></div><ul id="alerts-list"></ul><p class="note">Une alerte n’est pas un score de précision. Une sortie sans erreur technique ne garantit pas des données exactes.</p></div>
+   <div id="tab-json" class="tab-panel hidden panel"><div class="panel-title"><h2>Données structurées</h2><button id="copy-json" class="text-button">Copier le JSON</button></div><pre id="json-output" dir="ltr"></pre></div>
+   <div class="result-footer"><a id="download-proofs" download>↓ Consulter les preuves OCR</a><a id="download-text" download>↓ Texte OCR</a><span>Les informations absentes ne sont pas inventées.</span></div>
+  </section>
+ </div>
+ <footer class="footer">Document AI <span>Interface locale · Gemini en ligne · Français & arabe · Revue humaine requise</span></footer>
+</main>
+</body></html>

@@ -1,0 +1,13 @@
+﻿document_id,langue,qualite,lecture,statut,ocr_secondes,extraction_secondes,champs_corrects,champs_evalues,f1_articles,articles_attendus,articles_predits,alertes,corrections_roles,erreur
+invoice_00007,fr,clean,fr,succes_technique,6.056,11.891,10,10,1.0,4,4,0,2,
+invoice_00005,fr,scan,fr,succes_technique,5.615,10.424,10,10,1.0,4,4,0,0,
+invoice_00003,fr,photo,fr,succes_technique,5.386,10.348,10,10,1.0,4,4,0,0,
+invoice_00006,fr-ar,clean,fr,echec,6.588,0.257,0,10,0.0,6,0,,,Extraction echouee : voir extraction.log
+invoice_00009,fr-ar,scan,fr,echec,5.865,0.298,0,10,0.0,6,0,,,Extraction echouee : voir extraction.log
+invoice_00004,fr-ar,photo,fr,echec,5.053,0.231,0,10,0.0,2,0,,,Extraction echouee : voir extraction.log
+invoice_00001,ar,clean,ar,succes_technique,5.685,11.21,9,10,0.75,4,4,3,0,
+invoice_00027,ar,scan,ar,succes_technique,5.151,10.102,8,10,0.0,3,3,4,0,
+invoice_00008,ar,photo,ar,echec,4.791,0.285,0,10,0.0,1,0,,,Extraction echouee : voir extraction.log
+invoice_00006,fr-ar,clean,ar,succes_technique,6.71,10.553,9,10,0.0,6,6,13,0,
+invoice_00009,fr-ar,scan,ar,succes_technique,7.087,9.9,10,10,0.0,6,6,8,2,
+invoice_00004,fr-ar,photo,ar,echec,5.972,0.25,0,10,0.0,2,0,,,Extraction echouee : voir extraction.log

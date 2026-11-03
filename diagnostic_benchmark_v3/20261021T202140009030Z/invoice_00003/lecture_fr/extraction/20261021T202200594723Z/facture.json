@@ -1,0 +1,38 @@
+{
+  "fournisseur": "AMANA Fournitures SARL",
+  "ice_fournisseur": "951301052756313",
+  "client": "NAKHIL Services SARL",
+  "ice_client": "945791175528745",
+  "numero_facture": "DEMO-2026-00003",
+  "date": "2026-07-31",
+  "devise": "MAD",
+  "total_ht": 10505.86,
+  "montant_tva": 2101.17,
+  "total_ttc": 12607.03,
+  "lignes": [
+    {
+      "designation": "Cartouche toner noir",
+      "quantite": 2.0,
+      "prix_unitaire_ht": 648.95,
+      "montant_ht": 1297.9
+    },
+    {
+      "designation": "Souris sans fil",
+      "quantite": 11.0,
+      "prix_unitaire_ht": 122.22,
+      "montant_ht": 1344.42
+    },
+    {
+      "designation": "Clavier USB",
+      "quantite": 5.0,
+      "prix_unitaire_ht": 218.5,
+      "montant_ht": 1092.5
+    },
+    {
+      "designation": "Installation du matériel",
+      "quantite": 16.0,
+      "prix_unitaire_ht": 423.19,
+      "montant_ht": 6771.04
+    }
+  ]
+}

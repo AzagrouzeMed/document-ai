@@ -1,0 +1,38 @@
+{
+  "fournisseur": "NAKHIL Fournitures SARL",
+  "ice_fournisseur": "957836640368476",
+  "client": "NAKHIL Services SARL",
+  "ice_client": "965470344808122",
+  "numero_facture": "DEMO-2025-00005",
+  "date": "2025-08-27",
+  "devise": "MAD",
+  "total_ht": 10923.66,
+  "montant_tva": 2184.73,
+  "total_ttc": 13108.39,
+  "lignes": [
+    {
+      "designation": "Clavier USB",
+      "quantite": 7.0,
+      "prix_unitaire_ht": 186.22,
+      "montant_ht": 1303.54
+    },
+    {
+      "designation": "Frais de livraison",
+      "quantite": 18.0,
+      "prix_unitaire_ht": 113.03,
+      "montant_ht": 2034.54
+    },
+    {
+      "designation": "Chaise de bureau",
+      "quantite": 8.0,
+      "prix_unitaire_ht": 930.93,
+      "montant_ht": 7447.44
+    },
+    {
+      "designation": "Boîte de stylos",
+      "quantite": 2.0,
+      "prix_unitaire_ht": 69.07,
+      "montant_ht": 138.14
+    }
+  ]
+}
