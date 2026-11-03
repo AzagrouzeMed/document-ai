@@ -1,0 +1,46 @@
+﻿
+# Environnements Python et caches
+.venv*/
+venv/
+__pycache__/
+*.py[cod]
+
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials*.json
+secrets*.json
+
+# Documents et résultats locaux
+data/
+results/
+dataset_document_ai/
+demo/
+uploads/
+*.log
+
+# Modèles et sauvegardes
+models/
+*.pt
+*.pth
+*.onnx
+*.safetensors
+*.gguf
+sauvegarde*/
+*.bak
+
+# Archives et anciens correctifs
+*.zip
+Integration_Gemini/
+DocumentAI_TTC/
+
+# Anciens essais et sauvegardes
+DocumentAI_Unifie/
+diagnostic_benchmark*/
+*.avant*
+*_avant_*
+*.backup
+*.bak

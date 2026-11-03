@@ -1,0 +1,55 @@
+Correctif de consolidation pour la chaine OCR prioritaire deja installee.
+Ce dossier n'est pas une application complete.
+
+ACTION
+1. Arreter le serveur (Ctrl+C) et sauvegarder DocumentAI_Web\moteur.
+2. Extraire ce ZIP a part.
+3. Copier les TROIS fichiers Python du dossier moteur dans
+   C:\Users\User\document-ai\DocumentAI_Web\moteur en remplacant les existants.
+   Ne pas remplacer tout DocumentAI_Web et ne lancer aucun INSTALLER.ps1.
+4. Relancer depuis C:\Users\User\document-ai :
+   .\.venv-ocr\Scripts\python.exe .\DocumentAI_Web\lancer_web.py
+5. Ctrl+F5 dans le navigateur. Nouveau document.
+6. Cocher sans Ollama pour le premier essai de Celia Naudin.
+7. Conserver les JSON/alertes; ensuite comparer les memes documents avec Ollama.
+
+Les trois fichiers sont : corroboration_ocr.py, extraction_vision.py,
+extraction_ocr_prioritaire.py. traitement_document.py doit deja etre celui du
+precedent paquet DocumentAI_OCR_Prioritaire.zip. Aucune dependance ajoutee.
+
+CHANGEMENTS GENERAUX
+- Libelle client A l'attention de, numeros accoles Facture n12345 avec symbole
+  de numero, colonne TOTAL neutre, zones client legerement desalignees.
+- Un beneficiaire de paiement nomme peut confirmer un fournisseur si son nom
+  apparait aussi dans un bloc de l'en-tete. Aucun nom n'est code en dur.
+- Une date unique dans l'en-tete avec numero de facture peut etre reprise.
+  Annee a deux chiffres : convention 2000-2099 explicitement signalee pour revue.
+- Reponse Qwen : une enveloppe unique contenant des champs connus peut etre
+  retiree; les champs sont normalises/valides independamment. Les cles inconnues
+  et feuilles invalides sont signalees, pas acceptees automatiquement.
+- Les lignes imbriquees ne sont PAS aplaties aveuglement : elles peuvent etre
+  des repetitions ou des hallucinations. Le JSON brut reste archive.
+- Un client errone comme FACTURE A reste soumis aux controles OCR et de role.
+- Si le JSON est illisible, le complement echoue en conservant l'OCR. Aucune
+  boucle de regeneration ni tentative illimitee n'est ajoutee.
+- Les prix PRIX/TOTAL sans HT ou TTC explicite restent dans les champs neutres.
+  Le sous-total sans mention HT n'est pas force automatiquement en total_ht.
+
+VERIFICATIONS
+- Celia : textes fournis + coordonnees reconstituees, parties, numero, date,
+  six montants, absence d'appel Qwen quand les champs essentiels sont resolus.
+- Maison Atlas : rejeu des vrais blocs et coordonnees fournis precedemment.
+- Regression HT/TTC, cache multipage, conservation sur panne simulee Qwen,
+  conflits, lignes repetees non appariables, enveloppe et feuilles mal formees.
+- Compilation Python.
+Pas d'inference reelle locale Qwen/PaddleOCR ni de test navigateur Windows ici.
+La reponse Qwen exacte collee dans la conversation n'a pas ete rejouee; les
+cas d'enveloppe et de structure imbriquee ont ete simules dans les tests.
+Il ne s'agit pas d'un nouveau score de generalisation. Les factures utilisees
+pour ces corrections sont des cas de developpement, pas un test independant.
+
+SUITE
+Conserver cette base sur un lot fixe de documents et relever, pour chacun,
+lecture OCR, extraction directe et complement. Pas de changement immediat
+apres chaque facture. Les champs inconnus peuvent rester vides et exigent une
+revue. Restaurer les trois fichiers sauvegardes pour revenir en arriere.
