@@ -1,0 +1,1022 @@
+{
+  "archive": "C:\\Users\\Victus\\Desktop\\document-ai\\DocumentAI_Web\\data\\622fdb6a76cb428ba5565adf55d80248\\resultats\\DOC-3A36DDAA90FE",
+  "ocr_reutilise": true,
+  "paddleocr_appele": false,
+  "gemini_appele": false,
+  "reseau_interdit": true,
+  "routes": [
+    {
+      "page": 1,
+      "lecture": "fusion",
+      "structure": {
+        "type_document": "facture",
+        "tableau": "a_identifier",
+        "methode": "libelles OCR et geometrie; identification heuristique"
+      },
+      "moteur": "ocr_local_sans_api",
+      "source_articles": "secours_local",
+      "raison_secours_articles": "mode_sans_api",
+      "nombre_articles": 5
+    }
+  ],
+  "donnees": {
+    "fournisseur": "BAHJA Fournitures SARL / بهجة للتوريدات",
+    "ice_fournisseur": "978608346853115",
+    "client": "SAHARA Services SARL / الصحراء للخدمات",
+    "ice_client": "955722161981513",
+    "numero_document": "DEMO-2026-00035",
+    "date": "2026-10-04",
+    "devise": "MAD",
+    "total_ht": 17411.07,
+    "montant_tva": 3482.21,
+    "total_ttc": 20893.28,
+    "date_echeance": "2026-10-19",
+    "adresse_fournisseur": "4 rue Exemple, ujda / 162 وجدة ،Jشارع المثا",
+    "adresse_client": null,
+    "adresse_livraison": null,
+    "taux_tva": null,
+    "total_document": null,
+    "lignes": [
+      {
+        "designation": "Sris / فأرة لاسلكية",
+        "quantite": 7.0,
+        "unite": null,
+        "prix_unitaire_ht": null,
+        "montant_ht": 1666.07,
+        "prix_unitaire": 238.01,
+        "montant": null,
+        "prix_unitaire_ttc": null,
+        "montant_ttc": null,
+        "taux_tva": null,
+        "hauteur_cm": null,
+        "largeur_cm": null,
+        "page": 1
+      },
+      {
+        "designation": "Cartouche toner nمr / خرطوشة حبر أسود",
+        "quantite": 15.0,
+        "unite": null,
+        "prix_unitaire_ht": null,
+        "montant_ht": 7744.65,
+        "prix_unitaire": 516.31,
+        "montant": null,
+        "prix_unitaire_ttc": null,
+        "montant_ttc": null,
+        "taux_tva": null,
+        "hauteur_cm": null,
+        "largeur_cm": null,
+        "page": 1
+      },
+      {
+        "designation": "Cäble réseaum / كابل شبكة 5 أمتار",
+        "quantite": 10.0,
+        "unite": null,
+        "prix_unitaire_ht": null,
+        "montant_ht": 299.6,
+        "prix_unitaire": 29.96,
+        "montant": null,
+        "prix_unitaire_ttc": null,
+        "montant_ttc": null,
+        "taux_tva": null,
+        "hauteur_cm": null,
+        "largeur_cm": null,
+        "page": 1
+      },
+      {
+        "designation": "Classeur à levier / ملف برافعة",
+        "quantite": 17.0,
+        "unite": null,
+        "prix_unitaire_ht": null,
+        "montant_ht": 281.52,
+        "prix_unitaire": 16.56,
+        "montant": null,
+        "prix_unitaire_ttc": null,
+        "montant_ttc": null,
+        "taux_tva": null,
+        "hauteur_cm": null,
+        "largeur_cm": null,
+        "page": 1
+      },
+      {
+        "designation": "Maintenance informatique / صيانة الحاسوب",
+        "quantite": 13.0,
+        "unite": null,
+        "prix_unitaire_ht": null,
+        "montant_ht": 7419.23,
+        "prix_unitaire": 570.71,
+        "montant": null,
+        "prix_unitaire_ttc": null,
+        "montant_ttc": null,
+        "taux_tva": null,
+        "hauteur_cm": null,
+        "largeur_cm": null,
+        "page": 1
+      }
+    ],
+    "type_document": "facture",
+    "resultats_par_page": [
+      {
+        "page": 1,
+        "donnees": {
+          "type_document": "facture",
+          "fournisseur": "BAHJA Fournitures SARL / بهجة للتوريدات",
+          "ice_fournisseur": "978608346853115",
+          "client": "SAHARA Services SARL / الصحراء للخدمات",
+          "ice_client": "955722161981513",
+          "numero_document": "DEMO-2026-00035",
+          "date": "2026-10-04",
+          "date_echeance": "2026-10-19",
+          "devise": "MAD",
+          "adresse_fournisseur": "4 rue Exemple, ujda / 162 وجدة ،Jشارع المثا",
+          "adresse_client": null,
+          "adresse_livraison": null,
+          "total_ht": 17411.07,
+          "montant_tva": 3482.21,
+          "taux_tva": null,
+          "total_ttc": 20893.28,
+          "lignes": [
+            {
+              "designation": "Sris / فأرة لاسلكية",
+              "quantite": 7.0,
+              "unite": null,
+              "prix_unitaire_ht": null,
+              "montant_ht": 1666.07,
+              "prix_unitaire": 238.01,
+              "montant": null,
+              "prix_unitaire_ttc": null,
+              "montant_ttc": null,
+              "taux_tva": null,
+              "hauteur_cm": null,
+              "largeur_cm": null,
+              "page": 1
+            },
+            {
+              "designation": "Cartouche toner nمr / خرطوشة حبر أسود",
+              "quantite": 15.0,
+              "unite": null,
+              "prix_unitaire_ht": null,
+              "montant_ht": 7744.65,
+              "prix_unitaire": 516.31,
+              "montant": null,
+              "prix_unitaire_ttc": null,
+              "montant_ttc": null,
+              "taux_tva": null,
+              "hauteur_cm": null,
+              "largeur_cm": null,
+              "page": 1
+            },
+            {
+              "designation": "Cäble réseaum / كابل شبكة 5 أمتار",
+              "quantite": 10.0,
+              "unite": null,
+              "prix_unitaire_ht": null,
+              "montant_ht": 299.6,
+              "prix_unitaire": 29.96,
+              "montant": null,
+              "prix_unitaire_ttc": null,
+              "montant_ttc": null,
+              "taux_tva": null,
+              "hauteur_cm": null,
+              "largeur_cm": null,
+              "page": 1
+            },
+            {
+              "designation": "Classeur à levier / ملف برافعة",
+              "quantite": 17.0,
+              "unite": null,
+              "prix_unitaire_ht": null,
+              "montant_ht": 281.52,
+              "prix_unitaire": 16.56,
+              "montant": null,
+              "prix_unitaire_ttc": null,
+              "montant_ttc": null,
+              "taux_tva": null,
+              "hauteur_cm": null,
+              "largeur_cm": null,
+              "page": 1
+            },
+            {
+              "designation": "Maintenance informatique / صيانة الحاسوب",
+              "quantite": 13.0,
+              "unite": null,
+              "prix_unitaire_ht": null,
+              "montant_ht": 7419.23,
+              "prix_unitaire": 570.71,
+              "montant": null,
+              "prix_unitaire_ttc": null,
+              "montant_ttc": null,
+              "taux_tva": null,
+              "hauteur_cm": null,
+              "largeur_cm": null,
+              "page": 1
+            }
+          ]
+        }
+      }
+    ],
+    "extraction_document_complete": false
+  },
+  "preuves": {
+    "page_1": {
+      "fournisseur": [
+        {
+          "champ": "fournisseur",
+          "texte_visible": "BAHJA Fournitures SARL / بهجة للتوريدات",
+          "blocs_ocr": [
+            8
+          ],
+          "page": 1,
+          "corroboration_ocr": true
+        },
+        {
+          "champ": "fournisseur",
+          "texte_visible": "BAHJA Fournitures SARL / بهجة للتوريدات",
+          "blocs_ocr": [
+            8
+          ],
+          "page": 1,
+          "corroboration_ocr": true
+        }
+      ],
+      "ice_fournisseur": [
+        {
+          "champ": "ice_fournisseur",
+          "texte_visible": "ÉmETTEUR / المورد ICE: 978608346853115",
+          "blocs_ocr": [
+            6,
+            16
+          ],
+          "page": 1,
+          "corroboration_ocr": true
+        }
+      ],
+      "client": [
+        {
+          "champ": "client",
+          "texte_visible": "FACTURÉ A / الزبون SAHARA Services SARL / الصحراء للخدمات",
+          "blocs_ocr": [
+            7,
+            9
+          ],
+          "page": 1,
+          "corroboration_ocr": true
+        }
+      ],
+      "ice_client": [
+        {
+          "champ": "ice_client",
+          "texte_visible": "FACTURÉ A / الزبون ICE: 955722161981513",
+          "blocs_ocr": [
+            7,
+            13
+          ],
+          "page": 1,
+          "corroboration_ocr": true
+        }
+      ],
+      "numero_document": [
+        {
+          "champ": "numero_document",
+          "texte_visible": "FACTURE / فاتورة DEMO-2026-00035",
+          "blocs_ocr": [
+            1,
+            3
+          ],
+          "page": 1,
+          "corroboration_ocr": true
+        }
+      ],
+      "date": [
+        {
+          "champ": "date",
+          "texte_visible": "Date de facture / تاريخ الفاتورة 2026-10-04",
+          "blocs_ocr": [
+            17,
+            21
+          ],
+          "page": 1,
+          "corroboration_ocr": true
+        }
+      ],
+      "date_echeance": [
+        {
+          "champ": "date_echeance",
+          "texte_visible": "Échéance / تاريخ الاستحقاق 2026-10-19",
+          "blocs_ocr": [
+            18,
+            22
+          ],
+          "page": 1,
+          "corroboration_ocr": true
+        }
+      ],
+      "devise": [
+        {
+          "champ": "devise",
+          "texte_visible": "MAD Merci pour votre confiance. Indiquer la référence de facture lors du règlement. Tous les montants sont exprimés en MAD. / eشكرا علی ثقتکم يرجى كر مرج",
+          "blocs_ocr": [
+            24,
+            70
+          ],
+          "page": 1,
+          "corroboration_ocr": true
+        }
+      ],
+      "adresse_fournisseur": [
+        {
+          "champ": "adresse_fournisseur",
+          "texte_visible": "4 rue Exemple, ujda / 162 وجدة ،Jشارع المثا",
+          "blocs_ocr": [
+            10
+          ],
+          "page": 1,
+          "corroboration_ocr": true
+        }
+      ],
+      "total_ht": [
+        {
+          "champ": "total_ht",
+          "texte_visible": "Total HT / دون الضريبة 17 411,07",
+          "blocs_ocr": [
+            54,
+            55
+          ],
+          "page": 1,
+          "corroboration_ocr": true
+        }
+      ],
+      "montant_tva": [
+        {
+          "champ": "montant_tva",
+          "texte_visible": "TVA 20 % / 20 الضريبة % 3 482,21",
+          "blocs_ocr": [
+            57,
+            59
+          ],
+          "page": 1,
+          "corroboration_ocr": true
+        }
+      ],
+      "total_ttc": [
+        {
+          "champ": "total_ttc",
+          "texte_visible": "Total TTC / شامل الضريبة 20 893,28",
+          "blocs_ocr": [
+            61,
+            62
+          ],
+          "page": 1,
+          "corroboration_ocr": true
+        }
+      ],
+      "lignes.0.designation": [
+        {
+          "champ": "lignes.0.designation",
+          "texte_visible": "Sris / فأرة لاسلكية",
+          "blocs_ocr": [
+            30
+          ],
+          "page": 1,
+          "corroboration_ocr": true
+        }
+      ],
+      "lignes.0.quantite": [
+        {
+          "champ": "lignes.0.quantite",
+          "texte_visible": "Q/ ثمن الوحدة / الكميةntat / المبلغ دون الضريبة 7",
+          "blocs_ocr": [
+            28,
+            31
+          ],
+          "page": 1,
+          "corroboration_ocr": true
+        }
+      ],
+      "lignes.0.montant_ht": [
+        {
+          "champ": "lignes.0.montant_ht",
+          "texte_visible": "Q/ ثمن الوحدة / الكميةntat / المبلغ دون الضريبة 1666,07",
+          "blocs_ocr": [
+            28,
+            33
+          ],
+          "page": 1,
+          "corroboration_ocr": true
+        }
+      ],
+      "lignes.0.prix_unitaire": [
+        {
+          "champ": "lignes.0.prix_unitaire",
+          "texte_visible": "Q/ ثمن الوحدة / الكميةntat / المبلغ دون الضريبة 238,01",
+          "blocs_ocr": [
+            28,
+            32
+          ],
+          "page": 1,
+          "corroboration_ocr": true
+        }
+      ],
+      "lignes.1.designation": [
+        {
+          "champ": "lignes.1.designation",
+          "texte_visible": "Cartouche toner nمr / خرطوشة حبر أسود",
+          "blocs_ocr": [
+            35
+          ],
+          "page": 1,
+          "corroboration_ocr": true
+        }
+      ],
+      "lignes.1.quantite": [
+        {
+          "champ": "lignes.1.quantite",
+          "texte_visible": "Q/ ثمن الوحدة / الكميةntat / المبلغ دون الضريبة 15",
+          "blocs_ocr": [
+            28,
+            36
+          ],
+          "page": 1,
+          "corroboration_ocr": true
+        }
+      ],
+      "lignes.1.montant_ht": [
+        {
+          "champ": "lignes.1.montant_ht",
+          "texte_visible": "Q/ ثمن الوحدة / الكميةntat / المبلغ دون الضريبة 7744,65",
+          "blocs_ocr": [
+            28,
+            38
+          ],
+          "page": 1,
+          "corroboration_ocr": true
+        }
+      ],
+      "lignes.1.prix_unitaire": [
+        {
+          "champ": "lignes.1.prix_unitaire",
+          "texte_visible": "Q/ ثمن الوحدة / الكميةntat / المبلغ دون الضريبة 516,31",
+          "blocs_ocr": [
+            28,
+            37
+          ],
+          "page": 1,
+          "corroboration_ocr": true
+        }
+      ],
+      "lignes.2.designation": [
+        {
+          "champ": "lignes.2.designation",
+          "texte_visible": "Cäble réseaum / كابل شبكة 5 أمتار",
+          "blocs_ocr": [
+            40
+          ],
+          "page": 1,
+          "corroboration_ocr": true
+        }
+      ],
+      "lignes.2.quantite": [
+        {
+          "champ": "lignes.2.quantite",
+          "texte_visible": "Q/ ثمن الوحدة / الكميةntat / المبلغ دون الضريبة 10",
+          "blocs_ocr": [
+            28,
+            41
+          ],
+          "page": 1,
+          "corroboration_ocr": true
+        }
+      ],
+      "lignes.2.montant_ht": [
+        {
+          "champ": "lignes.2.montant_ht",
+          "texte_visible": "Q/ ثمن الوحدة / الكميةntat / المبلغ دون الضريبة 299,60",
+          "blocs_ocr": [
+            28,
+            43
+          ],
+          "page": 1,
+          "corroboration_ocr": true
+        }
+      ],
+      "lignes.2.prix_unitaire": [
+        {
+          "champ": "lignes.2.prix_unitaire",
+          "texte_visible": "Q/ ثمن الوحدة / الكميةntat / المبلغ دون الضريبة 29,96",
+          "blocs_ocr": [
+            28,
+            42
+          ],
+          "page": 1,
+          "corroboration_ocr": true
+        }
+      ],
+      "lignes.3.designation": [
+        {
+          "champ": "lignes.3.designation",
+          "texte_visible": "Classeur à levier / ملف برافعة",
+          "blocs_ocr": [
+            45
+          ],
+          "page": 1,
+          "corroboration_ocr": true
+        }
+      ],
+      "lignes.3.quantite": [
+        {
+          "champ": "lignes.3.quantite",
+          "texte_visible": "Q/ ثمن الوحدة / الكميةntat / المبلغ دون الضريبة 17",
+          "blocs_ocr": [
+            28,
+            46
+          ],
+          "page": 1,
+          "corroboration_ocr": true
+        }
+      ],
+      "lignes.3.montant_ht": [
+        {
+          "champ": "lignes.3.montant_ht",
+          "texte_visible": "Q/ ثمن الوحدة / الكميةntat / المبلغ دون الضريبة 281,52",
+          "blocs_ocr": [
+            28,
+            48
+          ],
+          "page": 1,
+          "corroboration_ocr": true
+        }
+      ],
+      "lignes.3.prix_unitaire": [
+        {
+          "champ": "lignes.3.prix_unitaire",
+          "texte_visible": "Q/ ثمن الوحدة / الكميةntat / المبلغ دون الضريبة 16,56",
+          "blocs_ocr": [
+            28,
+            47
+          ],
+          "page": 1,
+          "corroboration_ocr": true
+        }
+      ],
+      "lignes.4.designation": [
+        {
+          "champ": "lignes.4.designation",
+          "texte_visible": "Maintenance informatique / صيانة الحاسوب",
+          "blocs_ocr": [
+            50
+          ],
+          "page": 1,
+          "corroboration_ocr": true
+        }
+      ],
+      "lignes.4.quantite": [
+        {
+          "champ": "lignes.4.quantite",
+          "texte_visible": "Q/ ثمن الوحدة / الكميةntat / المبلغ دون الضريبة 13",
+          "blocs_ocr": [
+            28,
+            51
+          ],
+          "page": 1,
+          "corroboration_ocr": true
+        }
+      ],
+      "lignes.4.montant_ht": [
+        {
+          "champ": "lignes.4.montant_ht",
+          "texte_visible": "Q/ ثمن الوحدة / الكميةntat / المبلغ دون الضريبة 7419,23",
+          "blocs_ocr": [
+            28,
+            53
+          ],
+          "page": 1,
+          "corroboration_ocr": true
+        }
+      ],
+      "lignes.4.prix_unitaire": [
+        {
+          "champ": "lignes.4.prix_unitaire",
+          "texte_visible": "Q/ ثمن الوحدة / الكميةntat / المبلغ دون الضريبة 570,71",
+          "blocs_ocr": [
+            28,
+            52
+          ],
+          "page": 1,
+          "corroboration_ocr": true
+        }
+      ]
+    }
+  },
+  "alertes": [
+    "Page 1 : Tableau OCR local partiellement extrait : colonnes quantite, prix ou montant absentes ou ambigues.",
+    "Page 1 : Ligne OCR lignes.0 : roles heuristiques depuis Q et colonnes alignees; produit coherent; base HT/TTC du prix unitaire non lisible, prix conserve generique.",
+    "Page 1 : Ligne OCR lignes.1 : roles heuristiques depuis Q et colonnes alignees; produit coherent; base HT/TTC du prix unitaire non lisible, prix conserve generique.",
+    "Page 1 : Ligne OCR lignes.2 : roles heuristiques depuis Q et colonnes alignees; produit coherent; base HT/TTC du prix unitaire non lisible, prix conserve generique.",
+    "Page 1 : Ligne OCR lignes.3 : roles heuristiques depuis Q et colonnes alignees; produit coherent; base HT/TTC du prix unitaire non lisible, prix conserve generique.",
+    "Page 1 : Ligne OCR lignes.4 : roles heuristiques depuis Q et colonnes alignees; produit coherent; base HT/TTC du prix unitaire non lisible, prix conserve generique."
+  ],
+  "comparaison_original": [
+    {
+      "ligne": 1,
+      "article_original": "Souris sans fil",
+      "designation_ocr": "Sris / فأرة لاسلكية",
+      "attendu": [
+        7,
+        238.01,
+        1666.07
+      ],
+      "observe": [
+        7.0,
+        238.01,
+        1666.07
+      ],
+      "ecart_produit": 0.0,
+      "conforme_original": true
+    },
+    {
+      "ligne": 2,
+      "article_original": "Cartouche toner noir",
+      "designation_ocr": "Cartouche toner nمr / خرطوشة حبر أسود",
+      "attendu": [
+        15,
+        516.31,
+        7744.65
+      ],
+      "observe": [
+        15.0,
+        516.31,
+        7744.65
+      ],
+      "ecart_produit": 0.0,
+      "conforme_original": true
+    },
+    {
+      "ligne": 3,
+      "article_original": "Cable reseau 5 m",
+      "designation_ocr": "Cäble réseaum / كابل شبكة 5 أمتار",
+      "attendu": [
+        10,
+        29.96,
+        299.6
+      ],
+      "observe": [
+        10.0,
+        29.96,
+        299.6
+      ],
+      "ecart_produit": 0.0,
+      "conforme_original": true
+    },
+    {
+      "ligne": 4,
+      "article_original": "Classeur a levier",
+      "designation_ocr": "Classeur à levier / ملف برافعة",
+      "attendu": [
+        17,
+        16.56,
+        281.52
+      ],
+      "observe": [
+        17.0,
+        16.56,
+        281.52
+      ],
+      "ecart_produit": 0.0,
+      "conforme_original": true
+    },
+    {
+      "ligne": 5,
+      "article_original": "Maintenance informatique",
+      "designation_ocr": "Maintenance informatique / صيانة الحاسوب",
+      "attendu": [
+        13,
+        570.71,
+        7419.23
+      ],
+      "observe": [
+        13.0,
+        570.71,
+        7419.23
+      ],
+      "ecart_produit": 0.0,
+      "conforme_original": true
+    }
+  ],
+  "entete_inchange": {
+    "fournisseur": true,
+    "ice_fournisseur": true,
+    "client": true,
+    "ice_client": true,
+    "numero_document": true,
+    "date": true,
+    "devise": true,
+    "total_ht": true,
+    "montant_tva": true,
+    "total_ttc": true,
+    "date_echeance": true,
+    "adresse_fournisseur": true,
+    "adresse_client": true,
+    "adresse_livraison": true,
+    "taux_tva": true,
+    "total_document": true,
+    "type_document": true,
+    "extraction_document_complete": true
+  },
+  "regression_francaise_identique": true,
+  "sha256_archives": {
+    "fr": "491db1b6c2e5b6588e3ce8dc52937f8c301b0757ca377f64dc2aecfe12eafaac",
+    "ar": "cbef73ed50004177d1a497cb16f2f80e7687746bcc47160b9ce12fbe0c16e30c"
+  },
+  "blocs": [
+    {
+      "bloc": 25,
+      "texte": "Réf. / المرجع",
+      "bbox": [
+        89,
+        724,
+        225,
+        758
+      ]
+    },
+    {
+      "bloc": 26,
+      "texte": "",
+      "bbox": [
+        218,
+        734,
+        245,
+        750
+      ]
+    },
+    {
+      "bloc": 27,
+      "texte": "Désignation / البيان",
+      "bbox": [
+        238,
+        725,
+        444,
+        761
+      ]
+    },
+    {
+      "bloc": 28,
+      "texte": "Q/ ثمن الوحدة / الكميةntat / المبلغ دون الضريبة",
+      "bbox": [
+        829,
+        732,
+        1500,
+        777
+      ]
+    },
+    {
+      "bloc": 29,
+      "texte": "INF-02",
+      "bbox": [
+        87,
+        781,
+        160,
+        814
+      ]
+    },
+    {
+      "bloc": 30,
+      "texte": "Sris / فأرة لاسلكية",
+      "bbox": [
+        240,
+        785,
+        486,
+        818
+      ]
+    },
+    {
+      "bloc": 31,
+      "texte": "7",
+      "bbox": [
+        828,
+        794,
+        853,
+        823
+      ]
+    },
+    {
+      "bloc": 32,
+      "texte": "238,01",
+      "bbox": [
+        967,
+        792,
+        1045,
+        828
+      ]
+    },
+    {
+      "bloc": 33,
+      "texte": "1666,07",
+      "bbox": [
+        1181,
+        798,
+        1275,
+        830
+      ]
+    },
+    {
+      "bloc": 34,
+      "texte": "INF-03",
+      "bbox": [
+        87,
+        840,
+        159,
+        870
+      ]
+    },
+    {
+      "bloc": 35,
+      "texte": "Cartouche toner nمr / خرطوشة حبر أسود",
+      "bbox": [
+        241,
+        841,
+        597,
+        880
+      ]
+    },
+    {
+      "bloc": 36,
+      "texte": "15",
+      "bbox": [
+        826,
+        849,
+        865,
+        886
+      ]
+    },
+    {
+      "bloc": 37,
+      "texte": "516,31",
+      "bbox": [
+        966,
+        850,
+        1044,
+        887
+      ]
+    },
+    {
+      "bloc": 38,
+      "texte": "7744,65",
+      "bbox": [
+        1180,
+        852,
+        1275,
+        889
+      ]
+    },
+    {
+      "bloc": 39,
+      "texte": "INF-04",
+      "bbox": [
+        85,
+        896,
+        160,
+        930
+      ]
+    },
+    {
+      "bloc": 40,
+      "texte": "Cäble réseaum / كابل شبكة 5 أمتار",
+      "bbox": [
+        240,
+        900,
+        561,
+        936
+      ]
+    },
+    {
+      "bloc": 41,
+      "texte": "10",
+      "bbox": [
+        825,
+        907,
+        865,
+        944
+      ]
+    },
+    {
+      "bloc": 42,
+      "texte": "29,96",
+      "bbox": [
+        966,
+        910,
+        1034,
+        944
+      ]
+    },
+    {
+      "bloc": 43,
+      "texte": "299,60",
+      "bbox": [
+        1179,
+        911,
+        1258,
+        948
+      ]
+    },
+    {
+      "bloc": 44,
+      "texte": "BUR-02",
+      "bbox": [
+        84,
+        953,
+        166,
+        989
+      ]
+    },
+    {
+      "bloc": 45,
+      "texte": "Classeur à levier / ملف برافعة",
+      "bbox": [
+        238,
+        958,
+        502,
+        994
+      ]
+    },
+    {
+      "bloc": 46,
+      "texte": "17",
+      "bbox": [
+        824,
+        965,
+        864,
+        1001
+      ]
+    },
+    {
+      "bloc": 47,
+      "texte": "16,56",
+      "bbox": [
+        966,
+        968,
+        1032,
+        1003
+      ]
+    },
+    {
+      "bloc": 48,
+      "texte": "281,52",
+      "bbox": [
+        1178,
+        969,
+        1257,
+        1006
+      ]
+    },
+    {
+      "bloc": 49,
+      "texte": "SER-01",
+      "bbox": [
+        82,
+        1010,
+        162,
+        1046
+      ]
+    },
+    {
+      "bloc": 50,
+      "texte": "Maintenance informatique / صيانة الحاسوب",
+      "bbox": [
+        238,
+        1016,
+        618,
+        1054
+      ]
+    },
+    {
+      "bloc": 51,
+      "texte": "13",
+      "bbox": [
+        822,
+        1021,
+        866,
+        1060
+      ]
+    },
+    {
+      "bloc": 52,
+      "texte": "570,71",
+      "bbox": [
+        965,
+        1025,
+        1042,
+        1059
+      ]
+    },
+    {
+      "bloc": 53,
+      "texte": "7419,23",
+      "bbox": [
+        1177,
+        1026,
+        1273,
+        1064
+      ]
+    }
+  ],
+  "limite": "Prix unitaire generique : HT/TTC absent du libelle OCR. Designations OCR conservees sans correction."
+}

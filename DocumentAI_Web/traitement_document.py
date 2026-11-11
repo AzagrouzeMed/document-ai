@@ -86,9 +86,15 @@ def ocr_document(source,run,lang):
     recognizers={'fr':'latin_PP-OCRv5_mobile_rec','ar':'arabic_PP-OCRv5_mobile_rec'}
     for language in languages:
         print(f'OCR {language} : chargement...',flush=True)
-        model=PaddleOCR(device='cpu',text_detection_model_name='PP-OCRv5_mobile_det',
-            text_recognition_model_name=recognizers[language],use_doc_orientation_classify=False,
-            use_doc_unwarping=False,use_textline_orientation=False)
+        model = PaddleOCR(
+            device="cpu",
+            text_detection_model_name="PP-OCRv5_mobile_det",
+            text_recognition_model_name=recognizers[language],
+            use_doc_orientation_classify=False,
+            use_doc_unwarping=False,
+            use_textline_orientation=False,
+            enable_mkldnn=False,
+        )
         for index,result in enumerate(model.predict(input=str(source))):
             path=run/'ocr'/f'page_{index+1}_{language}.json';path.parent.mkdir(exist_ok=True)
             result.save_to_json(str(path));raw=unwrap(read(path))
@@ -169,7 +175,7 @@ def process_pages(pages,run,sans_llm,source=None):
         try:
             data,proofs,controls=dim.merge_pages([v[3] for v in chosen])
             data['numero_document']=data.pop('numero_devis',None)
-            for v in chosen:routes.append(dict(page=v[0]+1,lecture=v[5],structure=v[4],moteur='dimensions_multipage'))
+            for v in chosen:routes.append(dict(page=v[0]+1,lecture=v[5],structure=v[4],moteur='dimensions_multipage',source_articles='secours_local',raison_secours_articles='structure_dimensions_locale'))
             return data,proofs,controls['alertes'],routes,False
         except ValueError as exc:
             # Keep page-level data if grouping is ambiguous; never silently hide the issue.
@@ -188,8 +194,24 @@ def process_pages(pages,run,sans_llm,source=None):
             elif source is not None and not sans_llm:
                 from moteur.extraction_gemini import extract as gemini
                 try:
-                    data,src,notices=gemini(source,index,raw,run/'gemini'/f'page_{page}')
+                    lectures_ocr={langue:read(chemin) for langue,chemin in pages[index].items()}
+                    data,src,notices=gemini(source,index,raw,run/'gemini'/f'page_{page}',
+                                          lectures_ocr=lectures_ocr)
                     route['moteur']='gemini_image_et_ocr'
+                    from moteur.extraction_gemini import ligne_utilisable
+                    if any(ligne_utilisable(line) for line in data.get('lignes',[])):
+                        route.update(source_articles='gemini',raison_secours_articles=None)
+                    else:
+                        # Preserve l'en-tete Gemini ; seul le tableau vient du secours.
+                        from moteur.extraction_ocr_prioritaire import direct
+                        local,local_src,local_notices=direct(raw,page)
+                        data['lignes']=local.get('lignes',[])
+                        src={k:v for k,v in src.items() if not k.startswith('lignes.')}
+                        src.update({k:v for k,v in local_src.items() if k.startswith('lignes.')})
+                        notices+=['Articles Gemini sans ligne utilisable; secours OCR local utilise.']+local_notices
+                        route.update(source_articles='secours_local',
+                                     raison_secours_articles='aucune_ligne_gemini_utilisable')
+                        partial=True
                     if any(data.get(k) is None for k in ['fournisseur','client','numero_document','date']) or not data.get('lignes'):
                         partial=True
                 except Exception as api_error:
@@ -198,6 +220,8 @@ def process_pages(pages,run,sans_llm,source=None):
                     data,src,notices=direct(raw,page)
                     notices=['Gemini indisponible; extraction OCR locale partielle conservee : '+str(api_error)]+notices
                     route['moteur']='ocr_local_apres_echec_gemini';partial=True
+                    route.update(source_articles='secours_local',
+                                 raison_secours_articles='appel_ou_reponse_gemini_inexploitable')
             else:
                 from moteur.extraction_ocr_prioritaire import direct
                 data,src,notices=direct(raw,page)
@@ -212,6 +236,10 @@ def process_pages(pages,run,sans_llm,source=None):
             data['type_document']=structure['type_document']
             notices=[str(exc),'Extraction de secours utilisee; mode visuel non abouti ou moteur geometrique non applicable.']+notices
             partial=True;route['moteur']='extraction_souple_partielle'
+        route.setdefault('source_articles','secours_local')
+        route.setdefault('raison_secours_articles',
+            'mode_sans_api' if sans_llm else 'ocr_archive_sans_image' if source is None else route['moteur'])
+        route['nombre_articles']=len(data.get('lignes',[]))
         outputs.append(dict(page=page,donnees=data));proofs[f'page_{page}']=src
         alerts.extend(f'Page {page} : {a}' for a in notices);routes.append(route)
     result={k:None for k in FIELDS};result['lignes']=[]
@@ -248,8 +276,11 @@ def traiter_document(input_path=None,ocr_cache=None,output=None,lang='auto',sans
         data.update(document_id=doc_id,fichier_source=source.name if source else 'OCR archives',
             pages_traitees=[i+1 for i in sorted(pages)],statut='partiel' if partial else 'a_verifier')
         alerts.append('Revue humaine requise; les scores de la V6 ne mesurent pas cette nouvelle chaine unifiee.')
-        controls=dict(statut=data['statut'],revue_humaine_requise=True,alertes=alerts,
-                      nombre_articles=len(data.get('lignes',[])),nombre_pages=len(pages))
+        from moteur.validation_donnees import valider_calculs
+        controls=dict(verifications=valider_calculs(data),statut=data['statut'],revue_humaine_requise=True,alertes=alerts,
+                      nombre_articles=len(data.get('lignes',[])),nombre_pages=len(pages),
+                      sources_articles=[dict(page=r['page'],source=r.get('source_articles','secours_local'),
+                          raison_basculement=r.get('raison_secours_articles')) for r in routes])
         text=[]
         for index,variants in sorted(pages.items()):
             for language,path in variants.items():

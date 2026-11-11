@@ -43,11 +43,54 @@
    <div class="review-banner"><strong id="review-status">À vérifier</strong><span>Contrôlez les valeurs avec le document original avant de les utiliser.</span></div>
    <div class="metrics"><div><small>TYPE DE DOCUMENT</small><strong id="metric-type">—</strong></div><div><small>PAGES TRAITÉES</small><strong id="metric-pages">—</strong></div><div><small>LIGNES EXTRAITES</small><strong id="metric-lines">—</strong></div><div><small id="metric-total-label">TOTAL TTC</small><strong id="metric-total">—</strong></div></div>
    <div class="tabs" role="tablist"><button role="tab" aria-selected="true" data-tab="fields">Informations</button><button role="tab" aria-selected="false" data-tab="articles">Articles <span id="article-count">0</span></button><button role="tab" aria-selected="false" data-tab="alerts">Alertes <span id="alert-count">0</span></button><button role="tab" aria-selected="false" data-tab="json">JSON</button></div>
-   <div id="tab-fields" class="tab-panel"><div class="split"><section class="panel"><div class="panel-title"><h2>Champs extraits</h2><span>— = non extrait</span></div><dl id="fields-list"></dl></section><section class="panel preview"><div class="panel-title"><h2>Document original</h2><a id="open-source" target="_blank" rel="noopener">Ouvrir ↗</a></div><div id="source-preview"></div></section></div></div>
+   <div id="tab-fields" class="tab-panel"><div class="split"><section class="panel"><div class="panel-title"><h2>Champs extraits</h2><span>— = non extrait</span></div><form id="amounts-form"><dl id="fields-list"></dl><button class="primary" id="validate-amounts" type="submit">Valider les montants</button><p id="amounts-status" role="status" aria-live="polite"></p></form></section><section class="panel preview"><div class="panel-title"><h2>Document original</h2><a id="open-source" target="_blank" rel="noopener">Ouvrir ↗</a></div><div id="source-preview"></div></section></div></div>
    <div id="tab-articles" class="tab-panel hidden panel"><div class="panel-title"><h2>Articles et prestations</h2><span>Valeurs OCR à vérifier</span></div><div class="table-scroll"><table id="articles-table"></table></div></div>
    <div id="tab-alerts" class="tab-panel hidden panel"><div class="panel-title"><h2>Points à vérifier</h2><a id="download-controls" download>↓ Contrôles JSON</a></div><ul id="alerts-list"></ul><p class="note">Une alerte n’est pas un score de précision. Une sortie sans erreur technique ne garantit pas des données exactes.</p></div>
    <div id="tab-json" class="tab-panel hidden panel"><div class="panel-title"><h2>Données structurées</h2><button id="copy-json" class="text-button">Copier le JSON</button></div><pre id="json-output" dir="ltr"></pre></div>
    <div class="result-footer"><a id="download-proofs" download>↓ Consulter les preuves OCR</a><a id="download-text" download>↓ Texte OCR</a><span>Les informations absentes ne sont pas inventées.</span></div>
+  </section>
+  <section id="saved-invoices" class="panel saved-invoices" aria-labelledby="saved-invoices-title">
+   <div class="panel-title"><h2 id="saved-invoices-title">Factures enregistrées</h2><button id="refresh-invoices" class="secondary" type="button">Actualiser</button></div>
+   <p class="muted">Données enregistrées, à vérifier avec le document original.</p>
+   <p id="invoices-status" role="status" aria-live="polite"></p>
+   <div class="table-scroll"><table id="invoices-table" aria-label="Factures enregistrées"></table></div>
+   <div id="invoice-detail" class="hidden" aria-labelledby="invoice-detail-title" aria-busy="false">
+    <h3 id="invoice-detail-title">Détail de la facture</h3>
+    <p id="invoice-detail-status" role="status" aria-live="polite"></p>
+    <button id="edit-invoice" class="secondary hidden" type="button">Modifier</button>
+    <form id="invoice-edit-form" class="hidden invoice-edit-form">
+     <p>Choisissez un champ d'en-tête à corriger. Une correction ne valide pas toute la facture.</p>
+     <label for="invoice-edit-field">Champ à corriger</label><select id="invoice-edit-field"></select>
+     <label for="invoice-edit-value">Nouvelle valeur</label><textarea id="invoice-edit-value" rows="3" dir="auto" maxlength="4000"></textarea>
+     <p class="muted">Laissez la valeur vide pour effacer ce champ facultatif. Dates : AAAA-MM-JJ.</p>
+     <button id="save-invoice-header" class="primary" type="submit">Enregistrer la correction</button>
+     <button id="cancel-invoice-edit" class="secondary" type="button">Annuler</button>
+    </form>
+    <p id="invoice-edit-status" role="status" aria-live="polite"></p>
+    <dl id="invoice-fields"></dl>
+    <section id="invoice-search" class="invoice-search hidden" aria-labelledby="invoice-search-title">
+     <h3 id="invoice-search-title">Rechercher dans le document</h3>
+     <p class="muted">Recherche par mots dans les lectures OCR enregistrées. Tous les mots saisis sont recherchés ; les textes peuvent contenir des erreurs OCR.</p>
+     <form id="invoice-search-form"><label for="invoice-search-query">Mots à rechercher</label><input id="invoice-search-query" type="search" dir="auto" maxlength="200" required><button class="secondary" type="submit">Rechercher</button></form>
+     <p id="invoice-search-status" role="status" aria-live="polite" aria-busy="false"></p>
+     <ul id="invoice-search-results" aria-label="Passages trouvés"></ul>
+    </section>
+    <section id="invoice-questions" class="invoice-questions hidden" aria-labelledby="invoice-questions-title">
+     <h3 id="invoice-questions-title">Poser une question sur cette facture</h3>
+     <p class="muted">Consultation structurée des valeurs actuelles enregistrées dans la base.</p>
+     <div class="invoice-question-buttons">
+      <button id="ask-invoice-fournisseur" class="secondary" type="button">Qui est le fournisseur ?</button>
+      <button id="ask-invoice-client" class="secondary" type="button">Qui est le client ?</button>
+      <button id="ask-invoice-date_facture" class="secondary" type="button">Quelle est la date de facture ?</button>
+      <button id="ask-invoice-total_ttc" class="secondary" type="button">Quel est le total TTC ?</button>
+     </div>
+     <p id="invoice-answer" dir="auto" role="status" aria-live="polite" aria-busy="false"></p>
+    </section>
+    <h3>Historique des corrections</h3>
+    <p id="invoice-history-status" role="status" aria-live="polite"></p>
+    <div class="table-scroll"><table id="invoice-history" aria-label="Historique des corrections"></table></div>
+    <h3>Articles</h3><div class="table-scroll"><table id="invoice-articles" aria-label="Articles de la facture"></table></div>
+   </div>
   </section>
  </div>
  <footer class="footer">Document AI <span>Interface locale · Gemini en ligne · Français & arabe · Revue humaine requise</span></footer>

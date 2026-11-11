@@ -1,15 +1,17 @@
 """Serveur local Document AI. Lancement : python lancer_web.py"""
 import json
+import math
 import os
 import re
 import secrets
+import sqlite3
 import subprocess
 import sys
 import threading
 import uuid
 from concurrent.futures import ThreadPoolExecutor
 from contextlib import asynccontextmanager
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from pathlib import Path
 
 from fastapi import FastAPI, File, Form, HTTPException, Request, UploadFile
@@ -17,6 +19,8 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from starlette.middleware.trustedhost import TrustedHostMiddleware
 from rapport_pdf import export_pdf
+import stockage
+from moteur.validation_donnees import valider_calculs
 
 ROOT=Path(__file__).resolve().parent
 DATA=Path(os.environ.get('DOCUMENTAI_DATA_DIR',str(ROOT/'data'))).resolve()
@@ -83,6 +87,66 @@ def build_command(p,source,lang,sans_llm):
     return cmd
 
 
+def lire_archives_ocr(run):
+    """Lit exclusivement les archives FR/AR du resultat courant, sans OCR."""
+    pages=[]
+    for chemin in sorted((run/'ocr').glob('page_*.json')):
+        match=re.fullmatch(r'page_([1-9][0-9]*)_(fr|ar)\.json',chemin.name)
+        if not match:continue
+        if not chemin.resolve().is_relative_to(run.resolve()):
+            raise ValueError('Archive OCR hors du resultat courant.')
+        numero=int(match[1]);langue=match[2]
+        brut=json.loads(chemin.read_text(encoding='utf-8-sig'))
+        if not isinstance(brut,dict):raise ValueError('Archive OCR invalide.')
+        brut=brut.get('res',brut)
+        if not isinstance(brut,dict):raise ValueError('Lecture OCR invalide.')
+        textes=brut.get('rec_texts')
+        if not isinstance(textes,list) or any(not isinstance(texte,str) for texte in textes):
+            raise ValueError('Texte OCR invalide.')
+        if 'page_index' in brut and (type(brut['page_index']) is not int or brut['page_index']!=numero-1):
+            raise ValueError('Numero de page OCR incoherent.')
+        pages.append(dict(numero_page=numero,langue=langue,texte_ocr='\n'.join(textes),source=f'ocr/{chemin.name}'))
+    return pages
+
+
+def sauvegarder_textes_ocr(p,facture_id,run):
+    try:
+        pages=lire_archives_ocr(run)
+        if not pages:return dict(etat='absent',message='Aucun texte OCR enregistré')
+        nombre=stockage.enregistrer_pages_document(facture_id,pages,DATA/'document_ai.db',traitement_id=p.name)
+        return dict(etat='enregistre',nombre_lectures=nombre,message='Lectures OCR enregistrées.')
+    except Exception as exc:
+        # L'archivage OCR ne doit pas annuler la facture ni masquer l'extraction.
+        try:(p/'stockage_ocr_erreur.log').write_text(f'{type(exc).__name__}: {exc}',encoding='utf-8')
+        except OSError:pass
+        return dict(etat='echec',message="La facture est enregistrée, mais ses textes OCR n'ont pas pu être sauvegardés. Les archives sont conservées.")
+
+
+def sauvegarder_resultat(p,source,json_brut,*,run=None):
+    """Sauvegarde independante du PDF ; retourne un diagnostic pour statut.json."""
+    try:
+        chemin_base=DATA/'document_ai.db'
+        # Initialisation reexecutable et connexion locale a chaque operation.
+        stockage.initialiser_base(chemin_base)
+        facture_id=stockage.enregistrer_facture(json_brut,chemin_base,
+            traitement_id=p.name,chemin_original=str(source.resolve()))
+        if run is None:
+            document_id=json.loads(json_brut).get('document_id')
+            if isinstance(document_id,str) and re.fullmatch(r'DOC-[A-Za-z0-9_-]+',document_id):
+                run=p/'resultats'/document_id
+        textes_ocr=sauvegarder_textes_ocr(p,facture_id,run) if run is not None else dict(etat='absent',message='Aucun texte OCR enregistré')
+        return dict(etat='enregistre',facture_id=facture_id,textes_ocr=textes_ocr,
+            message='Extraction enregistrée. Les valeurs restent à vérifier.',diagnostic=None)
+    except Exception as exc:
+        diagnostic=f'{type(exc).__name__}: {exc}'
+        # Un journal indisponible ne doit pas masquer le resultat d'extraction.
+        try:(p/'stockage_erreur.log').write_text(diagnostic,encoding='utf-8')
+        except OSError:pass
+        return dict(etat='echec',facture_id=None,
+            message="L'extraction est disponible, mais l'enregistrement a échoué. Les fichiers sont conservés.",
+            diagnostic=diagnostic)
+
+
 def worker(p,source,lang,sans_llm):
     try:
         write_status(p,etat='analyse',message='Lecture des pages et extraction en cours…')
@@ -93,10 +157,14 @@ def worker(p,source,lang,sans_llm):
         files=list((p/'resultats').glob('DOC-*/document.json'))
         if process.returncode or len(files)!=1:
             raise RuntimeError('Le traitement a échoué. Le diagnostic est conservé dans le dossier de ce traitement.')
-        run=files[0].parent;data=load(files[0]);controls=load(run/'controles.json')
+        run=files[0].parent;json_brut=files[0].read_bytes().decode('utf-8')
+        data=json.loads(json_brut);controls=load(run/'controles.json')
+        if not isinstance(data,dict) or not isinstance(data.get('document_id'),str) or not data['document_id']:
+            raise ValueError('Le JSON final ne contient pas un document exploitable.')
         # Display the uploaded name, not the canonical storage basename.
         data['fichier_source']=load(p/'statut.json')['nom_fichier']
-        files[0].write_text(json.dumps(data,ensure_ascii=False,indent=2),encoding='utf-8')
+        # Le nom affiche reste en memoire ; le JSON final n'est plus reecrit.
+        sauvegarde=sauvegarder_resultat(p,source,json_brut,run=run)
         write_status(p,etat='export',message='Création du rapport PDF…')
         pdf_error=None
         try:export_pdf(data,controls,run/'rapport.pdf')
@@ -106,7 +174,7 @@ def worker(p,source,lang,sans_llm):
         write_status(p,etat='termine',message='Analyse disponible. Vérifiez les valeurs et les alertes.',
             run_path=str(run.relative_to(p)),document_id=data['document_id'],
             resultat_statut=data.get('statut','a_verifier'),pdf_disponible=(run/'rapport.pdf').exists(),
-            avertissement_pdf=pdf_error,nombre_articles=len(data.get('lignes',[])),
+            avertissement_pdf=pdf_error,sauvegarde=sauvegarde,nombre_articles=len(data.get('lignes',[])),
             nombre_pages=len(data.get('pages_traitees',[])))
     except subprocess.TimeoutExpired:
         write_status(p,etat='echec',message='Temps maximal de traitement dépassé. Vous pouvez réessayer avec moins de pages.')
@@ -144,6 +212,157 @@ def history():
             try:rows.append(public_status(p))
             except (OSError,ValueError):continue
     return sorted(rows,key=lambda v:v.get('created_at',''),reverse=True)[:50]
+
+
+# Projection explicite : aucune metadonnee technique ni JSON brut dans ces GET.
+CHAMPS_LISTE_FACTURES=('id','numero_document','fournisseur','client','date_facture','devise','statut')
+CHAMPS_DETAIL_FACTURE=CHAMPS_LISTE_FACTURES + (
+    'type_document','document_id','ice_fournisseur','ice_client','date_echeance',
+    'adresse_fournisseur','adresse_client','adresse_livraison',*stockage.CHAMPS_NOMBRES)
+CHAMPS_ARTICLE=('numero_ligne','designation','unite',*stockage.NOMBRES_ARTICLE,'page')
+# Sous-ensemble metier explicite ; les montants gardent leur formulaire existant.
+CHAMPS_ENTETE=tuple(champ for champ in (
+    'fournisseur','client','ice_fournisseur','ice_client','numero_document',
+    'date_facture','date_echeance','adresse_fournisseur','adresse_client','adresse_livraison')
+    if champ in stockage.CHAMPS_MODIFIABLES)
+
+
+
+def lire_factures_enregistrees(facture_id=None):
+    try:
+        base=DATA/'document_ai.db'
+        if not base.exists():
+            return [] if facture_id is None else None
+        # Ne pas initialiser/migrer la base pendant une consultation.
+        if facture_id is None:
+            return stockage.lister_factures(base,lecture_seule=True)
+        return stockage.lire_facture(facture_id,base,lecture_seule=True)
+    except (sqlite3.Error,OSError):
+        raise HTTPException(503,'Lecture des factures enregistrées indisponible. Réessayez plus tard.') from None
+
+
+@app.get('/api/factures')
+def factures_enregistrees():
+    return [{champ:f.get(champ) for champ in CHAMPS_LISTE_FACTURES}
+            for f in lire_factures_enregistrees()]
+
+
+@app.get('/api/factures/{facture_id}')
+def facture_enregistree(facture_id:int):
+    facture=lire_factures_enregistrees(facture_id)
+    if facture is None:
+        raise HTTPException(404,'Facture introuvable.')
+    detail={champ:facture.get(champ) for champ in CHAMPS_DETAIL_FACTURE}
+    detail['champs_modifiables']=list(CHAMPS_ENTETE)
+    detail['lignes']=[{champ:ligne.get(champ) for champ in CHAMPS_ARTICLE}
+                      for ligne in facture['lignes']]
+    return detail
+
+
+def exiger_facture_enregistree(facture_id):
+    facture=lire_factures_enregistrees(facture_id)
+    if facture is None:
+        raise HTTPException(404,'Facture introuvable.')
+    return facture
+
+
+# Codes fixes : choix d'un champ autorise, sans SQL ni generation de texte libre.
+QUESTIONS_FACTURE={
+    'fournisseur':('fournisseur','Fournisseur'),
+    'client':('client','Client'),
+    'date_facture':('date_facture','Date de facture'),
+    'total_ttc':('total_ttc','Total TTC'),
+}
+
+
+@app.get('/api/factures/{facture_id}/questions/{code_question}')
+def question_facture(facture_id:int,code_question:str):
+    if code_question not in QUESTIONS_FACTURE:
+        raise HTTPException(422,'Question non autorisée. Choisissez une des quatre questions proposées.')
+    facture=exiger_facture_enregistree(facture_id)
+    champ,libelle=QUESTIONS_FACTURE[code_question]
+    valeur=facture.get(champ)
+    def texte(value):
+        return 'Information non disponible' if value is None or isinstance(value,str) and not value.strip() else str(value)
+    numero=facture.get('numero_document')
+    statut=facture.get('statut')
+    statut_affiche='à vérifier' if statut=='a_verifier' else texte(statut)
+    information=texte(valeur)
+    if champ=='total_ttc' and information!='Information non disponible' and facture.get('devise'):
+        information+=' '+facture['devise']
+    reponse=f'Facture {texte(numero)}. Statut : {statut_affiche}. {libelle} : {information}.'
+    if statut=='partiel':
+        reponse+=' Résultat partiel : cette facture reste à vérifier avec le document original.'
+    elif statut=='a_verifier':
+        reponse+=' Cette facture reste à vérifier avec le document original.'
+    elif statut is None or isinstance(statut,str) and not statut.strip():
+        reponse+=' Statut non renseigné : vérifiez les données avec le document original.'
+    return dict(facture_id=facture_id,question=code_question,numero_document=numero,
+                statut=statut,valeur=valeur,reponse=reponse)
+
+
+@app.get('/api/factures/{facture_id}/recherche')
+def rechercher_document_facture(facture_id:int,q:str=''):
+    exiger_facture_enregistree(facture_id)
+    try:
+        return stockage.rechercher_pages_document(facture_id,q,DATA/'document_ai.db')
+    except ValueError as exc:
+        raise HTTPException(422,str(exc)) from None
+    except (sqlite3.Error,OSError):
+        raise HTTPException(503,'Recherche documentaire indisponible. Réessayez plus tard.') from None
+
+
+@app.get('/api/factures/{facture_id}/historique')
+def historique_facture(facture_id:int):
+    exiger_facture_enregistree(facture_id)
+    try:
+        historique=stockage.lire_validations(facture_id,DATA/'document_ai.db',lecture_seule=True)
+    except (sqlite3.Error,OSError):
+        raise HTTPException(503,'Historique indisponible. Réessayez plus tard.') from None
+    # Ne pas publier d'anciennes corrections de chemins ou de metadonnees internes.
+    champs=('id','champ','ancienne_valeur','nouvelle_valeur','date_action','action')
+    return [{champ:ligne.get(champ) for champ in champs} for ligne in historique
+            if ligne['champ'] in CHAMPS_DETAIL_FACTURE]
+
+
+def valider_correction_entete(payload):
+    if not isinstance(payload,dict) or set(payload)!={'champ','nouvelle_valeur'}:
+        raise HTTPException(422,'Fournissez uniquement champ et nouvelle_valeur.')
+    champ=payload['champ']
+    if not isinstance(champ,str) or champ not in CHAMPS_ENTETE:
+        raise HTTPException(422,"Ce champ ne peut pas être corrigé dans l'en-tête.")
+    valeur=payload['nouvelle_valeur']
+    if valeur is not None:
+        if not isinstance(valeur,str):
+            raise HTTPException(422,'La valeur doit être un texte ou null.')
+        valeur=valeur.strip() or None
+    if valeur is not None:
+        limite=4000 if champ.startswith('adresse_') else 500
+        if len(valeur)>limite or any(ord(c)<32 and c not in '\n\t' for c in valeur):
+            raise HTTPException(422,'Texte trop long ou contenant des caractères de contrôle interdits.')
+        if champ in ('date_facture','date_echeance'):
+            try:
+                if not re.fullmatch(r'[0-9]{4}-[0-9]{2}-[0-9]{2}',valeur):raise ValueError()
+                date.fromisoformat(valeur)
+            except ValueError:
+                raise HTTPException(422,'Date invalide : utilisez AAAA-MM-JJ.') from None
+    return champ,valeur
+
+
+@app.post('/api/factures/{facture_id}/corrections')
+async def corriger_entete_facture(facture_id:int,request:Request):
+    try:payload=await request.json()
+    except ValueError:raise HTTPException(422,'Saisie JSON invalide.') from None
+    champ,valeur=valider_correction_entete(payload)
+    exiger_facture_enregistree(facture_id)
+    try:
+        validation_id=stockage.corriger_champ(facture_id,champ,valeur,chemin_base=DATA/'document_ai.db')
+    except ValueError:
+        raise HTTPException(422,'Correction refusée. Vérifiez le champ et sa valeur.') from None
+    except (sqlite3.Error,OSError):
+        raise HTTPException(503,"Enregistrement impossible. La correction n'a pas été sauvegardée.") from None
+    return dict(validation_id=validation_id,champ=champ,nouvelle_valeur=valeur,
+                message='Correction enregistrée. La facture reste à vérifier.')
 
 
 def validate_file(path,suffix):
@@ -199,8 +418,55 @@ def status(job_id:str):return public_status(folder(job_id))
 
 @app.get('/api/traitements/{job_id}/resultat')
 def result(job_id:str):
+    p=folder(job_id);run=result_folder(p)
+    document=load(run/'document.json')
+    nom_fichier=load(p/'statut.json').get('nom_fichier')
+    if nom_fichier is not None:document['fichier_source']=nom_fichier
+    saved=load(run/'montants_valides.json') if (run/'montants_valides.json').is_file() else None
+    if saved:
+        document.update(saved['montants'])
+    return dict(document=document,controles=load(run/'controles.json'),montants_validation=saved)
+
+
+MONTANTS=('total_ht','montant_tva','total_ttc')
+
+
+def parse_montant(value):
+    if value is None or isinstance(value,str) and not value.strip():return None
+    if isinstance(value,str):
+        value=value.strip()
+        if not re.fullmatch(r'[+-]?[0-9]+(?:[.,][0-9]+)?',value):
+            raise HTTPException(422,'Montant invalide : utilisez un nombre avec une virgule ou un point décimal.')
+        value=value.replace(',','.')
+    elif type(value) not in (int,float):
+        raise HTTPException(422,'Montant invalide.')
+    try:value=float(value)
+    except (ValueError,OverflowError):raise HTTPException(422,'Montant invalide.')
+    if not math.isfinite(value):raise HTTPException(422,'Montant invalide.')
+    return value
+
+
+@app.post('/api/traitements/{job_id}/valider-montants')
+async def validate_amounts(job_id:str,request:Request):
     run=result_folder(folder(job_id))
-    return dict(document=load(run/'document.json'),controles=load(run/'controles.json'))
+    try:payload=await request.json()
+    except ValueError:raise HTTPException(422,'Saisie JSON invalide.')
+    if not isinstance(payload,dict) or set(payload)!=set(MONTANTS):
+        raise HTTPException(422,'Fournissez uniquement total_ht, montant_tva et total_ttc.')
+    montants={key:parse_montant(payload[key]) for key in MONTANTS}
+    controle=valider_calculs(montants)[-1]
+    if controle['etat']!='coherent':
+        from fastapi.responses import JSONResponse
+        message='Contrôle incomplet' if controle['etat']=='non_verifiable' else f"Montants incohérents : écart de {controle['ecart']}."
+        return JSONResponse(status_code=422,content=dict(detail=message,controle=controle,montants=montants))
+    saved=dict(montants=montants,controle=controle,validated_at=now(),statut='montants_valides')
+    # A unique temporary file keeps concurrent submissions atomic.
+    temp=run/('montants-'+uuid.uuid4().hex+'.tmp')
+    try:
+        temp.write_text(json.dumps(saved,ensure_ascii=False,indent=2,allow_nan=False),encoding='utf-8')
+        temp.replace(run/'montants_valides.json')
+    finally:temp.unlink(missing_ok=True)
+    return saved
 
 
 @app.get('/api/traitements/{job_id}/source')
