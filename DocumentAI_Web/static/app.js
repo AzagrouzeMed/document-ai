@@ -49,7 +49,7 @@ $('copy-json').onclick=async()=>{try{await navigator.clipboard.writeText(JSON.st
 (async()=>{try{const cfg=await api('/api/config');token=cfg.token;await refreshHistory();const id=localStorage.getItem('documentai_active');if(id&&/^[a-f0-9]{32}$/.test(id))await openJob(id);}catch(e){$('upload-error').textContent=e.message;$('upload-error').classList.remove('hidden');}})();
 
 // Consultation SQLite : independante du traitement et sans lancement d'extraction.
-let invoiceListVersion=0,invoiceDetailVersion=0,editedInvoice=null,invoiceSaving=false,invoiceQuestionVersion=0,invoiceSearchVersion=0;
+let invoiceListVersion=0,invoiceDetailVersion=0,editedInvoice=null,invoiceSaving=false,invoiceQuestionVersion=0,invoiceSearchVersion=0,invoiceRagVersion=0;
 const invoiceListLabels={id:'Identifiant',numero_document:'Numéro',fournisseur:'Fournisseur',client:'Client',date_facture:'Date',devise:'Devise',statut:'Statut'};
 const invoiceDetailLabels={...invoiceListLabels,type_document:'Type de document',document_id:'Document',ice_fournisseur:'ICE fournisseur',ice_client:'ICE client',date_echeance:'Échéance',adresse_fournisseur:'Adresse fournisseur',adresse_client:'Adresse de facturation',adresse_livraison:'Adresse de livraison',total_ht:'Total HT',montant_tva:'TVA',total_ttc:'Total TTC',total_document:'Total (base non précisée)',taux_tva:'Taux TVA (%)'};
 function invoiceValue(value){return value===null||value===undefined||value===''?'—':String(value);}
@@ -81,7 +81,7 @@ async function openInvoice(id){
  $('invoice-fields').replaceChildren();$('invoice-articles').replaceChildren();$('invoice-detail-status').textContent='Chargement de la facture…';
  try{
   const invoice=await api(`/api/factures/${encodeURIComponent(id)}`);if(version!==invoiceDetailVersion)return;
-  editedInvoice=invoice;$('edit-invoice').classList.remove('hidden');$('invoice-questions').classList.remove('hidden');$('invoice-search').classList.remove('hidden');
+  editedInvoice=invoice;$('invoice-rag').classList.remove('hidden');$('edit-invoice').classList.remove('hidden');$('invoice-questions').classList.remove('hidden');$('invoice-search').classList.remove('hidden');
   await loadInvoiceHistory(id,version);if(version!==invoiceDetailVersion)return;
   for(const [key,label] of Object.entries(invoiceDetailLabels)){const row=node('div'),value=node('dd',invoiceValue(invoice[key]));value.dir='auto';row.append(node('dt',label),value);$('invoice-fields').append(row);}
   const table=$('invoice-articles'),lines=invoice.lignes||[];
@@ -92,7 +92,7 @@ async function openInvoice(id){
  finally{if(version===invoiceDetailVersion)detail.setAttribute('aria-busy','false');}
 }
 function clearInvoiceEditor(){
- ++invoiceSearchVersion;$('invoice-search').classList.add('hidden');$('invoice-search-query').value='';$('invoice-search-results').replaceChildren();$('invoice-search-status').textContent='';$('invoice-search-status').setAttribute('aria-busy','false');
+ ++invoiceRagVersion;$('invoice-rag').classList.add('hidden');$('invoice-rag-query').value='';$('invoice-rag-status').textContent='';$('invoice-rag-answer').textContent='';$('invoice-rag-sources').replaceChildren();++invoiceSearchVersion;$('invoice-search').classList.add('hidden');$('invoice-search-query').value='';$('invoice-search-results').replaceChildren();$('invoice-search-status').textContent='';$('invoice-search-status').setAttribute('aria-busy','false');
  ++invoiceQuestionVersion;$('invoice-questions').classList.add('hidden');$('invoice-answer').textContent='';$('invoice-answer').setAttribute('aria-busy','false');
  editedInvoice=null;$('edit-invoice').classList.add('hidden');$('invoice-edit-form').classList.add('hidden');
  $('invoice-edit-status').textContent='';$('invoice-history').replaceChildren();$('invoice-history-status').textContent='';
@@ -176,3 +176,19 @@ $('invoice-search-form').onsubmit=async event=>{
 for(const code of ['fournisseur','client','date_facture','total_ttc'])$('ask-invoice-'+code).onclick=()=>askInvoiceQuestion(code);
 $('refresh-invoices').onclick=refreshInvoices;
 refreshInvoices();
+$('invoice-rag-form').onsubmit=async event=>{
+ event.preventDefault();if(!editedInvoice)return;
+ const id=editedInvoice.id,detail=invoiceDetailVersion,version=++invoiceRagVersion;
+ const status=$('invoice-rag-status'),answer=$('invoice-rag-answer'),sources=$('invoice-rag-sources');
+ answer.textContent='';sources.replaceChildren();status.textContent='Recherche et génération en cours…';status.setAttribute('aria-busy','true');
+ try{
+  const result=await api(`/api/factures/${encodeURIComponent(id)}/question-document`,{method:'POST',headers:{'Content-Type':'application/json','x-documentai-token':token},body:JSON.stringify({question:$('invoice-rag-query').value.trim()})});
+  if(detail!==invoiceDetailVersion||version!==invoiceRagVersion)return;
+  status.textContent=result.message;answer.textContent=result.reponse||'';
+  for(const p of result.passages){const item=node('li');
+   item.append(node('p',`${p.id} · Page ${p.numero_page} · ${p.langue.toUpperCase()} · ${result.references.includes(p.id)?'Cité dans la réponse':'Extrait transmis'}`,'muted'));
+   const text=node('p',p.passage,'ocr-passage');text.dir='auto';item.append(text);sources.append(item);
+  }
+ }catch(error){if(detail===invoiceDetailVersion&&version===invoiceRagVersion)status.textContent=error.message;}
+ finally{if(detail===invoiceDetailVersion&&version===invoiceRagVersion)status.setAttribute('aria-busy','false');}
+};

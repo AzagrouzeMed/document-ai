@@ -20,6 +20,7 @@ from fastapi.staticfiles import StaticFiles
 from starlette.middleware.trustedhost import TrustedHostMiddleware
 from rapport_pdf import export_pdf
 import stockage
+import rag_document
 from moteur.validation_donnees import valider_calculs
 
 ROOT=Path(__file__).resolve().parent
@@ -310,6 +311,29 @@ def rechercher_document_facture(facture_id:int,q:str=''):
         raise HTTPException(422,str(exc)) from None
     except (sqlite3.Error,OSError):
         raise HTTPException(503,'Recherche documentaire indisponible. Réessayez plus tard.') from None
+
+
+@app.post('/api/factures/{facture_id}/question-document')
+def question_document(facture_id:int,payload:dict):
+    exiger_facture_enregistree(facture_id)
+    if set(payload)!={'question'} or not isinstance(payload['question'],str):
+        raise HTTPException(422,'Fournissez uniquement une question texte.')
+    question=payload['question'].strip()
+    try:
+        recherche=stockage.rechercher_pages_document(facture_id,question,DATA/'document_ai.db',question=True)
+    except ValueError as exc:
+        raise HTTPException(422,str(exc)) from None
+    except (sqlite3.Error,OSError):
+        raise HTTPException(503,'Recherche documentaire indisponible.') from None
+    passages=[dict(p,id=f'E{i+1}') for i,p in enumerate(recherche['passages'][:5])]
+    resultat=dict(etat=recherche['etat'],message=recherche['message'],reponse=None,passages=passages,references=[])
+    if not passages:return resultat
+    try:
+        genere=rag_document.generer(question,passages)
+        resultat.update(genere,etat='reponse',message='Réponse fondée sur les extraits OCR ; vérifiez le document original.')
+    except Exception:
+        resultat.update(etat='generation_indisponible',message='Réponse générée indisponible. Consultez les extraits trouvés.')
+    return resultat
 
 
 @app.get('/api/factures/{facture_id}/historique')

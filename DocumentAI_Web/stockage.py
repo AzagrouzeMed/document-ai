@@ -170,14 +170,17 @@ def enregistrer_pages_document(facture_id,pages,chemin_base=None,*,traitement_id
             return connexion.execute('SELECT count(*) FROM pages_document WHERE facture_id=?',(facture_id,)).fetchone()[0]
 
 
-def rechercher_pages_document(facture_id,recherche,chemin_base=None):
+def rechercher_pages_document(facture_id,recherche,chemin_base=None,*,question=False):
     """Mots entiers, tous requis. Ponctuation ignoree, operateurs FTS non interpretes."""
     if not isinstance(recherche,str) or not recherche.strip() or len(recherche)>200:
         raise ValueError('Saisissez de 1 à 200 caractères.')
     mots=re.findall(r'[^\W_]+',recherche,flags=re.UNICODE)
     if not mots or len(mots)>20:
         raise ValueError('Saisissez de 1 à 20 mots contenant des lettres ou des chiffres.')
-    expression=' AND '.join('"'+mot+'"' for mot in mots)
+    if question:
+        vides=set('quelles quelle quels quel sont est les le la des de du un une et sur dans document facture que qui comment à au aux'.split())
+        mots=[m for m in mots if m.lower() not in vides] or mots
+    expression=(' OR ' if question else ' AND ').join('"'+mot+'"' for mot in mots)
     with closing(ouvrir_connexion(chemin_base,lecture_seule=True)) as connexion:
         connexion.execute('BEGIN')
         existe=connexion.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='pages_document'").fetchone()

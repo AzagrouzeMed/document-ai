@@ -75,6 +75,14 @@
      <p id="invoice-search-status" role="status" aria-live="polite" aria-busy="false"></p>
      <ul id="invoice-search-results" aria-label="Passages trouvés"></ul>
     </section>
+    <section id="invoice-rag" class="invoice-search hidden">
+     <h3>Poser une question sur le document</h3>
+     <p class="muted">La question et quelques extraits OCR sont envoyés à Gemini. La réponse ne modifie pas la facture.</p>
+     <form id="invoice-rag-form"><label for="invoice-rag-query">Votre question</label><input id="invoice-rag-query" maxlength="200" required dir="auto"><button class="secondary" type="submit">Poser la question</button></form>
+     <p id="invoice-rag-status" role="status" aria-live="polite"></p>
+     <p id="invoice-rag-answer" dir="auto"></p>
+     <ul id="invoice-rag-sources" aria-label="Extraits transmis et sources de la réponse"></ul>
+    </section>
     <section id="invoice-questions" class="invoice-questions hidden" aria-labelledby="invoice-questions-title">
      <h3 id="invoice-questions-title">Poser une question sur cette facture</h3>
      <p class="muted">Consultation structurée des valeurs actuelles enregistrées dans la base.</p>
