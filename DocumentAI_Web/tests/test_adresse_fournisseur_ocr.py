@@ -1,4 +1,4 @@
-y"""Adresse du secours local : archive complete et dispositions synthetiques."""
+"""Adresse du secours local : archive complete et dispositions synthetiques."""
 import copy
 import json
 import socket

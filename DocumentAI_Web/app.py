@@ -21,7 +21,12 @@ from starlette.middleware.trustedhost import TrustedHostMiddleware
 from rapport_pdf import export_pdf
 import stockage
 import rag_document
+import rag_hybride
+from moteur import base_sql, index_vectoriel
+from moteur.extraction_gemini import _charger_env
 from moteur.validation_donnees import valider_calculs
+
+_charger_env()
 
 ROOT=Path(__file__).resolve().parent
 DATA=Path(os.environ.get('DOCUMENTAI_DATA_DIR',str(ROOT/'data'))).resolve()
@@ -34,6 +39,7 @@ ARTIFACTS={'json':'document.json','pdf':'rapport.pdf','controles':'controles.jso
            'preuves':'preuves.json','texte':'texte_ocr.txt'}
 @asynccontextmanager
 async def lifespan(_app):
+    _charger_env()
     DATA.mkdir(parents=True,exist_ok=True)
     for p in DATA.iterdir():
         if p.is_dir() and (p/'statut.json').exists():
@@ -42,6 +48,16 @@ async def lifespan(_app):
                     write_status(p,etat='echec',message='Ce traitement a été interrompu par un arrêt du serveur. Relancez-le avec le document original.')
             except (OSError,ValueError):pass
     yield
+
+
+def gemini_config():
+    key=os.environ.get('GEMINI_API_KEY','').strip()
+    model=(os.environ.get('GEMINI_MODEL','').strip() or ('gemini-3.5-flash' if key else '')).removeprefix('models/')
+    return bool(key and model),model
+
+
+def rag_index_dir():
+    return DATA/'rag_index'
 
 app=FastAPI(title='Document AI local',docs_url=None,redoc_url=None,lifespan=lifespan)
 app.add_middleware(TrustedHostMiddleware,allowed_hosts=['*'] if os.environ.get('DOCUMENTAI_PREVIEW')=='1' else ['127.0.0.1','localhost','testserver'])
@@ -136,7 +152,29 @@ def sauvegarder_resultat(p,source,json_brut,*,run=None):
             if isinstance(document_id,str) and re.fullmatch(r'DOC-[A-Za-z0-9_-]+',document_id):
                 run=p/'resultats'/document_id
         textes_ocr=sauvegarder_textes_ocr(p,facture_id,run) if run is not None else dict(etat='absent',message='Aucun texte OCR enregistré')
+        if rag_hybride._EMBEDDER is not None:
+            try:rag_hybride.synchroniser_index(chemin_base,rag_index_dir())
+            except Exception:pass
+        nom_source=source.name
+        try:
+            if (p/'statut.json').is_file():
+                nom_source=load(p/'statut.json').get('nom_fichier') or source.name
+        except (OSError,ValueError):pass
+        doc_dict=json.loads(json_brut)
+        base_sql_info=dict(etat='echec',facture_id=None)
+        try:
+            sql_id=base_sql.enregistrer_facture(doc_dict,source_fichier=nom_source,json_complet=json_brut,chemin_base=DATA/'factures.db')
+            base_sql_info=dict(etat='enregistre',facture_id=sql_id)
+        except Exception as exc:
+            base_sql_info['diagnostic']=f'{type(exc).__name__}: {exc}'
+        chroma_info=dict(etat='echec',nombre_chunks=0)
+        try:
+            idx_res=index_vectoriel.indexer_facture(doc_dict,source_fichier=nom_source,chroma_dir=DATA/'chroma_db',local_files_only=True)
+            chroma_info=dict(etat='indexe',nombre_chunks=idx_res['nombre_chunks'])
+        except Exception as exc:
+            chroma_info['diagnostic']=f'{type(exc).__name__}: {exc}'
         return dict(etat='enregistre',facture_id=facture_id,textes_ocr=textes_ocr,
+            base_sql=base_sql_info,chroma=chroma_info,
             message='Extraction enregistrée. Les valeurs restent à vérifier.',diagnostic=None)
     except Exception as exc:
         diagnostic=f'{type(exc).__name__}: {exc}'
@@ -201,7 +239,9 @@ def home():return FileResponse(ROOT/'static/index.html')
 
 
 @app.get('/api/config')
-def config():return dict(token=TOKEN,taille_max_mo=25,pages_max=20,fournisseur='gemini',gemini_configure=bool(os.environ.get('GEMINI_API_KEY') and os.environ.get('GEMINI_MODEL')),modele=os.environ.get('GEMINI_MODEL',''))
+def config():
+    ok,modele=gemini_config()
+    return dict(token=TOKEN,taille_max_mo=25,pages_max=20,fournisseur='gemini',gemini_configure=ok,modele=modele)
 
 
 @app.get('/api/traitements')
@@ -385,8 +425,166 @@ async def corriger_entete_facture(facture_id:int,request:Request):
         raise HTTPException(422,'Correction refusée. Vérifiez le champ et sa valeur.') from None
     except (sqlite3.Error,OSError):
         raise HTTPException(503,"Enregistrement impossible. La correction n'a pas été sauvegardée.") from None
+    if rag_hybride._EMBEDDER is not None:
+        try:rag_hybride.synchroniser_index(DATA/'document_ai.db',rag_index_dir())
+        except Exception:pass
     return dict(validation_id=validation_id,champ=champ,nouvelle_valeur=valeur,
                 message='Correction enregistrée. La facture reste à vérifier.')
+
+
+@app.get('/api/rag/statut')
+def rag_statut():
+    try:
+        return rag_hybride.statut_index(DATA/'document_ai.db',rag_index_dir())
+    except (sqlite3.Error,OSError):
+        raise HTTPException(503,'Statut RAG indisponible.') from None
+
+
+@app.post('/api/rag/indexer')
+async def rag_indexer(request:Request):
+    forcer=False
+    try:
+        brut=await request.body()
+        if brut.strip():
+            payload=json.loads(brut)
+            if isinstance(payload,dict):
+                forcer=bool(payload.get('forcer',False))
+    except ValueError:
+        raise HTTPException(422,'JSON invalide.') from None
+    try:
+        base=DATA/'document_ai.db'
+        if not base.exists():
+            return dict(etat='vide',nombre_factures=0,nombre_vecteurs=0,
+                        statut=rag_hybride.statut_index(base,rag_index_dir()))
+        sync=rag_hybride.synchroniser_index(base,rag_index_dir(),forcer=forcer)
+        return dict(**sync,statut=rag_hybride.statut_index(base,rag_index_dir()))
+    except (sqlite3.Error,OSError) as exc:
+        raise HTTPException(503,f'Indexation vectorielle indisponible : {exc}') from None
+
+
+@app.get('/api/rag/factures')
+def rag_filtrer_factures(
+    fournisseur:str|None=None,
+    client:str|None=None,
+    ice:str|None=None,
+    numero_document:str|None=None,
+    date_debut:str|None=None,
+    date_fin:str|None=None,
+    devise:str|None=None,
+    statut:str|None=None,
+    article:str|None=None,
+):
+    try:
+        base=DATA/'document_ai.db'
+        res=stockage.rechercher_factures_structurees(
+            base,fournisseur=fournisseur,client=client,ice=ice,
+            numero_document=numero_document,date_debut=date_debut,date_fin=date_fin,
+            devise=devise,statut=statut,article=article,
+        )
+        champs=('id','numero_document','document_id','type_document','fournisseur','ice_fournisseur',
+                'client','ice_client','date_facture','devise','total_ht','montant_tva','total_ttc',
+                'total_document','statut')
+        return dict(
+            factures=[{k:f.get(k) for k in champs} for f in res['factures']],
+            calculs=res['calculs'],
+        )
+    except (sqlite3.Error,OSError):
+        raise HTTPException(503,'Consultation SQLite indisponible.') from None
+
+
+@app.post('/api/rag/question')
+async def rag_question_globale(request:Request):
+    try:payload=await request.json()
+    except ValueError:raise HTTPException(422,'Saisie JSON invalide.') from None
+    if not isinstance(payload,dict) or not isinstance(payload.get('question'),str):
+        raise HTTPException(422,'Fournissez un objet JSON avec le champ question.')
+    facture_id=payload.get('facture_id')
+    if facture_id is not None:
+        if isinstance(facture_id,bool) or not isinstance(facture_id,int) or facture_id<1:
+            raise HTTPException(422,'facture_id invalide.')
+        exiger_facture_enregistree(facture_id)
+    top_k=payload.get('top_k',8)
+    if isinstance(top_k,bool) or not isinstance(top_k,int) or not 1<=top_k<=20:
+        raise HTTPException(422,'top_k doit être un entier entre 1 et 20.')
+    utiliser_llm=bool(payload.get('utiliser_llm',True))
+    try:
+        return rag_hybride.poser_question_hybride(
+            payload['question'],DATA/'document_ai.db',rag_index_dir(),
+            facture_id=facture_id,top_k=top_k,utiliser_llm=utiliser_llm,
+        )
+    except ValueError as exc:
+        raise HTTPException(422,str(exc)) from None
+    except (sqlite3.Error,OSError):
+        raise HTTPException(503,'Recherche RAG hybride indisponible.') from None
+
+
+@app.post('/api/reindexer')
+def reindexer_toutes_factures():
+    """Reindexe toutes les factures extraites de DATA dans factures.db (SQLite) et ChromaDB."""
+    DATA.mkdir(parents=True,exist_ok=True)
+    base_sql_path=DATA/'factures.db'
+    chroma_path=DATA/'chroma_db'
+    base_sql.initialiser_base(base_sql_path)
+
+    par_doc_id={}
+    erreurs=[]
+    fichiers=sorted(DATA.glob('*/resultats/DOC-*/document.json'),key=lambda path:path.stat().st_mtime)
+    for doc_path in fichiers:
+        try:
+            brut=doc_path.read_text(encoding='utf-8')
+            doc=json.loads(brut)
+            if not isinstance(doc,dict) or not isinstance(doc.get('document_id'),str) or not doc['document_id'].strip():
+                continue
+            run_dir=doc_path.parent
+            job_dir=run_dir.parents[1]
+            nom_source=doc.get('fichier_source')
+            if (job_dir/'statut.json').is_file():
+                try:
+                    nom_source=load(job_dir/'statut.json').get('nom_fichier') or nom_source
+                except (OSError,ValueError):pass
+            if (run_dir/'montants_valides.json').is_file():
+                try:
+                    valides=load(run_dir/'montants_valides.json').get('montants',{})
+                    if isinstance(valides,dict):
+                        doc.update(valides)
+                except (OSError,ValueError):pass
+            if nom_source:
+                doc['fichier_source']=nom_source
+            par_doc_id[doc['document_id'].strip()]=(doc,brut,nom_source)
+        except Exception as exc:
+            erreurs.append(f'{doc_path.parent.name}: {type(exc).__name__}: {exc}')
+
+    # Complete avec les factures deja enregistrees dans document_ai.db si absentes des dossiers.
+    doc_ai_db=DATA/'document_ai.db'
+    if doc_ai_db.is_file():
+        try:
+            for f in stockage.lister_factures_avec_lignes(doc_ai_db,lecture_seule=True,inclure_pages=False):
+                did=f.get('document_id') or f'SQLITE-{f["id"]}'
+                if did in par_doc_id:
+                    continue
+                doc=dict(f)
+                doc['document_id']=did
+                doc.setdefault('date',f.get('date_facture'))
+                par_doc_id[did]=(doc,f.get('json_brut') or json.dumps(doc,ensure_ascii=False),f.get('chemin_original'))
+        except Exception as exc:
+            erreurs.append(f'document_ai.db: {type(exc).__name__}: {exc}')
+
+    factures_a_indexer=[]
+    for did,(doc,brut,nom_source) in par_doc_id.items():
+        try:
+            base_sql.enregistrer_facture(doc,source_fichier=nom_source,doc_id=did,json_complet=brut,chemin_base=base_sql_path)
+            factures_a_indexer.append(doc)
+        except Exception as exc:
+            erreurs.append(f'{did}: {type(exc).__name__}: {exc}')
+
+    chroma_res=index_vectoriel.indexer_lot(factures_a_indexer,chroma_dir=chroma_path,local_files_only=True)
+    return dict(
+        etat='ok',
+        factures_traitees=len(factures_a_indexer),
+        base_sql=base_sql.compter_factures(base_sql_path),
+        chroma=dict(**chroma_res,chemin=str(chroma_path)),
+        erreurs=erreurs,
+    )
 
 
 def validate_file(path,suffix):
@@ -407,8 +605,9 @@ def validate_file(path,suffix):
 @app.post('/api/traitements',status_code=202)
 async def create(file:UploadFile=File(...),lang:str=Form('auto'),sans_llm:bool=Form(False)):
     if lang not in ['auto','fr','ar']:raise HTTPException(422,'Langue invalide.')
-    if not sans_llm and not (os.environ.get('GEMINI_API_KEY') and os.environ.get('GEMINI_MODEL')):
-        raise HTTPException(503,'Configurer GEMINI_API_KEY et GEMINI_MODEL dans le terminal, puis relancer le serveur.')
+    ok,_=gemini_config()
+    if not sans_llm and not ok:
+        raise HTTPException(503,'Configurer GEMINI_API_KEY et GEMINI_MODEL dans .env ou le terminal, puis relancer le serveur.')
     name=Path((file.filename or '').replace('\\','/')).name
     suffix=Path(name).suffix.lower()
     if suffix not in ALLOWED:raise HTTPException(415,'Choisissez un PDF, PNG, JPEG, WebP, BMP ou TIFF.')

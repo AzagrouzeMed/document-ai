@@ -215,13 +215,30 @@ def process_pages(pages,run,sans_llm,source=None):
                     if any(data.get(k) is None for k in ['fournisseur','client','numero_document','date']) or not data.get('lignes'):
                         partial=True
                 except Exception as api_error:
-                    # No silent return to Qwen: preserve a local partial OCR result.
-                    from moteur.extraction_ocr_prioritaire import direct
-                    data,src,notices=direct(raw,page)
-                    notices=['Gemini indisponible; extraction OCR locale partielle conservee : '+str(api_error)]+notices
-                    route['moteur']='ocr_local_apres_echec_gemini';partial=True
-                    route.update(source_articles='secours_local',
-                                 raison_secours_articles='appel_ou_reponse_gemini_inexploitable')
+                    lectures_ocr={langue:read(chemin) for langue,chemin in pages[index].items()}
+                    ollama_ok=False
+                    from moteur.extraction_gemini import extract_ollama, ligne_utilisable, ollama_disponible
+                    if ollama_disponible():
+                        try:
+                            data,src,notices=extract_ollama(source,index,raw,run/'ollama'/f'page_{page}',lectures_ocr=lectures_ocr)
+                            if any(ligne_utilisable(line) for line in data.get('lignes',[])):
+                                ollama_ok=True
+                                route['moteur']='ollama_vlm_apres_echec_gemini'
+                                route.update(source_articles='ollama_vlm',raison_secours_articles='gemini_indisponible_secours_ollama')
+                                notices=['Gemini indisponible ('+str(api_error)+'); extraction VLM locale Ollama utilisee.']+notices
+                                if any(data.get(k) is None for k in ['fournisseur','client','numero_document','date']):
+                                    partial=True
+                        except Exception:
+                            ollama_ok=False
+                    if not ollama_ok:
+                        # No silent return to Qwen if unavailable: preserve a local partial OCR result.
+                        from moteur.extraction_ocr_prioritaire import direct
+                        data,src,notices=direct(raw,page)
+                        if data.get('type_document')=='inconnu':data['type_document']=structure['type_document']
+                        notices=['Gemini indisponible; extraction OCR locale partielle conservee : '+str(api_error)]+notices
+                        route['moteur']='ocr_local_apres_echec_gemini';partial=True
+                        route.update(source_articles='secours_local',
+                                     raison_secours_articles='appel_ou_reponse_gemini_inexploitable')
             else:
                 from moteur.extraction_ocr_prioritaire import direct
                 data,src,notices=direct(raw,page)

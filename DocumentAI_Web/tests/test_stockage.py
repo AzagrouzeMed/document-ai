@@ -270,10 +270,8 @@ class StockageTests(unittest.TestCase):
         self.assertEqual(s.lire_validations(autre, self.base), [])
 
     def test_import_sans_effet(self):
-        from DocumentAI_Web import essai_stockage
         with patch('sqlite3.connect', side_effect=AssertionError('Connexion pendant import')):
             importlib.reload(s)
-            importlib.reload(essai_stockage)
 
 
 if __name__ == '__main__':

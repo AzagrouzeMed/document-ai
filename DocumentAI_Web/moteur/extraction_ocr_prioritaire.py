@@ -91,8 +91,8 @@ def corriger_adresse_fournisseur(prepared,raw):
     h=median(max(1,b['bbox'][3]-b['bbox'][1]) for b in bs)
     cy=lambda b:(b['bbox'][1]+b['bbox'][3])/2
     roles={
-        'fournisseur':{'fournisseur','vendeur','emetteur','المورد','المصدر'},
-        'autre':{'client','facturea','facturera','factura','destinataire','alattentionde',
+        'fournisseur':{'fournisseur','vendeur','emetteur','emetteu','المورد','المصدر'},
+        'autre':{'client','facturea','facturera','factura','facturer','destinataire','alattentionde',
                  'livrea','envoyea','الزبون','العميل','المشتري','عنوانالتسليم'},
     }
     roles={key:{norm(v) for v in values} for key,values in roles.items()}
@@ -123,24 +123,38 @@ def corriger_adresse_fournisseur(prepared,raw):
         else:right=min(right,(other['bbox'][0]+anchor['bbox'][0])/2)
     bottom=min(bottom,name['bbox'][3]+6*h)
     excluded=r'@|https?://|\b(?:ICE|IF|RC|RIB|IBAN|SIRET|TVA)\b|T[eé]l|Fax|هاتف|الهاتف|الضريبي|^\s*\+?\d[\d .()-]{7,}$'
-    street=r'rue|avenue|boulevard|route|impasse|chemin|lotissement|adresse|شارع|زنقة|حي|طريق|عنوان'
-    candidates=[]
-    for block in bs:
+    street=r'rue|avenue|boulevard|route|impasse|chemin|lotissement|quartier|immeuble|r[eé]sidence|adresse|شارع|زنقة|حي|طريق|عنوان'
+    dans_colonne=[]
+    for block in sorted(bs,key=cy):
         x0,y0,x1,y1=block['bbox']
         aligned=min(abs(x0-name['bbox'][0]),abs(x1-name['bbox'][2]))<=2*h
         if (block['id']==name['id'] or not aligned or not left<(x0+x1)/2<right
             or y0<name['bbox'][3]-h*.35 or cy(block)<=cy(name) or y1>bottom):continue
+        dans_colonne.append(block)
+    stop_y=bottom
+    for block in dans_colonne:
+        if re.search(excluded,block['texte'].strip(),re.I):
+            stop_y=min(stop_y,block['bbox'][1])
+    # Refuser si une adresse apparait apres un bloc ICE/telephone (zone ambigue).
+    for block in dans_colonne:
+        if block['bbox'][1]>=stop_y and not re.search(excluded,block['texte'].strip(),re.I) and re.search(street,block['texte'],re.I):
+            return refuse()
+    candidates=[]
+    for block in dans_colonne:
+        if block['bbox'][1]>=stop_y:break
         text=block['texte'].strip()
-        if re.search(excluded,text,re.I) or not re.search(street,text,re.I):continue
-        # Un simple titre Adresse/عنوان ne constitue pas une adresse.
+        if re.search(excluded,text,re.I):continue
         content=re.sub(r'(?i)adresse|عنوان|[\s/:：]','',text)
         if len(content)<4:continue
+        if candidates and block['bbox'][1]-candidates[-1]['bbox'][3]>1.3*h:
+            return refuse()
         candidates.append(block)
-    if len(candidates)!=1:return refuse()
-    address=candidates[0]
-    prepared['adresse_fournisseur']=address['texte']
-    prepared['preuves'].append(dict(champ='adresse_fournisseur',texte_visible=address['texte'],
-                                    blocs_ocr=[address['id']]))
+    if not candidates or not any(re.search(street,b['texte'],re.I) for b in candidates):
+        return refuse()
+    prepared['adresse_fournisseur']=', '.join(b['texte'].strip() for b in candidates)
+    prepared['preuves'].append(dict(champ='adresse_fournisseur',
+                                    texte_visible=' '.join(b['texte'].strip() for b in candidates),
+                                    blocs_ocr=[b['id'] for b in candidates]))
     return []
 
 
@@ -330,37 +344,82 @@ def rattacher_client_ice(prepared,raw):
 
 
 def recuperer_lignes_bilingues(prepared,raw):
-    """Tableau a colonnes distinctes : lecture des cellules, aucune reconstruction."""
+    """Tableau a colonnes distinctes (ou ref+designation / Q+PU bilingues) : lecture des cellules."""
     if prepared.get('lignes'):return []
     bs=_blocks(raw)
     aliases={
         'reference':{'ref','reference','المرجع'},
         'designation':{'designation','description','libelle','البيان','الوصف'},
-        'quantite':{'qte','quantite','الكمية'},
-        'prix_unitaire_ht':{'puht','prixunitaireht','prixunitht','prixht','ثمنالوحدةدونالضريبة'},
-        'prix_unitaire_ttc':{'puttc','prixunitairettc','prixttc','ثمنالوحدةشاملالضريبة'},
-        'prix_unitaire':{'pu','prix','prixunitaire','ثمنالوحدة'},
-        'montant_ht':{'montantht','totalht','المبلغدونالضريبة'},
-        'montant_ttc':{'montantttc','totalttc','المبلغشاملالضريبة'},
+        'quantite':{'qt','qte','quantite','الكمية','الكمبة'},
+        'prix_unitaire_ht':{'puht','prixunitaireht','prixunitht','prixht','ثمنالوحدةدونالضريبة','ثمنالوحدةدونالضرببة','نمنالوحدةدونالضريبة'},
+        'prix_unitaire_ttc':{'puttc','prixunitairettc','prixttc','ثمنالوحدةشاملالضريبة','ثمنالوحدةشاملالضرببة'},
+        'prix_unitaire':{'pu','prix','prixunitaire','ثمنالوحدة','نمنالوحدة','تمنالوحدة','سعرالوحدة'},
+        'montant_ht':{'montantht','totalht','المبلغدونالضريبة','المبلغدونالضرببة','المبلغدونالضرببةا'},
+        'montant_ttc':{'montantttc','totalttc','المبلغشاملالضريبة','المبلغشاملالضرببة'},
         'montant':{'montant','total','المبلغ'},
     }
     aliases={k:{norm(v) for v in values} for k,values in aliases.items()}
+    sous_chaines_arabes={
+        'quantite':{'الكمية','الكمبة'},
+        'prix_unitaire_ht':{'ثمنالوحدةدونالضريبة','ثمنالوحدةدونالضرببة'},
+        'prix_unitaire_ttc':{'ثمنالوحدةشاملالضريبة','ثمنالوحدةشاملالضرببة'},
+        'prix_unitaire':{'ثمنالوحدة','نمنالوحدة','تمنالوحدة','سعرالوحدة'},
+        'montant_ht':{'المبلغدونالضريبة','المبلغدونالضرببة'},
+        'montant_ttc':{'المبلغشاملالضريبة','المبلغشاملالضرببة'},
+    }
     def roles(block):
-        parts={norm(part) for part in block['texte'].split('/')}
+        # Decoupe sur '/' puis par changement d'ecriture (Latin vs Arabe) pour gerer les en-tetes colles.
+        segments=[]
+        for part in block['texte'].split('/'):
+            segments.append(part)
+            segments.extend(re.findall(r'[A-Za-zÀ-ÿ0-9.]+(?:\s+[A-Za-zÀ-ÿ0-9.]+)*|[\u0600-\u06ff]+(?:\s+[\u0600-\u06ff]+)*',part))
+        parts={norm(s) for s in segments if s.strip()}
         found={k for k,values in aliases.items() if parts & values}
+        # Reconnait aussi deux libelles arabes concatenes dans le meme segment (ex: 'نمن الوحدة الكمبة').
+        texte_norm=norm(block['texte'])
+        for k,mots in sous_chaines_arabes.items():
+            if any(m in texte_norm for m in mots):found.add(k)
         for neutral,explicit in [('prix_unitaire',{'prix_unitaire_ht','prix_unitaire_ttc'}),
                                  ('montant',{'montant_ht','montant_ttc'})]:
             if found & explicit:found.discard(neutral)
         return found
     cy=lambda b:(b['bbox'][1]+b['bbox'][3])/2
     cx=lambda b:(b['bbox'][0]+b['bbox'][2])/2
-    titles=[b for b in bs if roles(b)=={'designation'}]
-    if len(titles)!=1:return ['Tableau OCR local non extrait : titre de designation absent, fusionne ou ambigu.']
-    title=titles[0];height=max(1,title['bbox'][3]-title['bbox'][1])
+    titles_purs=[b for b in bs if roles(b)=={'designation'}]
+    titles_ref_desc=[b for b in bs if roles(b)=={'reference','designation'}]
+    if len(titles_purs)==1:
+        title=titles_purs[0];ref_desc_fusion=False
+    elif not titles_purs and len(titles_ref_desc)==1:
+        title=titles_ref_desc[0];ref_desc_fusion=True
+    else:
+        return ['Tableau OCR local non extrait : titre de designation absent, fusionne ou ambigu.']
+    height=max(1,title['bbox'][3]-title['bbox'][1])
     band=[b for b in bs if abs(cy(b)-cy(title))<=height]
     columns={};ambiguous=False
+    if ref_desc_fusion:
+        # En-tete fusionne Ref/Designation : ancre virtuelle distincte sans perdre la zone designation.
+        t_txt=title['texte']
+        ref_pos=min([i for i in (t_txt.lower().find('ref'),t_txt.lower().find('réf'),t_txt.find('المرجع')) if i>=0],default=0)
+        des_pos=min([i for i in (t_txt.lower().find('des'),t_txt.lower().find('dés'),t_txt.find('البيان')) if i>=0],default=len(t_txt))
+        x0,y0,x1,y1=title['bbox']
+        if ref_pos<des_pos:
+            columns['reference']={'id':-1,'bbox':[x0,y0,x0+(x1-x0)*0.30,y1],'texte':'Ref'}
+            columns['designation']={'id':title['id'],'bbox':[x0+(x1-x0)*0.30,y0,x1,y1],'texte':title['texte']}
+        else:
+            columns['designation']={'id':title['id'],'bbox':[x0,y0,x0+(x1-x0)*0.70,y1],'texte':title['texte']}
+            columns['reference']={'id':-1,'bbox':[x0+(x1-x0)*0.70,y0,x1,y1],'texte':'Ref'}
     for block in band:
+        if ref_desc_fusion and block['id']==title['id']:continue
         found=roles(block)
+        # Cas bilingue frequent : Qte + PU dans un bloc ('Qt/نمن الوحدة الكمبة') avec Montant separe.
+        if len(found)==2 and 'quantite' in found and any(k.startswith('prix_unitaire') for k in found):
+            price_key=next(k for k in found if k.startswith('prix_unitaire'))
+            if re.match(r'^Q(?:t[eé]?|uantit[eé]?)?\s*/',block['texte'].strip(),re.I):
+                if 'quantite' in columns or price_key in columns:ambiguous=True;continue
+                x0,y0,x1,y1=block['bbox'];w=x1-x0
+                columns['quantite']={'id':block['id'],'bbox':[x0,y0,x0+w*0.25,y1],'texte':block['texte']}
+                columns[price_key]={'id':-2,'bbox':[x0+w*0.40,y0,x1,y1],'texte':block['texte']}
+                continue
         if len(found)>1:ambiguous=True;continue
         if len(found)==1:
             key=next(iter(found))
@@ -380,8 +439,8 @@ def recuperer_lignes_bilingues(prepared,raw):
         return distances[0][1]
     def end(block):
         parts=[norm(part) for part in block['texte'].split('/')]
-        return any(p.startswith(('totalht','totalttc','soustotal','montanttva','reglement',
-                                 'المجموع','معلوماتالأداء')) for p in parts)
+        return any(p.startswith(('totalht','totalttc','soustotal','montanttva','reglement','rglement',
+                                 'المجموع','معلوماتالأداء','دونالضريبة','دونالضرببة','شاملالضريبة')) for p in parts)
     bottom=min((b['bbox'][1] for b in bs if cy(b)>cy(title)+height and end(b)),
                default=max(b['bbox'][3] for b in bs)+height)
     body=[b for b in bs if cy(title)+height<cy(b)<bottom]
@@ -557,17 +616,21 @@ def direct(raw,page):
                         if m and m[2]:item['unite']=m[2]
                 seed['lignes'].append(item)
     prepared,_=prepare(seed,raw)
-    # Explicit supplier label, or a single legal-name proposal, is needed.
-    for key,names in [('fournisseur',['fournisseur','vendeur','emetteur'])]:
+    # Explicit supplier label (FR/AR/bilingue), or a single legal-name proposal, is needed.
+    supplier_names={'fournisseur','vendeur','emetteur','emetteu','المورد','المصدر'}
+    for key,names in [('fournisseur',supplier_names)]:
         hits=[]
         for label in bs:
-            m=re.fullmatch(r'\s*(Fournisseur|Vendeur|Emetteur)\s*:\s*(.+)',label['texte'],re.I)
+            m=re.fullmatch(r'\s*(Fournisseur|Vendeur|Emetteur|Émetteur|المورد|المصدر)\s*[:：]\s*(.+)',label['texte'],re.I)
             if m:hits.append((m[2],[label]));continue
-            if norm(label['texte']) not in names:continue
-            below=[b for b in bs if 0<cy(b)-cy(label)<2.5*h and abs(b['bbox'][0]-label['bbox'][0])<h]
+            label_parts={norm(re.split(r'[:：]',part,1)[0]) for part in label['texte'].split('/')}
+            if not (label_parts & names):continue
+            below=[b for b in bs if 0<cy(b)-cy(label)<2.5*h
+                   and min(abs(b['bbox'][0]-label['bbox'][0]),abs(b['bbox'][2]-label['bbox'][2]))<2*h]
             if below:
                 b=min(below,key=cy)
-                if not re.search(r'ICE|@|adresse',b['texte'],re.I):hits.append((b['texte'],[label,b]))
+                if not re.search(r'ICE|@|adresse|rue|avenue|شارع|^\s*\+?\d[\d .()-]{7,}$',b['texte'],re.I):
+                    hits.append((b['texte'],[label,b]))
         if len(hits)==1:
             prepared[key]=hits[0][0]
             prepared['preuves'].append(dict(champ=key,texte_visible=' '.join(b['texte'] for b in hits[0][1]),blocs_ocr=[b['id'] for b in hits[0][1]]))

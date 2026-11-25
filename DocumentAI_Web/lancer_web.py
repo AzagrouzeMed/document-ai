@@ -11,7 +11,9 @@ if __name__=='__main__':
     parser.add_argument('--port',type=int,default=8000)
     parser.add_argument('--sans-navigateur',action='store_true')
     args=parser.parse_args()
+    sys.path.insert(0,str(Path(__file__).resolve().parent))
+    from moteur.extraction_gemini import _charger_env
+    _charger_env()
     if not args.sans_navigateur:
         threading.Timer(2,lambda:webbrowser.open(f'http://127.0.0.1:{args.port}')).start()
-    sys.path.insert(0,str(Path(__file__).resolve().parent))
     uvicorn.run('app:app',host='127.0.0.1',port=args.port)

@@ -2356,7 +2356,7 @@
         "date": "2026-10-27",
         "date_echeance": "2026-11-26",
         "devise": "MAD",
-        "adresse_fournisseur": "18 avenue des Jardins",
+        "adresse_fournisseur": "18 avenue des Jardins, 40000 Marrakech, Maroc",
         "adresse_client": "12 rue des Orangers, 20000 Casablanca, Maroc",
         "adresse_livraison": "8 avenue des Ateliers, 40000 Marrakech, Maroc",
         "total_ht": 1580.0,

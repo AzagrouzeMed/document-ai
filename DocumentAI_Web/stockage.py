@@ -1,5 +1,6 @@
 import sqlite3
 import re
+import unicodedata
 from pathlib import Path
 import json
 from decimal import Decimal, InvalidOperation
@@ -486,6 +487,240 @@ def lire_validations(facture_id, chemin_base=None, *, lecture_seule=False):
     with closing(ouvrir_connexion(chemin_base, lecture_seule=lecture_seule)) as connexion:
         return [dict(r) for r in connexion.execute(
             'SELECT * FROM validations WHERE facture_id = ? ORDER BY id', (facture_id,))]
+
+
+_ARABE_DIACRITIQUES = re.compile(r'[\u064B-\u065F\u0670\u0640]')
+_ARABE_VARIANTES = str.maketrans({'أ': 'ا', 'إ': 'ا', 'آ': 'ا', 'ى': 'ي', 'ة': 'ه', 'ؤ': 'و', 'ئ': 'ي'})
+
+
+def normaliser_texte_recherche(texte):
+    """Normalise un texte FR/AR pour le filtrage structure et lexical."""
+    if not texte:
+        return ''
+    valeur = unicodedata.normalize('NFKD', str(texte))
+    valeur = ''.join(c for c in valeur if not unicodedata.combining(c))
+    valeur = _ARABE_DIACRITIQUES.sub('', valeur).translate(_ARABE_VARIANTES)
+    valeur = valeur.casefold()
+    return re.sub(r'\s+', ' ', valeur).strip()
+
+
+def lister_factures_avec_lignes(chemin_base=None, *, lecture_seule=True, inclure_pages=True):
+    """Retourne les factures enregistrees avec leurs articles et pages OCR."""
+    chemin = Path(chemin_base) if chemin_base is not None else CHEMIN_BASE
+    if lecture_seule and not chemin.exists():
+        return []
+    with closing(ouvrir_connexion(chemin, lecture_seule=lecture_seule)) as connexion:
+        connexion.execute('BEGIN')
+        factures = [dict(r) for r in connexion.execute('SELECT * FROM factures ORDER BY id')]
+        lignes_par_facture = {}
+        for r in connexion.execute('SELECT * FROM lignes_facture ORDER BY facture_id, numero_ligne'):
+            ligne = dict(r)
+            lignes_par_facture.setdefault(ligne['facture_id'], []).append(ligne)
+        pages_par_facture = {}
+        if inclure_pages:
+            existe = connexion.execute(
+                "SELECT 1 FROM sqlite_master WHERE type='table' AND name='pages_document'"
+            ).fetchone()
+            if existe:
+                for r in connexion.execute(
+                    'SELECT id, facture_id, numero_page, langue, texte_ocr, source '
+                    'FROM pages_document ORDER BY facture_id, numero_page, langue'
+                ):
+                    page = dict(r)
+                    pages_par_facture.setdefault(page['facture_id'], []).append(page)
+        for facture in factures:
+            fid = facture['id']
+            facture['lignes'] = lignes_par_facture.get(fid, [])
+            if inclure_pages:
+                facture['pages'] = pages_par_facture.get(fid, [])
+        return factures
+
+
+def _decimal_ou_none(valeur):
+    if valeur is None or isinstance(valeur, bool):
+        return None
+    if isinstance(valeur, str) and not valeur.strip():
+        return None
+    try:
+        nombre = Decimal(str(valeur).strip())
+    except (InvalidOperation, ValueError):
+        return None
+    return nombre if nombre.is_finite() else None
+
+
+def calculer_agregats_factures(factures, lignes=None):
+    """Calcule des totaux exacts en Decimal regroupes par devise."""
+    groupes = {}
+    for facture in factures:
+        devise = (facture.get('devise') or 'NON_PRECISEE').strip().upper() or 'NON_PRECISEE'
+        g = groupes.setdefault(devise, {
+            'nombre_factures': 0,
+            'total_ht': Decimal('0'), 'has_ht': False,
+            'montant_tva': Decimal('0'), 'has_tva': False,
+            'total_ttc': Decimal('0'), 'has_ttc': False,
+            'total_document': Decimal('0'), 'has_doc': False,
+            'ttc_valeurs': [],
+        })
+        g['nombre_factures'] += 1
+        for champ, flag in (('total_ht', 'has_ht'), ('montant_tva', 'has_tva'),
+                            ('total_ttc', 'has_ttc'), ('total_document', 'has_doc')):
+            val = _decimal_ou_none(facture.get(champ))
+            if val is not None:
+                g[champ] += val
+                g[flag] = True
+                if champ == 'total_ttc':
+                    g['ttc_valeurs'].append(val)
+
+    par_devise = {}
+    for devise, g in groupes.items():
+        ttcs = g['ttc_valeurs']
+        moyenne = (sum(ttcs) / Decimal(len(ttcs))).quantize(Decimal('0.01')) if ttcs else None
+        par_devise[devise] = {
+            'nombre_factures': g['nombre_factures'],
+            'total_ht': format(g['total_ht'], 'f') if g['has_ht'] else None,
+            'montant_tva': format(g['montant_tva'], 'f') if g['has_tva'] else None,
+            'total_ttc': format(g['total_ttc'], 'f') if g['has_ttc'] else None,
+            'total_document': format(g['total_document'], 'f') if g['has_doc'] else None,
+            'moyenne_ttc': format(moyenne, 'f') if moyenne is not None else None,
+            'min_ttc': format(min(ttcs), 'f') if ttcs else None,
+            'max_ttc': format(max(ttcs), 'f') if ttcs else None,
+        }
+
+    resume = {
+        'nombre_factures': len(factures),
+        'par_devise': par_devise,
+    }
+    if lignes is not None:
+        q_sum, has_q = Decimal('0'), False
+        ht_sum, has_lht = Decimal('0'), False
+        ttc_sum, has_lttc = Decimal('0'), False
+        gen_sum, has_lgen = Decimal('0'), False
+        for ligne in lignes:
+            for champ, acc in (('quantite', 'q'), ('montant_ht', 'ht'),
+                               ('montant_ttc', 'ttc'), ('montant', 'gen')):
+                val = _decimal_ou_none(ligne.get(champ))
+                if val is not None:
+                    if acc == 'q':
+                        q_sum += val; has_q = True
+                    elif acc == 'ht':
+                        ht_sum += val; has_lht = True
+                    elif acc == 'ttc':
+                        ttc_sum += val; has_lttc = True
+                    else:
+                        gen_sum += val; has_lgen = True
+        resume['lignes'] = {
+            'nombre_lignes': len(lignes),
+            'somme_quantites': format(q_sum, 'f') if has_q else None,
+            'somme_montants_ht': format(ht_sum, 'f') if has_lht else None,
+            'somme_montants_ttc': format(ttc_sum, 'f') if has_lttc else None,
+            'somme_montants': format(gen_sum, 'f') if has_lgen else None,
+        }
+    return resume
+
+
+def rechercher_factures_structurees(
+    chemin_base=None,
+    *,
+    fournisseur=None,
+    client=None,
+    ice=None,
+    numero_document=None,
+    date_debut=None,
+    date_fin=None,
+    devise=None,
+    statut=None,
+    article=None,
+    facture_id=None,
+):
+    """Filtre les factures et lignes dans SQLite (lecture seule) avec calculs Decimal."""
+    toutes = lister_factures_avec_lignes(chemin_base, lecture_seule=True, inclure_pages=False)
+    n_fourn = normaliser_texte_recherche(fournisseur)
+    n_client = normaliser_texte_recherche(client)
+    n_num = normaliser_texte_recherche(numero_document)
+    n_art = normaliser_texte_recherche(article)
+    ice_clean = re.sub(r'\s+', '', str(ice)) if ice else ''
+    devise_clean = devise.strip().upper() if devise else ''
+    statut_clean = statut.strip().lower() if statut else ''
+
+    factures_trouvees = []
+    lignes_trouvees = []
+    for f in toutes:
+        if facture_id is not None and f.get('id') != facture_id:
+            continue
+        if n_fourn and n_fourn not in normaliser_texte_recherche(f.get('fournisseur')):
+            continue
+        if n_client and n_client not in normaliser_texte_recherche(f.get('client')):
+            continue
+        if ice_clean:
+            ices = (
+                re.sub(r'\s+', '', f.get('ice_fournisseur') or ''),
+                re.sub(r'\s+', '', f.get('ice_client') or ''),
+            )
+            if not any(ice_clean in val for val in ices if val):
+                continue
+        if n_num and n_num not in normaliser_texte_recherche(f.get('numero_document')):
+            continue
+        date_f = f.get('date_facture') or ''
+        if date_debut and (not date_f or date_f < date_debut):
+            continue
+        if date_fin and (not date_f or date_f > date_fin):
+            continue
+        if devise_clean and (f.get('devise') or '').strip().upper() != devise_clean:
+            continue
+        if statut_clean and (f.get('statut') or '').strip().lower() != statut_clean:
+            continue
+
+        lignes_f = f.get('lignes', [])
+        if n_art:
+            lignes_match = [
+                l for l in lignes_f
+                if n_art in normaliser_texte_recherche(l.get('designation'))
+            ]
+            if not lignes_match:
+                continue
+        else:
+            lignes_match = list(lignes_f)
+
+        factures_trouvees.append(f)
+        for l in lignes_match:
+            lignes_trouvees.append({
+                **l,
+                'numero_document': f.get('numero_document'),
+                'fournisseur': f.get('fournisseur'),
+                'client': f.get('client'),
+                'date_facture': f.get('date_facture'),
+                'devise': f.get('devise'),
+            })
+
+    return {
+        'factures': factures_trouvees,
+        'lignes': lignes_trouvees,
+        'calculs': calculer_agregats_factures(factures_trouvees, lignes_trouvees),
+    }
+
+
+def executer_sql_lecture_seule(requete, parametres=(), chemin_base=None, *, limite=100):
+    """Execute uniquement une requete SELECT SQLite en mode lecture seule."""
+    if not isinstance(requete, str) or not requete.strip():
+        raise ValueError('Requete SQL vide.')
+    sql = requete.strip().rstrip(';').strip()
+    if ';' in sql:
+        raise ValueError('Une seule requete SELECT est autorisee.')
+    sql_min = re.sub(r'--[^\n]*|/\*.*?\*/', ' ', sql, flags=re.S).strip().lower()
+    if not (sql_min.startswith('select ') or sql_min.startswith('with ')):
+        raise ValueError('Seules les requetes SELECT sont autorisees.')
+    mots_interdits = re.compile(
+        r'\b(insert|update|delete|drop|alter|create|replace|pragma|attach|detach|vacuum|reindex|json_brut|chemin_original)\b'
+    )
+    if mots_interdits.search(sql_min):
+        raise ValueError('Mot-cle ou colonne interdite dans la requete SQL.')
+    chemin = Path(chemin_base) if chemin_base is not None else CHEMIN_BASE
+    if not chemin.exists():
+        return []
+    with closing(ouvrir_connexion(chemin, lecture_seule=True)) as connexion:
+        connexion.execute('BEGIN')
+        curseur = connexion.execute(sql, tuple(parametres))
+        return [dict(r) for r in curseur.fetchmany(limite)]
 
 
 if __name__ == '__main__':

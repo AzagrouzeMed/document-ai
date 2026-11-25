@@ -9,3 +9,7 @@ python-bidi>=0.6,<1
 pydantic>=2.10,<3
 Pillow>=10,<13
 PyMuPDF>=1.24,<2
+python-dotenv>=1,<2
+faiss-cpu>=1.8,<2
+chromadb>=1,<2
+sentence-transformers>=3,<7

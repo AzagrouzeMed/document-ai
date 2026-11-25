@@ -46,7 +46,67 @@ for(const event of ['dragleave','drop'])$('dropzone').addEventListener(event,e=>
 $('upload-form').addEventListener('submit',async e=>{e.preventDefault();if(!selectedFile)return;const error=$('upload-error');error.classList.add('hidden');if(selectedFile.size>25*1024*1024){error.textContent='Le fichier dépasse 25 Mo.';error.classList.remove('hidden');return;}$('submit').disabled=true;$('submit').textContent='Importation…';try{const data=new FormData();data.append('file',selectedFile);data.append('lang',$('lang').value);data.append('sans_llm',String($('sans-llm').checked));const job=await api('/api/traitements',{method:'POST',headers:{'X-DocumentAI-Token':token},body:data});await openJob(job.id);}catch(e){error.textContent=e.message;error.classList.remove('hidden');}finally{$('submit').disabled=!selectedFile;$('submit').textContent='Analyser le document →';}});
 $('new-document').onclick=reset;$('back-after-error').onclick=reset;$('refresh-history').onclick=refreshHistory;for(const b of document.querySelectorAll('[data-tab]'))b.onclick=()=>setTab(b.dataset.tab);
 $('copy-json').onclick=async()=>{try{await navigator.clipboard.writeText(JSON.stringify(currentDocument,null,2));$('copy-json').textContent='Copié';setTimeout(()=>$('copy-json').textContent='Copier le JSON',1800);}catch{$('copy-json').textContent='Sélectionnez le texte pour le copier';}};
-(async()=>{try{const cfg=await api('/api/config');token=cfg.token;await refreshHistory();const id=localStorage.getItem('documentai_active');if(id&&/^[a-f0-9]{32}$/.test(id))await openJob(id);}catch(e){$('upload-error').textContent=e.message;$('upload-error').classList.remove('hidden');}})();
+async function refreshRagStatus(){
+ try{
+  const s=await api('/api/rag/statut');
+  const el=$('rag-index-status');
+  if(!el)return;
+  el.textContent=`Base SQLite : ${s.nombre_factures_base} facture(s) · Index FAISS (${s.modele}) : ${s.nombre_vecteurs} vecteur(s) (${s.nombre_factures_indexees} facture(s) indexée(s)).`;
+ }catch{}
+}
+if($('rag-reindex'))$('rag-reindex').onclick=async()=>{
+ const btn=$('rag-reindex'),el=$('rag-index-status');btn.disabled=true;
+ if(el)el.textContent='Indexation vectorielle en cours (BAAI/bge-m3 + FAISS)…';
+ try{
+  const res=await api('/api/rag/indexer',{method:'POST',headers:{'Content-Type':'application/json','X-DocumentAI-Token':token},body:JSON.stringify({forcer:false})});
+  if(el)el.textContent=`Index ${res.etat} : ${res.nombre_vecteurs} vecteur(s) pour ${res.nombre_factures} facture(s).`;
+ }catch(error){if(el)el.textContent=error.message;}
+ finally{btn.disabled=false;}
+};
+for(const btn of document.querySelectorAll('.rag-example'))btn.onclick=()=>{$('global-rag-query').value=btn.dataset.q;$('global-rag-form').requestSubmit();};
+if($('global-rag-form'))$('global-rag-form').onsubmit=async e=>{
+ e.preventDefault();
+ const q=$('global-rag-query').value.trim();if(!q)return;
+ const submit=$('global-rag-submit'),box=$('global-rag-results'),status=$('global-rag-status'),ans=$('global-rag-answer'),calc=$('global-rag-calculs'),srcs=$('global-rag-sources');
+ box.classList.remove('hidden');submit.disabled=true;ans.textContent='';calc.replaceChildren();srcs.replaceChildren();
+ status.textContent='Recherche hybride (SQLite + FAISS BAAI/bge-m3)…';
+ try{
+  const res=await api('/api/rag/question',{method:'POST',headers:{'Content-Type':'application/json','X-DocumentAI-Token':token},body:JSON.stringify({question:q})});
+  status.textContent=res.message||'';
+  ans.textContent=res.reponse||'';
+  const parDevise=res.calculs&&res.calculs.par_devise?Object.entries(res.calculs.par_devise):[];
+  if(parDevise.length){
+   const titre=node('h3',`Calculs exacts SQLite (${res.calculs.nombre_factures} facture(s))`);calc.append(titre);
+   const grid=node('div',undefined,'rag-calc-grid');
+   for(const [devise,agg] of parDevise){
+    const card=node('div',undefined,'rag-calc-card');
+    card.append(node('strong',`${devise} (${agg.nombre_factures} facture(s))`));
+    const lignes=[['Total HT',agg.total_ht],['TVA',agg.montant_tva],['Total TTC',agg.total_ttc],['Moyenne TTC',agg.moyenne_ttc]].filter(([,v])=>v!=null);
+    for(const [k,v] of lignes)card.append(node('span',`${k} : ${v} ${devise}`));
+    grid.append(card);
+   }
+   calc.append(grid);
+  }
+  for(const s of res.sources||[]){
+   const li=node('li',undefined,s.citee?'rag-source-cited':'');
+   const head=node('div',undefined,'rag-source-head');
+   const badge=node('strong',`${s.id} · ${s.citee?'Cité':'Extrait'} · ${s.numero_document||'Facture #'+s.facture_id}`);
+   head.append(badge);
+   const meta=[s.fournisseur,s.date_facture,s.type_source,s.page?`Page ${s.page}`:null,s.score!=null?`Score ${s.score}`:null].filter(Boolean).join(' · ');
+   head.append(node('span',meta,'muted'));
+   const openBtn=node('button','Ouvrir la facture','secondary');openBtn.type='button';
+   openBtn.onclick=()=>{openInvoice(s.facture_id);$('invoice-detail').scrollIntoView({behavior:'smooth'});};
+   head.append(openBtn);
+   li.append(head);
+   const ext=node('p',s.extrait,'ocr-passage');ext.dir='auto';li.append(ext);
+   srcs.append(li);
+  }
+  if(!(res.sources||[]).length)srcs.append(node('li','Aucune source textuelle correspondante.','muted'));
+  refreshRagStatus();
+ }catch(error){status.textContent=error.message;}
+ finally{submit.disabled=false;}
+};
+(async()=>{try{const cfg=await api('/api/config');token=cfg.token;await refreshHistory();await refreshRagStatus();const id=localStorage.getItem('documentai_active');if(id&&/^[a-f0-9]{32}$/.test(id))await openJob(id);}catch(e){$('upload-error').textContent=e.message;$('upload-error').classList.remove('hidden');}})();
 
 // Consultation SQLite : independante du traitement et sans lancement d'extraction.
 let invoiceListVersion=0,invoiceDetailVersion=0,editedInvoice=null,invoiceSaving=false,invoiceQuestionVersion=0,invoiceSearchVersion=0,invoiceRagVersion=0;

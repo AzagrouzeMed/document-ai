@@ -49,6 +49,30 @@
    <div id="tab-json" class="tab-panel hidden panel"><div class="panel-title"><h2>Données structurées</h2><button id="copy-json" class="text-button">Copier le JSON</button></div><pre id="json-output" dir="ltr"></pre></div>
    <div class="result-footer"><a id="download-proofs" download>↓ Consulter les preuves OCR</a><a id="download-text" download>↓ Texte OCR</a><span>Les informations absentes ne sont pas inventées.</span></div>
   </section>
+  <section id="hybrid-rag" class="panel saved-invoices" aria-labelledby="hybrid-rag-title">
+   <div class="panel-title">
+    <h2 id="hybrid-rag-title">Recherche &amp; Assistant RAG hybride (FR / AR)</h2>
+    <button id="rag-reindex" class="secondary" type="button">Actualiser l’index vectoriel</button>
+   </div>
+   <p class="muted">Interrogez toutes les factures extraites en français ou en arabe : requêtes exactes et calculs SQLite (Decimal) + recherche sémantique FAISS (BAAI/bge-m3) avec citation des sources.</p>
+   <p id="rag-index-status" class="muted" role="status" aria-live="polite"></p>
+   <form id="global-rag-form" class="rag-global-form">
+    <input id="global-rag-query" type="search" dir="auto" maxlength="500" placeholder="Ex. Quel est le total TTC par fournisseur ? / ما هو المبلغ الإجمالي للفواتير؟" required>
+    <button id="global-rag-submit" class="primary" type="submit">Rechercher · اسأل</button>
+   </form>
+   <div class="rag-examples">
+    <button type="button" class="secondary rag-example" data-q="Quel est le total HT, TVA et TTC de toutes les factures enregistrées ?">Total HT / TVA / TTC global</button>
+    <button type="button" class="secondary rag-example" data-q="Quelles factures concernent SAFA Fournitures ou ATLAS ?">Factures par fournisseur</button>
+    <button type="button" class="secondary rag-example" data-q="ما هي الفواتير المسجلة وما هو المبلغ الإجمالي؟" dir="rtl">سؤال بالعربية</button>
+   </div>
+   <div id="global-rag-results" class="hidden" aria-live="polite">
+    <p id="global-rag-status" role="status"></p>
+    <div id="global-rag-answer" class="rag-answer" dir="auto"></div>
+    <div id="global-rag-calculs" class="rag-calculs"></div>
+    <h3>Sources documentaires citées</h3>
+    <ul id="global-rag-sources" class="rag-sources-list" aria-label="Documents sources cités"></ul>
+   </div>
+  </section>
   <section id="saved-invoices" class="panel saved-invoices" aria-labelledby="saved-invoices-title">
    <div class="panel-title"><h2 id="saved-invoices-title">Factures enregistrées</h2><button id="refresh-invoices" class="secondary" type="button">Actualiser</button></div>
    <p class="muted">Données enregistrées, à vérifier avec le document original.</p>

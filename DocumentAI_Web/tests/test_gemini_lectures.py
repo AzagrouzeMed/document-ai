@@ -50,6 +50,8 @@ class LecturesTests(unittest.TestCase):
         self.assertEqual([s['langue'] for s in sections],['fr','ar'])
         self.assertEqual([s['blocs'][0]['texte'] for s in sections],['Texte francais','?? ????'])
         self.assertEqual(payload['generationConfig']['responseJsonSchema'],gemini.output_schema())
+        self.assertEqual(payload['generationConfig']['maxOutputTokens'],32768)
+        self.assertEqual(payload['generationConfig']['thinkingConfig'],{'thinkingBudget':0})
         archive=json.loads((self.base/'requete_sans_image.json').read_text(encoding='utf-8'))
         self.assertEqual(archive['lectures_ocr'],sections)
         self.assertEqual(archive['blocs'],sections[0]['blocs'])
@@ -109,6 +111,20 @@ class LecturesTests(unittest.TestCase):
              patch('moteur.extraction_ocr_prioritaire.direct',return_value=({}, {}, [])) as direct:
             pipeline.process_pages({0:pages[0]},self.base,False,Path('fictif.pdf'))
         direct.assert_called_once_with(expected,1)
+
+    def test_checked_output_conserve_lignes_partielles_et_ignore_ligne_vide(self):
+        payload={
+            'lignes':[
+                {'designation':'Article sans qte','quantite':None,'montant_ht':120.0},
+                {'designation':None,'quantite':None,'montant_ht':None},
+                {'designation':'صيانة','quantite':2,'prix_unitaire_ht':50.0,'montant_ht':100.0},
+            ]
+        }
+        data,_,alerts=gemini.checked_output(payload,raw('صيانة'),1)
+        self.assertEqual(len(data['lignes']),2)
+        self.assertEqual(data['lignes'][0]['designation'],'Article sans qte')
+        self.assertEqual(data['lignes'][1]['designation'],'صيانة')
+        self.assertTrue(any('entierement vide' in a for a in alerts))
 
 
 if __name__=='__main__':unittest.main()
