@@ -252,3 +252,29 @@ $('invoice-rag-form').onsubmit=async event=>{
  }catch(error){if(detail===invoiceDetailVersion&&version===invoiceRagVersion)status.textContent=error.message;}
  finally{if(detail===invoiceDetailVersion&&version===invoiceRagVersion)status.setAttribute('aria-busy','false');}
 };
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = ["hybrid-rag", "upload-view", "saved-invoices"];
+  const pills = Array.from(document.querySelectorAll(".nav-pill"));
+  const breadcrumb = document.getElementById("breadcrumb");
+
+  function afficherSection(targetId) {
+    if (!sections.includes(targetId)) return;
+    sections.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) el.classList.toggle("hidden", id !== targetId);
+    });
+    const progress = document.getElementById("progress-view");
+    const result = document.getElementById("result-view");
+    if (targetId === "hybrid-rag" || targetId === "saved-invoices") {
+      if (progress) progress.classList.add("hidden");
+      if (result) result.classList.add("hidden");
+    }
+    pills.forEach((btn) => btn.classList.toggle("active", btn.dataset.section === targetId));
+    const activePill = pills.find((btn) => btn.dataset.section === targetId);
+    if (breadcrumb && activePill) breadcrumb.textContent = activePill.textContent.trim();
+  }
+
+  pills.forEach((btn) => btn.addEventListener("click", () => afficherSection(btn.dataset.section)));
+  const newDocBtn = document.getElementById("new-document");
+  if (newDocBtn) newDocBtn.addEventListener("click", () => afficherSection("upload-view"));
+});
